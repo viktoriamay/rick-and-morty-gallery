@@ -1,0 +1,63 @@
+@import "../../assets/SCSS/variables.scss";
+
+.base_button {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  padding: 20px 36px;
+  @include montserrat-font(20px, 800, -0.01em);
+  color: $buttons-color-blue;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    width: 15%;
+    height: 100%;
+    border: 3px solid $buttons-color-green;
+    border-right: none;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: all 0.3s ease;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    width: 15%;
+    height: 100%;
+    border: 3px solid $buttons-color-green;
+    border-left: none;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    box-shadow: 0 0 20px 5px $cards-color;
+
+    &::before {
+      width: 98.7%;
+      border-top: 3px solid $buttons-color-green;
+      border-bottom: 3px solid transparent;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    &::after {
+      width: 98.7%;
+      border-bottom: 3px solid $buttons-color-green;
+      border-top: 3px solid transparent;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+  }
+}
