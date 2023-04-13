@@ -1,0 +1,28 @@
+$background-color: #101010;
+$cards-color: #2c2d31;
+$buttons-color-green: #8fc748;
+$buttons-color-blue: #12b0c9;
+$text-color: #ffffff;
+
+// calc(28px + 20 * ((100vw - 320px) / (1920 - 320)));
+
+@mixin jura-font($fontSize, $fontWeight, $letterSpacing) {
+  font-family: 'Jura', sans-serif;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin montserrat-font($fontSize, $fontWeight,$letterSpacing) {
+  font-family: 'Montserrat', sans-serif;  
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  letter-spacing: $letterSpacing;
+}
+
+@mixin manrope-font($fontSize, $fontWeight,$letterSpacing) {
+  font-family: 'Manrope', sans-serif;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  letter-spacing: $letterSpacing;
+}
