@@ -1,0 +1,86 @@
+@import "../../assets/SCSS/variables.scss";
+
+.homepage {
+  
+
+
+  &__preview {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  &__subtitle {
+    @include jura-font(30px, 700, -0.03em);
+  }
+
+  &__title {
+    @include jura-font(42px, 700, -0.04em);
+  }
+
+  &__image {
+    position: relative;
+    &::before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(180deg, #bedc41 0%, #42b4ca 100%);
+      transform: translate3d(15px, 5px, 0) scale(0.75);
+      filter: blur(70px);
+      opacity: 0.5;
+      transition: opacity 0.3s;
+      border-radius: 25%;
+    }
+
+    &::after {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: inherit;
+      border-radius: 25%;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 25%;
+    }
+  }
+
+  &__statistics {
+    display: flex;
+    gap: 70px;
+  }
+
+  &__statistics_count {
+    @include jura-font(40px, 700, -0.03em);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__statistics_description {
+    @include montserrat-font(13px, 300, -0.03em);
+  }
+}
+
+@media (max-width: 500px) {
+  .main_page {
+    grid-template-columns: 1fr;
+  }
+}
