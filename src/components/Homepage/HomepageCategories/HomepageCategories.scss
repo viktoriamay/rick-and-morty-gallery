@@ -1,0 +1,84 @@
+@import "../../../assets/SCSS/variables.scss";
+
+.homepage_categories {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 60px 0 90px;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 21%);
+    justify-content: center;
+    gap: 50px;
+  }
+
+  &__card {
+    padding: 8px 8px 30px;
+    background: rgba(255, 255, 255, 0.082);
+    backdrop-filter: blur(20px);
+    border-radius: 7%;
+    border: 2px solid #62626213;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 20px 5px #90c74810;
+      transform: scale(103%);
+    }
+  }
+
+  &__card_img__container {
+    height: 14rem;
+  }
+
+  &__card_img {
+    border-radius: 7%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  &__card_title__wrapper {
+    display: block;
+    padding-top: 30px;
+    text-align: center;
+    
+  }
+  &__card_title {
+    @include montserrat-font(16px, 500, 0.02em);
+    
+    // position: relative;
+    padding: 6px 3vw;
+border-radius: 0 10px 0 10px;
+    background-color: $buttons-color-green;
+    color: $background-color;
+
+    /* &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border: 2px solid $buttons-color-blue;
+      border-right: none;
+      border-bottom: none;
+    } */
+
+    /* &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 98%;
+      height: 40%;
+      border: 2px solid $buttons-color-green;
+      border-left: none;
+      border-top: none;
+    } */
+  }
+}
