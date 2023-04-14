@@ -1,8 +1,6 @@
-@import "../../assets/SCSS/variables.scss";
+@import "../../../assets/SCSS/variables.scss";
 
-.homepage {
-  
-
+.homepage_info {
 
   &__preview {
     display: grid;
@@ -26,7 +24,7 @@
   }
 
   &__image {
-    position: relative;
+    /* position: relative;
     &::before {
       content: "";
       z-index: -1;
@@ -53,7 +51,7 @@
       left: 0;
       background: inherit;
       border-radius: 25%;
-    }
+    } */
 
     img {
       max-width: 100%;
