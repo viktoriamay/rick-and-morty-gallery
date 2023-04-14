@@ -1,0 +1,90 @@
+@import "../../../assets/SCSS/variables.scss";
+
+.homepage_news {
+  &__title {
+    text-align: left;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      width: 10%;
+      height: 10%;
+      border: 3px solid $buttons-color-green;
+      border-top: none;
+      border-left: none;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transition: all 0.4s ease;
+    }
+
+    &::before {
+      content: '';
+      width: 0%;
+      height: 0%;
+      border: 3px solid $buttons-color-blue;
+      border-right: none;
+      border-bottom: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: width 0.4s, height 0.4s ease;
+      opacity: 0;
+    }
+
+    &:hover::after, &:hover::before {
+      width: 99.2%;
+      height: 99.2%;
+      opacity: 0.7;
+
+    }
+  }
+
+  &__card_img_wrapper {
+    height: 15rem;
+    z-index: 10;
+  }
+
+  &__card_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__card_info__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px 20px;
+  }
+
+  &__card_title {
+    @include jura-font(20px, 700, -0.04em);
+  }
+
+  &__card_text {
+    @include montserrat-font(15px, 300, 0em);
+  }
+
+  &__card_button {
+    width: fit-content;
+    @include montserrat-font(15px, 300, 0em);
+    padding: 8px;
+    border: 1px solid $cards-color;
+
+    cursor: pointer;
+  }
+}
