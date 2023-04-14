@@ -1,6 +1,14 @@
 @import "../../assets/SCSS/variables.scss";
 
 .main_page {
-  
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.homepage__title {
+
+  @include jura-font(30px, 700, 0.02em);
+  margin-bottom: 50px;
 }
 
