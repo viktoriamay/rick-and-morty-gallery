@@ -19,9 +19,39 @@
     @include jura-font(22px, 700, 0em);
     color: $text-color;
     text-decoration: none;
+    position: relative;
+
+    &::after {
+        
+      transition: all 0.3s ease;
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background-color: $buttons-color-blue;
+    }
 
     &.active {
       color: $buttons-color-green;
+
+      &::after {
+        
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: $buttons-color-blue;
+      }
+    }
+
+    &:hover {
+      color: $buttons-color-green;
+
+      
     }
   }
 }

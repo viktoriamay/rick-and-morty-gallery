@@ -10,9 +10,9 @@ export const Header = () => {
         <div className="header__content">
           <MainLogo />
           <nav className="header__links">
-            <NavLink to={'/rick-and-morty-gallery/explore'} className='header__link'>Explore</NavLink>
-            <NavLink to={'/rick-and-morty-gallery/statistics'} className='header__link'>Statistics</NavLink>
-            <NavLink to={'/rick-and-morty-gallery/blog'} className='header__link'>Blog</NavLink>
+            <NavLink to={'/rick-and-morty-gallery/explore'} className='header__link'>Исследовать</NavLink>
+            <NavLink to={'/rick-and-morty-gallery/statistics'} className='header__link'>Статистика</NavLink>
+            <NavLink to={'/rick-and-morty-gallery/news'} className='header__link'>Новости</NavLink>
           </nav>
           <div className="header__theme">
             <div>ChangeTheme</div>
