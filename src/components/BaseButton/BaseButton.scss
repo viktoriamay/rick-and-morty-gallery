@@ -4,7 +4,7 @@
   position: relative;
   z-index: 2;
   display: inline-block;
-  padding: 20px 36px;
+  padding: 12px 23px;
   @include montserrat-font(20px, 800, -0.01em);
   color: $buttons-color-blue;
   transition: all 0.2s ease;
@@ -20,7 +20,7 @@
     height: 100%;
     border: 3px solid $buttons-color-green;
     border-right: none;
-    border-radius: 10px;
+    border-radius: 0.3rem;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     transition: all 0.3s ease;
@@ -35,7 +35,7 @@
     height: 100%;
     border: 3px solid $buttons-color-green;
     border-left: none;
-    border-radius: 10px;
+    border-radius: 0.3rem;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     transition: all 0.3s ease;
@@ -48,16 +48,16 @@
       width: 98.7%;
       border-top: 3px solid $buttons-color-green;
       border-bottom: 3px solid transparent;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
+      border-top-right-radius: 0.3rem;
+      border-bottom-right-radius: 0.3rem;
     }
 
     &::after {
       width: 98.7%;
       border-bottom: 3px solid $buttons-color-green;
       border-top: 3px solid transparent;
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
+      border-top-left-radius: 0.3rem;
+      border-bottom-left-radius: 0.3rem;
     }
   }
 }

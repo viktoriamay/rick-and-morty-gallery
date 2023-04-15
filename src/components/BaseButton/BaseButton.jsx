@@ -5,5 +5,5 @@ export const BaseButton = ({children}) => {
     <div className='base_button'>
        {children}
     </div>
-  )
+  ) 
 }
