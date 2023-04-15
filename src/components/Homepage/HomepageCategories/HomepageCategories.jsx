@@ -2,6 +2,7 @@ import "./HomepageCategories.scss";
 import characters from "./img/characters.png";
 import locations from "./img/locations.jpg";
 import episodes from "./img/episodes.png";
+import { Link } from "react-router-dom";
 
 export const HomepageCategories = () => {
   return (
@@ -11,7 +12,7 @@ export const HomepageCategories = () => {
           Категории
         </h2>
         <div className="homepage_categories__cards">
-          <div className="homepage_categories__card">
+          <Link to='/rick-and-morty-gallery/explore/characters' className="homepage_categories__card">
             <div className="homepage_categories__card_img__container">
               <img
                 src={characters}
@@ -22,8 +23,8 @@ export const HomepageCategories = () => {
             <div className="homepage_categories__card_title__wrapper">
               <span className="homepage_categories__card_title">Персонажи</span>
             </div>
-          </div>
-          <div className="homepage_categories__card">
+          </Link>
+          <Link to='/rick-and-morty-gallery/explore/locations' className="homepage_categories__card">
             <div className="homepage_categories__card_img__container">
               <img
                 src={locations}
@@ -34,8 +35,8 @@ export const HomepageCategories = () => {
             <div className="homepage_categories__card_title__wrapper">
               <span className="homepage_categories__card_title">Локации</span>
             </div>
-          </div>
-          <div className="homepage_categories__card">
+          </Link>
+          <Link to='/rick-and-morty-gallery/explore/episodes' className="homepage_categories__card">
             <div className="homepage_categories__card_img__container">
               <img
                 src={episodes}
@@ -46,7 +47,7 @@ export const HomepageCategories = () => {
             <div className="homepage_categories__card_title__wrapper">
               <span className="homepage_categories__card_title">Эпизоды</span>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

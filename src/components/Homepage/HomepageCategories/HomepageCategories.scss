@@ -19,8 +19,9 @@
     padding: 8px 8px 30px;
     background: rgba(255, 255, 255, 0.082);
     backdrop-filter: blur(20px);
-    border-radius: 7%;
+    border-radius: 0.5rem;
     border: 2px solid #62626213;
+    text-decoration: none;
     transition: all 0.3s ease;
     cursor: pointer;
 
@@ -35,50 +36,23 @@
   }
 
   &__card_img {
-    border-radius: 7%;
+    border-radius: 0.5rem;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-
   &__card_title__wrapper {
     display: block;
     padding-top: 30px;
     text-align: center;
-    
   }
+
   &__card_title {
     @include montserrat-font(16px, 500, 0.02em);
-    
-    // position: relative;
     padding: 6px 3vw;
-border-radius: 0 10px 0 10px;
+    border-radius: 0 10px 0 10px;
     background-color: $buttons-color-green;
     color: $background-color;
-
-    /* &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 10px;
-      height: 10px;
-      border: 2px solid $buttons-color-blue;
-      border-right: none;
-      border-bottom: none;
-    } */
-
-    /* &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 98%;
-      height: 40%;
-      border: 2px solid $buttons-color-green;
-      border-left: none;
-      border-top: none;
-    } */
   }
 }
