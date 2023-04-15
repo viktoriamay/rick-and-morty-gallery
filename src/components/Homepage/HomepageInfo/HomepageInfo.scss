@@ -24,6 +24,8 @@
   }
 
   &__image {
+
+    animation: img infinite 2s alternate-reverse;
     /* position: relative;
     &::before {
       content: "";
@@ -81,4 +83,14 @@
   .main_page {
     grid-template-columns: 1fr;
   }
+}
+
+@keyframes img {
+  from {
+    transform: scale(100%) rotate(-2deg);
+  }
+  to {
+    transform: scale(105%) rotate(3deg);
+  }
+  
 }
