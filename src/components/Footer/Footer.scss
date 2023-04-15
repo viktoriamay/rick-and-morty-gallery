@@ -1,0 +1,51 @@
+@import "../../assets/SCSS/variables.scss";
+
+.footer {
+  background-color: $cards-color;
+  padding: 50px 0;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+    a {
+      text-decoration: none;
+      color: $buttons-color-blue;
+      @include montserrat-font(16px, 500, 0em);
+    }
+  }
+
+  &__icons_wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+
+    a {
+      color: $buttons-color-green;
+
+      svg {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+
+      &:first-child {
+        svg {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    @include jura-font(16px, 700, 0em);
+    margin-top: 30px;
+  }
+}
