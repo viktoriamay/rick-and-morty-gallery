@@ -1,6 +1,6 @@
 import { MainLogo } from "../MainLogo/MainLogo";
 import "./Footer.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 // import AiOutlineBorder from '@ant-design/icons';
 // import { Fa500Px } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
@@ -9,8 +9,11 @@ import { MdAlternateEmail } from "react-icons/md";
 
 
 export const Footer = () => {
+
+  const location = useLocation();
+
   return (
-    <footer className="footer">
+    <footer className={location.pathname === '/rick-and-morty-gallery' ? "footer" : 'footer footer__main'}>
       <div className="container">
         <div className="footer__wrapper">
           <div>

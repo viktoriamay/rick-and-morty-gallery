@@ -1,14 +1,14 @@
 @import '../../assets/SCSS/variables.scss';
 
-.header {
 
+.header {
   &__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 25px 0;
   }
-
+  
   &__links {
     display: flex;
     gap: 40px;
@@ -16,7 +16,7 @@
   }
 
   &__link {
-    @include jura-font(22px, 700, 0em);
+    @include jura-font(18px, 700, 0em);
     color: $text-color;
     text-decoration: none;
     position: relative;
@@ -55,3 +55,7 @@
     }
   }
 }
+      .header__exp {
+        background-color: $dark-color;
+      
+      }
