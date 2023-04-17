@@ -19,7 +19,7 @@ function App() {
         <Route path="/rick-and-morty-gallery" element={<MainPage />} />
       </Routes>
 
-      <div className="main container">
+      <div className="main">
         <Routes>
           <Route
             path="/rick-and-morty-gallery/explore"
