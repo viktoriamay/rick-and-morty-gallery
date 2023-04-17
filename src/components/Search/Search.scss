@@ -1,0 +1,86 @@
+@import '../../assets/SCSS/variables.scss';
+
+.search {
+ &__form {
+
+}
+
+&__form_container {
+width: fit-content;
+  // position: relative;
+  // &::before {
+  //   content: '';
+  //   bottom: 0;
+  //   left: 0;
+  //   // padding: 20px;
+  //   border: 3px solid rgb(62, 172, 54);
+  //   border-top: none;
+  //   border-right: none;
+  // width: 20px;
+  // height: 20px;
+  // // background-color: aqua;
+  //   position: absolute;
+  // }
+
+  // &::after {
+  //   content: '';
+  //   top: 0;
+  //   right: 0;
+  //   // padding: 20px;
+  //   border: 3px solid rgb(62, 172, 54);
+  //   border-bottom: none;
+  //   border-left: none;
+  // width: 20px;
+  // height: 20px;
+  // // background-color: aqua;
+  //   position: absolute;
+  // }
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: 3px solid $buttons-color-blue;
+  // border-bottom: 3px solid $text-color;
+}
+
+&__input {
+  padding: 10px 0;
+// width: 20rem;
+
+  background-color: transparent;
+  // border: 1px solid $buttons-color-blue;
+  // border-top: none;
+  // border-right: none;
+  border: none;
+  color: aliceblue;
+  // border-radius: 6px;
+  @include montserrat-font(15px, 500, -0.02em);
+  
+  // position: relative;
+
+  &:focus {
+    outline: none;
+  }
+   &::placeholder {
+    color: $text-color;
+    // @include jura-font(18px, 700, 0em)
+    @include montserrat-font(15px, 500, -0.02em)
+
+   }
+
+  
+ }
+
+ &__button {
+// position: absolute;
+// top: 0.65rem;
+// right: 0.4rem;
+background: transparent;
+border: none;
+ svg {
+  margin-top: 3px;
+  fill: $buttons-color-green;
+  // fill: $text-color;
+ }
+ }
+}
