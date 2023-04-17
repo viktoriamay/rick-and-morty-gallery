@@ -76,8 +76,9 @@ p, h1, h2, h3, h4 {
 .App {
   display: flex;
   flex-direction: column;
-  // height: 100vh;
+  height: 100vh;
   gap: 20px;
+  overflow-x: hidden;
 }
 
 .container {
