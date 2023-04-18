@@ -11,7 +11,6 @@ export const ExplorePage = () => {
   const res = location.pathname.split('/');
   const w = res[res.length - 1];
   const j = w.replace(w[0], w[0].toUpperCase())
-  console.log(j)
 
 
   return (
