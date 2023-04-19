@@ -1,0 +1,55 @@
+@import "../../assets/SCSS/variables.scss";
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.4rem;
+  list-style: none;
+  @include jura-font(20px, 700, 0em);
+  margin-top: 2.5rem;
+
+  &__nav_button {
+    padding: 0.5rem 0.8rem;
+    background-color: $cards-color;
+    cursor: pointer;
+    border-radius: 5px;
+    color: $buttons-color-blue;
+    &:hover {
+      background-color: #2c2d31cc;
+    }
+
+    
+  }
+
+  &__page_button {
+    cursor: pointer;
+
+    background-color: $cards-color;
+    border-radius: 5px;
+    color: $buttons-color-green;
+    &:hover {
+      background-color: #2c2d31cc;
+    }
+
+    &.active {
+      background-color: $buttons-color-green;
+      color: $background-color;
+    }
+  }
+  &__page_link_button {
+    display: inline-block;
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+.break {
+  cursor: pointer;
+}
+
+
+@media (max-width: 500px) {
+  .pagination__nav_button::after {
+
+  }
+}
