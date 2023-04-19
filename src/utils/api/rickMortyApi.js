@@ -8,30 +8,21 @@ class Api {
     this._headers = headers;
   }
 
-  // getCharactersList() {
-  //   return fetch(`${this._baseUrl}/character/`, {
-  //     method: 'GET',
-  //   }).then(onResponse);
-  // }
-
-  getCharacters(pageNumber) {
-    return fetch(`${this._baseUrl}/character/?page=${pageNumber}`, {
-      method: 'GET',
-    }).then(onResponse);
-  }
-
-  searchCharacters(searchQuery) {
-    return fetch(`${this._baseUrl}/character/?&name=${searchQuery}`, {
-      method: 'GET',
-    }).then(onResponse);
+  getCharacters(pageNumber, searchQuery) {
+    return fetch(
+      `${this._baseUrl}/character/?page=${pageNumber}&name=${searchQuery}`,
+      {
+        method: "GET",
+      }
+    ).then(onResponse);
   }
 }
 
 const config = {
-  baseUrl: 'https://rickandmortyapi.com/api',
+  baseUrl: "https://rickandmortyapi.com/api",
   headers: {
-    'content-type': 'application/json'
-  }
+    "content-type": "application/json",
+  },
 };
 
 const RickMortyApi = new Api(config);

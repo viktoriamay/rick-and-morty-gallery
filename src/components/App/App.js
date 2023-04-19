@@ -16,47 +16,32 @@ import useDebounce from "../../hooks/useDebounce";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-
+  const [info, setInfo] = useState({});
   const [pageNumber, updatePageNumber] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // useEffect(() => {
-  //   RickMortyApi.getCharactersList().then((characters) => {
-  //     setCharacters(characters.results);
-  //   });
-  // }, []);
-
   const debounceSearchQuery = useDebounce(searchQuery, 1000);
-  
+
   useEffect(() => {
-    // const request = () =>
-
-    RickMortyApi.getCharacters(pageNumber)
-      .then((characters) => setCharacters(characters.results))
-    // request()
-    // .then(( pageNumber) => {
-    // setSearchQuery(searchQuery);
-    // updatePageNumber(pageNumber)
-    // }
-    // );
-  }, [pageNumber]);
-
-
-  const filteredCharactersRequest = () => {
-
     const searchQuery = debounceSearchQuery;
 
-    RickMortyApi.searchCharacters(searchQuery)
-    .then((filteredCharacters) => setCharacters(filteredCharacters.results));
+    RickMortyApi.getCharacters(pageNumber, searchQuery)
 
+      .then((characters) => {
+        setCharacters(characters.results);
+        setInfo(characters.info);
+      })
+      .then((filteredCharacters) => {
+        setCharacters(filteredCharacters.results);
+      });
+  }, [debounceSearchQuery, pageNumber]);
 
-  }
-  useEffect(() => {
-    filteredCharactersRequest();
-  }, [debounceSearchQuery]);
-
-  console.log(pageNumber);
-  const valueContextProvider = { characters, setSearchQuery, updatePageNumber };
+  const valueContextProvider = {
+    characters,
+    setSearchQuery,
+    updatePageNumber,
+    info,
+  };
 
   return (
     <GalleryContext.Provider value={valueContextProvider}>
@@ -68,9 +53,6 @@ function App() {
         </Routes>
 
         <div className="main">
-          <button onClick={() => updatePageNumber(pageNumber + 1)}>
-            {pageNumber}
-          </button>
           <Routes>
             <Route
               path="/rick-and-morty-gallery/explore"
