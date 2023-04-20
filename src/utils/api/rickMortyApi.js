@@ -8,14 +8,22 @@ class Api {
     this._headers = headers;
   }
 
-  getCharacters(pageNumber, searchQuery) {
-    return fetch(
-      `${this._baseUrl}/character/?page=${pageNumber}&name=${searchQuery}`,
-      {
-        method: "GET",
-      }
-    ).then(onResponse);
+  getCharacters(pageNumber, searchQuery, status, gender, species) {
+    // let queryParams = `?page=${pageNumber}&name=${searchQuery}`;
+    // if (status !== undefined) {
+    //   queryParams += `&status=${status}`;
+    // }
+    // if (gender !== undefined) {
+    //   queryParams += `&gender=${gender}`;
+    // }
+    // if (species !== undefined) {
+    //   queryParams += `&species=${species}`;
+    // }
+    return fetch(`${this._baseUrl}/character/?page=${pageNumber}&name=${searchQuery}&status=${status}&gender=${gender}&species=${species}`, {
+      method: "GET",
+    }).then(onResponse);
   }
+  
 }
 
 const config = {

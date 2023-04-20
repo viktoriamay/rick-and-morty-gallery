@@ -9,6 +9,8 @@ export const Search = () => {
 
   const searchRequest = (e => e.preventDefault())
 
+  
+
   return (
     <form className="search__form">
       <div className="search__form_container">

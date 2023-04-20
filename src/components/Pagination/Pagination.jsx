@@ -16,7 +16,10 @@ export const Pagination = ({ pageNumber, info, updatePageNumber }) => {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  
+  // const pageCount = Math.ceil(info?.count / 20);
+
+  // console.log(typeof pageCount);
+
   return (
     <>
       <ReactPaginate
@@ -29,11 +32,13 @@ export const Pagination = ({ pageNumber, info, updatePageNumber }) => {
         pageClassName="pagination__page_button"
         pageLinkClassName="pagination__page_link_button"
         // forcePage={pageNumber === 1 ? 0 : pageNumber - 1}
-        forcePage={pageNumber}
+        forcePage={pageNumber <= 1 ? 0 : pageNumber - 1}
+        // forcePage={pageNumber - 1}
         marginPagesDisplayed={width < 576 ? 1 : 2}
         pageRangeDisplayed={width < 576 ? 1 : 2}
 
         pageCount={info?.pages}
+        // pageCount={pageCount}
         onPageChange={pageChange}
 
         // pageRangeDisplayed={1}

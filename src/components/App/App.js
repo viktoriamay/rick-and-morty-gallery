@@ -19,28 +19,37 @@ function App() {
   const [info, setInfo] = useState({});
   const [pageNumber, updatePageNumber] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
+  const [status, updateStatus] = useState("");
+  const [gender, updateGender] = useState("");
+  const [species, updateSpecies] = useState("");
 
+  const [error, setError] = useState('');
+
+// console.log(error.name);
   const debounceSearchQuery = useDebounce(searchQuery, 1000);
 
   useEffect(() => {
     const searchQuery = debounceSearchQuery;
 
-    RickMortyApi.getCharacters(pageNumber, searchQuery)
-
-      .then((characters) => {
-        setCharacters(characters.results);
-        setInfo(characters.info);
-      })
-      .then((filteredCharacters) => {
-        setCharacters(filteredCharacters.results);
-      });
-  }, [debounceSearchQuery, pageNumber]);
+    RickMortyApi.getCharacters(pageNumber, searchQuery, status, gender, species)
+    .then((characters) => {
+      setCharacters(characters.results);
+      setInfo(characters.info);
+    }).catch((error) => console.log(error)
+    )
+  }, [debounceSearchQuery, gender, pageNumber, species, status]);
 
   const valueContextProvider = {
     characters,
     setSearchQuery,
+    pageNumber,
     updatePageNumber,
     info,
+    status,
+    updateStatus,
+    updateGender,
+    updateSpecies,
+    error
   };
 
   return (
