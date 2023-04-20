@@ -33,6 +33,11 @@ export const SearchCharactersPage = () => {
           {characters.map((character) => (
             <CharacterCard character={character} key={character.id} />
           ))}
+
+          
+            {/* для мапинга карточек в компоненте кард
+           <CharacterCard characters={characters} /> */}
+
         </div>
       </div>
       <Pagination
