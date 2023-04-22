@@ -13,7 +13,7 @@ export const Gender = () => {
     updateGender,
     updateSpecies,
   } = useContext(GalleryContext);
-  let gender = ["female", "male", "genderless", "unknown"];
+  let gender = ["Female", "Male", "Genderless", "Unknown"];
   return (
     <>
        <Accordion title="Пол">
