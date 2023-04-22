@@ -3,6 +3,7 @@ import { CharacterCard } from "../../../components/CharacterCard/CharacterCard";
 import { Filter } from "../../../components/Filter/Filter";
 import { GalleryContext } from "../../../utils/context/GalleryContext";
 import { Pagination } from "../../../components/Pagination/Pagination";
+import { SearchInfo } from "../../../components/SearchInfo/SearchInfo";
 
 export const SearchCharactersPage = () => {
   const {
@@ -17,34 +18,26 @@ export const SearchCharactersPage = () => {
   } = useContext(GalleryContext);
 
   return (
-    <div>
+    <>
       <div className="scp">
+        <Filter
+          pageNumber={pageNumber}
+          status={status}
+          updateStatus={updateStatus}
+          updateGender={updateGender}
+          updateSpecies={updateSpecies}
+          updatePageNumber={updatePageNumber}
+        />
         <div>
-          <Filter
-            pageNumber={pageNumber}
-            status={status}
-            updateStatus={updateStatus}
-            updateGender={updateGender}
-            updateSpecies={updateSpecies}
-            updatePageNumber={updatePageNumber}
-          />
-        </div>
-        <div className="characters_cards__container">
-          {characters.map((character) => (
-            <CharacterCard character={character} key={character.id} />
-          ))}
-
-          
-            {/* для мапинга карточек в компоненте кард
-           <CharacterCard characters={characters} /> */}
-
+          <SearchInfo />
+          <div className="characters_cards__container">
+            {characters.map((character) => (
+              <CharacterCard character={character} key={character.id} />
+            ))}
+          </div>
         </div>
       </div>
-      <Pagination
-        info={info}
-        pageNumber={pageNumber}
-        updatePageNumber={updatePageNumber}
-      />
-    </div>
+      <Pagination />
+    </>
   );
 };
