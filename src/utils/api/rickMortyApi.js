@@ -9,17 +9,19 @@ class Api {
   }
 
   getCharacters(pageNumber, searchQuery, status, gender, species) {
-    // let queryParams = `?page=${pageNumber}&name=${searchQuery}`;
-    // if (status !== undefined) {
-    //   queryParams += `&status=${status}`;
-    // }
-    // if (gender !== undefined) {
-    //   queryParams += `&gender=${gender}`;
-    // }
-    // if (species !== undefined) {
-    //   queryParams += `&species=${species}`;
-    // }
     return fetch(`${this._baseUrl}/character/?page=${pageNumber}&name=${searchQuery}&status=${status}&gender=${gender}&species=${species}`, {
+      method: "GET",
+    }).then(onResponse);
+  }
+
+  getCharacterByID(characterID) {
+    return fetch(`${this._baseUrl}/character/${characterID}`, {
+      method: "GET",
+    }).then(onResponse);
+  }
+
+  getLocations() {
+    return fetch(`${this._baseUrl}/location`, {
       method: "GET",
     }).then(onResponse);
   }
