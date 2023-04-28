@@ -1,9 +1,25 @@
+import { SmileOutlined, SmileTwoTone } from "@ant-design/icons";
+import { GrUserManager } from 'react-icons/gr';
+import { RiAliensLine } from 'react-icons/ri';
+
 import "./CharacterCard.scss";
+import { Link } from "react-router-dom";
 
 export const CharacterCard = ({ character }) => {
 
+  const getSpeciesIcon = (species) => {
+    switch (species) {
+      case 'Human':
+        return <GrUserManager />;
+      case 'Alien':
+        return <RiAliensLine />;
+      default:
+        return null;
+    }
+  };
+
   return (
-    <div className="character__card">
+    <Link to={`/rick-and-morty-gallery/character/${character.id}`} className="character__card">
       <div className="character__card_img_wrapper">
         <img src={character?.image} alt="" className="character__card_img" />
         {/* <img
@@ -20,7 +36,7 @@ export const CharacterCard = ({ character }) => {
               : character?.name}
           </p>
         </div>
-        <span className="character__card_about">{character?.species}</span>
+        <span className="character__card_about">{getSpeciesIcon(character?.species)} {character?.species}</span>
         <span className="character__card_about">{character?.gender}</span>
         <span className="character__card_about">
           {character?.location.name.length > 25
@@ -28,6 +44,6 @@ export const CharacterCard = ({ character }) => {
             : character?.location.name}
         </span>
       </div>
-    </div>
+    </Link>
   );
 };

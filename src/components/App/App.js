@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import RickMortyApi from "../../utils/api/rickMortyApi";
 import { GalleryContext } from "../../utils/context/GalleryContext";
 import useDebounce from "../../hooks/useDebounce";
+import { CharacterPage } from "../../pages/CharacterPage/CharacterPage";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -23,24 +24,28 @@ function App() {
   const [gender, updateGender] = useState("");
   const [species, updateSpecies] = useState("");
 
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
-// console.log(error.name);
+  // console.log(error.name);
   const debounceSearchQuery = useDebounce(searchQuery, 1000);
 
   useEffect(() => {
     const searchQuery = debounceSearchQuery;
 
     RickMortyApi.getCharacters(pageNumber, searchQuery, status, gender, species)
-    .then((characters) => {
-      setCharacters(characters.results);
-      setInfo(characters.info);
-    }).catch((error) => console.log(error)
-    )
+      .then((characters) => {
+        setCharacters(characters.results);
+        setInfo(characters.info);
+      })
+      .catch(() => {
+        setCharacters([]);
+        // setInfo({})
+      });
   }, [debounceSearchQuery, gender, pageNumber, species, status]);
 
   const valueContextProvider = {
     characters,
+    setCharacters,
     setSearchQuery,
     pageNumber,
     updatePageNumber,
@@ -49,7 +54,9 @@ function App() {
     updateStatus,
     updateGender,
     updateSpecies,
-    error
+    searchQuery,
+    gender,
+    species,
   };
 
   return (
@@ -77,6 +84,7 @@ function App() {
               <Route path="locations" element={<SearchLocationsPage />} />
               <Route path="episodes" element={<SearchEpisodesPage />} />
             </Route>
+            <Route path="/rick-and-morty-gallery/character/:characterID" element={<CharacterPage />} />
             <Route
               path="/rick-and-morty-gallery/statistics"
               element={<StatisticsPage />}

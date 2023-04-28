@@ -6,14 +6,14 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-import { SearchCharactersPage } from "./SearchCharactersPage/SearchCharactersPage";
-import { SearchLocationsPage } from "./SearchLocationsPage/SearchLocationsPage";
-import { SearchEpisodesPage } from "./SearchEpisodesPage/SearchEpisodesPage";
 import "./ExplorePage.scss";
 import { Search } from "../../components/Search/Search";
 
 export const ExplorePage = () => {
   const location = useLocation();
+
+  
+
 
   const res = location.pathname.split("/");
   const w = res[res.length - 1];

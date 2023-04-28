@@ -9,6 +9,7 @@
     background: rgba(255, 255, 255, 0.2);
     border-radius: 0.5rem;
     background-color: $cards-color;
+    text-decoration: none;
   }
 
   &__card_img_wrapper {
@@ -40,6 +41,7 @@
   &__card_about {
     @include montserrat-font(14px, 400, 0em);
     padding: 3px;
+    color: $text-color;
     width: fit-content;
   }
 }
