@@ -14,50 +14,75 @@ import RickMortyApi from "../../utils/api/rickMortyApi";
 import { GalleryContext } from "../../utils/context/GalleryContext";
 import useDebounce from "../../hooks/useDebounce";
 import { CharacterPage } from "../../pages/CharacterPage/CharacterPage";
+import { LocationPage } from "../../pages/LocationPage/LocationPage";
 
 function App() {
   const [characters, setCharacters] = useState([]);
-  const [info, setInfo] = useState({});
-  const [pageNumber, updatePageNumber] = useState(1);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [infoCharacters, setInfoCharacters] = useState({});
+  const [pageNumberCharacters, updatePageNumberCharacters] = useState(1);
+  const [searchQueryCharacters, setSearchQueryCharacters] = useState("");
   const [status, updateStatus] = useState("");
   const [gender, updateGender] = useState("");
   const [species, updateSpecies] = useState("");
 
-  const [error, setError] = useState("");
+  const debounceSearchQueryCharacters = useDebounce(searchQueryCharacters, 1000);
+  
+  //////// locations
 
-  // console.log(error.name);
-  const debounceSearchQuery = useDebounce(searchQuery, 1000);
+  const [locations, setLocations] = useState([]);
+  const [infoLocations, setInfoLocations] = useState({});
+  const [type, updateType] = useState("");
+  const [dimension, updateDimension] = useState("");
+  const [searchQueryLocations, setSearchQueryLocations] = useState("");
+
+  const [pageNumberLocations, updatePageNumberLocations] = useState(1);
+
+  
+  const debounceSearchQueryLocations = useDebounce(searchQueryLocations, 1000);
 
   useEffect(() => {
-    const searchQuery = debounceSearchQuery;
+    const searchQuery = debounceSearchQueryLocations;
 
-    RickMortyApi.getCharacters(pageNumber, searchQuery, status, gender, species)
+    RickMortyApi.getLocations(pageNumberLocations, searchQuery, type, dimension).then((locations) => {
+      setLocations(locations.results);
+      setInfoLocations(locations.info);
+    });
+  }, [debounceSearchQueryLocations, dimension, pageNumberLocations, type]);
+  /////////
+
+
+  useEffect(() => {
+    const searchQuery = debounceSearchQueryCharacters;
+
+    RickMortyApi.getCharacters(pageNumberCharacters, searchQuery, status, gender, species)
       .then((characters) => {
         setCharacters(characters.results);
-        setInfo(characters.info);
+        setInfoCharacters(characters.info);
       })
       .catch(() => {
         setCharacters([]);
-        // setInfo({})
       });
-  }, [debounceSearchQuery, gender, pageNumber, species, status]);
+  }, [debounceSearchQueryCharacters, gender, pageNumberCharacters, species, status]);
 
   const valueContextProvider = {
     characters,
     setCharacters,
-    setSearchQuery,
-    pageNumber,
-    updatePageNumber,
-    info,
+    setSearchQueryCharacters,
+    pageNumberCharacters,
+    updatePageNumberCharacters,
+    infoCharacters,
     status,
     updateStatus,
     updateGender,
     updateSpecies,
-    searchQuery,
+    searchQueryCharacters,
     gender,
     species,
-  };
+    locations,
+    setLocations,
+    infoLocations,
+    setInfoLocations,searchQueryLocations, setSearchQueryLocations, pageNumberLocations, updatePageNumberLocations
+  }; 
 
   return (
     <GalleryContext.Provider value={valueContextProvider}>
@@ -84,7 +109,15 @@ function App() {
               <Route path="locations" element={<SearchLocationsPage />} />
               <Route path="episodes" element={<SearchEpisodesPage />} />
             </Route>
-            <Route path="/rick-and-morty-gallery/character/:characterID" element={<CharacterPage />} />
+            <Route
+              path="/rick-and-morty-gallery/character/:characterID"
+              element={<CharacterPage />}
+            />
+            <Route
+              path="/rick-and-morty-gallery/location/:locationID"
+              element={<LocationPage />}
+            />
+
             <Route
               path="/rick-and-morty-gallery/statistics"
               element={<StatisticsPage />}
