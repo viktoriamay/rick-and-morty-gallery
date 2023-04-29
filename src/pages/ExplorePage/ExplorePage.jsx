@@ -8,16 +8,17 @@ import {
 } from "react-router-dom";
 import "./ExplorePage.scss";
 import { Search } from "../../components/Search/Search";
+import { useContext } from "react";
+import { GalleryContext } from "../../utils/context/GalleryContext";
 
 export const ExplorePage = () => {
-  const location = useLocation();
-
   
+  const {setSearchQueryCharacters, setSearchQueryLocations, updatePageNumberLocations, updatePageNumberCharacters} = useContext(GalleryContext)
 
-
-  const res = location.pathname.split("/");
-  const w = res[res.length - 1];
-  const j = w.replace(w[0], w[0].toUpperCase());
+  const clearQuery = () => {
+    setSearchQueryLocations('')
+    setSearchQueryCharacters('')
+  }
 
   return (
     <div className="explore_page">
@@ -27,18 +28,23 @@ export const ExplorePage = () => {
             <NavLink
               className="explore_page__navlink"
               to={"/rick-and-morty-gallery/explore/characters"}
+              onClick={clearQuery}
             >
               Персонажи
             </NavLink>
             <NavLink
               className="explore_page__navlink"
               to={"/rick-and-morty-gallery/explore/locations"}
+              onClick={clearQuery}
+
             >
               Локации
             </NavLink>
             <NavLink
               className="explore_page__navlink"
               to={"/rick-and-morty-gallery/explore/episodes"}
+              onClick={clearQuery}
+
             >
               Эпизоды
             </NavLink>

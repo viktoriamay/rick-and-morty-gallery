@@ -37,10 +37,10 @@
       background-color: $cards-color;
       border-radius: 4px;
     }
-  }
+  } 
 }
 
-.characters_cards__container {
+.search_page_cards__container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
@@ -48,7 +48,7 @@
   width: 100%;
 }
 
-.scp {
+.search_page__flex_container {
   display: flex;
   margin-top: 3rem;
   gap: 3rem;
@@ -57,4 +57,7 @@
   // display: grid;
   // grid-template-columns: 0.5fr 2.5fr;
   // gap: 1rem;
+}
+.search_page__cards_info {
+  width: 100%;
 }
