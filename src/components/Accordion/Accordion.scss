@@ -76,7 +76,7 @@
   }
 
   .active &__content {
-    max-height: 100vh;
+    max-height: fit-content;
   }
 
   &__text {
