@@ -1,16 +1,13 @@
 import { useContext } from "react";
-import { Accordion } from "../../Accordion/Accordion"
-import { FilterOptionBTN } from "../FilterOptionBTN"
-import { GalleryContext } from "../../../utils/context/GalleryContext";
+
+import { Accordion } from "../../../Accordion/Accordion"
+import { FilterOptionBTN } from "../../FilterOptionBTN"
+import { GalleryContext } from "../../../../utils/context/GalleryContext";
 
 
 export const Species = () => {
 
   const {
-    pageNumber,
-    updatePageNumber,
-    updateStatus,
-    updateGender,
     updateSpecies,
   } = useContext(GalleryContext);
 

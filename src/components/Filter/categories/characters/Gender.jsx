@@ -1,17 +1,13 @@
 import { useContext } from "react";
-import { Accordion } from "../../Accordion/Accordion"
-import { FilterOptionBTN } from "../FilterOptionBTN"
-import { GalleryContext } from "../../../utils/context/GalleryContext";
+import { Accordion } from "../../../Accordion/Accordion"
+import { FilterOptionBTN } from "../../FilterOptionBTN"
+import { GalleryContext } from "../../../../utils/context/GalleryContext";
 
 
 export const Gender = () => {
 
   const {
-    pageNumber,
-    updatePageNumber,
-    updateStatus,
     updateGender,
-    updateSpecies,
   } = useContext(GalleryContext);
   let gender = ["Female", "Male", "Genderless", "Unknown"];
   return (
