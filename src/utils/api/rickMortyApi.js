@@ -20,8 +20,26 @@ class Api {
     }).then(onResponse);
   }
 
-  getLocations() {
-    return fetch(`${this._baseUrl}/location`, {
+  getLocations(pageNumber, searchQuery, type, dimension) {
+    return fetch(`${this._baseUrl}/location?page=${pageNumber}&name=${searchQuery}&type=${type}&dimension=${dimension}`, {
+      method: "GET",
+    }).then(onResponse);
+  }
+
+  getLocationByID(locationID) {
+    return fetch(`${this._baseUrl}/location/${locationID}`, {
+      method: "GET",
+    }).then(onResponse);
+  }
+  
+  getEpisodes() {
+    return fetch(`${this._baseUrl}/episode`, {
+      method: "GET",
+    }).then(onResponse);
+  }
+
+  getEpisodeByID(episodeID) {
+    return fetch(`${this._baseUrl}/episode/${episodeID}`, {
       method: "GET",
     }).then(onResponse);
   }
