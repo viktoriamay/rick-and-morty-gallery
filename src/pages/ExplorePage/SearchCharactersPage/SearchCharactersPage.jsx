@@ -4,11 +4,18 @@ import { Filter } from "../../../components/Filter/Filter";
 import { GalleryContext } from "../../../utils/context/GalleryContext";
 import { Pagination } from "../../../components/Pagination/Pagination";
 import { SearchInfo } from "../../../components/SearchInfo/SearchInfo";
+import { Status } from "../../../components/Filter/categories/characters/Status";
+import { Species } from "../../../components/Filter/categories/characters/Species";
+import { Gender } from "../../../components/Filter/categories/characters/Gender";
+import useDebounce from "../../../hooks/useDebounce";
+import RickMortyApi from "../../../utils/api/rickMortyApi";
 
 export const SearchCharactersPage = () => {
+  
+
+
   const {
     characters,
-    info,
     pageNumber,
     updatePageNumber,
     status,
@@ -19,7 +26,7 @@ export const SearchCharactersPage = () => {
 
   return (
     <>
-      <div className="scp">
+      <div className="search_page__flex_container">
         <Filter
           pageNumber={pageNumber}
           status={status}
@@ -27,10 +34,14 @@ export const SearchCharactersPage = () => {
           updateGender={updateGender}
           updateSpecies={updateSpecies}
           updatePageNumber={updatePageNumber}
-        />
-        <div>
+        >
+          <Status />
+          <Species />
+          <Gender />
+        </Filter>
+        <div className="search_page__cards_info">
           <SearchInfo />
-          <div className="characters_cards__container">
+          <div className="search_page_cards__container">
             {characters.map((character) => (
               <CharacterCard character={character} key={character.id} />
             ))}
