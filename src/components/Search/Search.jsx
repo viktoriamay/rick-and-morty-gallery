@@ -8,7 +8,7 @@ export const Search = () => {
   const {
     updatePageNumber,
     setSearchQueryCharacters,
-    setSearchQueryLocations,
+    setSearchQueryLocations,setSearchQueryEpisodes
   } = useContext(GalleryContext);
 
   const searchRequest = (e) => e.preventDefault();
@@ -20,8 +20,9 @@ export const Search = () => {
       case "/rick-and-morty-gallery/explore/characters":
         return setSearchQueryCharacters(e.target.value);
       case "/rick-and-morty-gallery/explore/locations":
-        setSearchQueryLocations(e.target.value);
-        return;
+        return setSearchQueryLocations(e.target.value);
+      case "/rick-and-morty-gallery/explore/episodes":
+        return setSearchQueryEpisodes(e.target.value);
 
       default:
         return null;
@@ -36,8 +37,8 @@ export const Search = () => {
           type="text"
           placeholder="Поиск"
           onChange={(e) => {
-            updatePageNumber(1);
-            searchQuery(location.pathname, e)
+            // updatePageNumber(1);
+            searchQuery(location.pathname, e);
           }}
         />
         <button className="search__button" onClick={searchRequest}>
