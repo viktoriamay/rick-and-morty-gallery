@@ -9,6 +9,7 @@ export const Filter = ({ children }) => {
     updateStatus,
     updateGender,
     updateSpecies,
+    updateType
   } = useContext(GalleryContext);
 
   const radios = document.querySelectorAll('input[type="radio"]');
@@ -20,6 +21,7 @@ export const Filter = ({ children }) => {
     updateStatus("");
     updateGender("");
     updateSpecies("");
+    updateType("")
     updatePageNumberCharacters(1);
     // updatePageNumberLocations(1);
     clearF();
