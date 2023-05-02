@@ -15,6 +15,7 @@ import { GalleryContext } from "../../utils/context/GalleryContext";
 import useDebounce from "../../hooks/useDebounce";
 import { CharacterPage } from "../../pages/CharacterPage/CharacterPage";
 import { LocationPage } from "../../pages/LocationPage/LocationPage";
+import { EpisodePage } from "../../pages/EpisodePage/EpisodePage";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -24,6 +25,11 @@ function App() {
   const [status, updateStatus] = useState("");
   const [gender, updateGender] = useState("");
   const [species, updateSpecies] = useState("");
+
+
+
+
+
 
   const debounceSearchQueryCharacters = useDebounce(searchQueryCharacters, 1000);
   
@@ -49,7 +55,9 @@ function App() {
     });
   }, [debounceSearchQueryLocations, dimension, pageNumberLocations, type]);
   /////////
+  const [searchQueryEpisodes, setSearchQueryEpisodes] = useState("");
 
+  const debounceSearchQueryEpisodes = useDebounce(searchQueryEpisodes, 1000);
 
   useEffect(() => {
     const searchQuery = debounceSearchQueryCharacters;
@@ -64,7 +72,27 @@ function App() {
       });
   }, [debounceSearchQueryCharacters, gender, pageNumberCharacters, species, status]);
 
+  const [episodes, setEpisodes] = useState([]);
+  const [infoEpisodes, setInfoEpisodes] = useState({});
+  const [episode, updateEpisode] = useState([]);
+  const [pageNumberEpisodes, updatePageNumberEpisodes] = useState(1);
+
+
+
+
+  useEffect(() => {
+
+    const searchQuery = debounceSearchQueryEpisodes;
+
+    RickMortyApi.getEpisodes(pageNumberEpisodes, searchQuery, episode).then((episodes) => {
+      setEpisodes(episodes.results)
+      setInfoEpisodes(episodes.info)
+    })
+  }, [debounceSearchQueryEpisodes, episode, pageNumberEpisodes]);
+
   const valueContextProvider = {
+    episode, updateEpisode,searchQueryEpisodes, setSearchQueryEpisodes,infoEpisodes, pageNumberEpisodes, updatePageNumberEpisodes,setInfoEpisodes,
+    episodes,
     characters,
     setCharacters,
     setSearchQueryCharacters,
@@ -81,7 +109,7 @@ function App() {
     locations,
     setLocations,
     infoLocations,
-    setInfoLocations,searchQueryLocations, setSearchQueryLocations, pageNumberLocations, updatePageNumberLocations
+    setInfoLocations,searchQueryLocations, setSearchQueryLocations, pageNumberLocations, updatePageNumberLocations,updateType
   }; 
 
   return (
@@ -116,6 +144,10 @@ function App() {
             <Route
               path="/rick-and-morty-gallery/location/:locationID"
               element={<LocationPage />}
+            />
+            <Route
+              path="/rick-and-morty-gallery/episode/:episodeID"
+              element={<EpisodePage />}
             />
 
             <Route
