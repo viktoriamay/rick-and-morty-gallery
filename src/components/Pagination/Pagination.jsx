@@ -13,6 +13,10 @@ export const Pagination = () => {
       location.pathname === "/rick-and-morty-gallery/explore/locations"
     ) {
       updatePageNumberLocations(data.selected + 1);
+    } else if (
+      location.pathname === "/rick-and-morty-gallery/explore/episodes"
+    ) {
+      updatePageNumberEpisodes(data.selected + 1);
     }
   };
 
@@ -22,6 +26,8 @@ export const Pagination = () => {
         return infoCharacters?.pages;
       case "/rick-and-morty-gallery/explore/locations":
         return infoLocations?.pages;
+      case "/rick-and-morty-gallery/explore/episodes":
+        return infoEpisodes?.pages;
 
       default:
         return null;
@@ -34,6 +40,8 @@ export const Pagination = () => {
         return pageNumberCharacters - 1;
       case "/rick-and-morty-gallery/explore/locations":
         return pageNumberLocations - 1;
+      case "/rick-and-morty-gallery/explore/episodes":
+        return pageNumberEpisodes - 1;
 
       default:
         return null;
@@ -41,11 +49,11 @@ export const Pagination = () => {
   };
 
   const {
-    infoCharacters,
+    infoCharacters,pageNumberEpisodes,infoEpisodes,
     pageNumberCharacters,
     pageNumberLocations,
     updatePageNumberLocations,
-    updatePageNumberCharacters,
+    updatePageNumberCharacters, updatePageNumberEpisodes,
     infoLocations,
   } = useContext(GalleryContext);
   // const [width, setWidth] = useState(window.innerWidth);
