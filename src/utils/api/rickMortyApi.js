@@ -32,8 +32,8 @@ class Api {
     }).then(onResponse);
   }
   
-  getEpisodes() {
-    return fetch(`${this._baseUrl}/episode`, {
+  getEpisodes(pageNumber, searchQuery, episode) {
+    return fetch(`${this._baseUrl}/episode?page=${pageNumber}&name=${searchQuery}&episode=${episode}`, {
       method: "GET",
     }).then(onResponse);
   }
