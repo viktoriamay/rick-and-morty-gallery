@@ -10,7 +10,7 @@ export const Type = () => {
     pageNumber,
     updatePageNumber,
     updateStatus,
-    updateGender,
+    updateType,
     updateSpecies,
   } = useContext(GalleryContext);
   
@@ -24,7 +24,7 @@ export const Type = () => {
             name="gender"
             key={`gender-${index}`}
             optionName={option}
-            task={updateGender}
+            task={updateType}
 
           />
         ))}
