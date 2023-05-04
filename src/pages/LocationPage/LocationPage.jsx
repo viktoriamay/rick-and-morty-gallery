@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RickMortyApi from "../../utils/api/rickMortyApi";
-import { CharacterCard } from "../../components/CharacterCard/CharacterCard";
+import { CharacterCard } from "../../components/Cards/CharacterCard";
+import "./LocationPage.scss";
 
 export const LocationPage = () => {
   const [locationPageInfo, setLocationPageInfo] = useState({});
@@ -27,9 +28,6 @@ export const LocationPage = () => {
   //   })();
   // }, [locationPageInfo?.residents]);
 
-  
-
-
   useEffect(() => {
     (async function () {
       if (locationPageInfo?.residents) {
@@ -48,26 +46,59 @@ export const LocationPage = () => {
   }, [locationPageInfo?.residents]);
 
   return (
-    <div className="characters_cards__container" >
-      <div >
-      <h1>
-      {locationPageInfo?.name}
+    <>
+      
+        <div className="container">
+        <p className="location_page__about_title">
+          Location #{locationPageInfo?.id} — Residents Info
+        </p>
+      <div className="search_page_cards__container">
+          <div className="location_page__info">
+            {/* <div className="location_page__info_item">
+          <p className="location_page__data">Location #</p>
 
-      </h1>
-      <p>{locationPageInfo?.id}</p>
-      <p>{locationPageInfo?.created}</p>
-      <p>{locationPageInfo?.type}</p>
-      <p>{locationPageInfo?.dimension}</p>
-      <p>{locationPageInfo?.residents?.length}</p>
+        </div> */}
+            <div className="location_page__info_item">
+              <p className="location_page__data">Name</p>
+              <p className="location_page__name">{locationPageInfo?.name}</p>
+            </div>
+            <div className="location_page__info_item">
+              <p className="location_page__data">Created at</p>
+
+              <p className="location_page__about">
+                {locationPageInfo?.created}
+              </p>
+            </div>
+            <div className="location_page__info_item">
+              <p className="location_page__data">Type</p>
+
+              <p className="location_page__about">{locationPageInfo?.type}</p>
+            </div>
+            <div className="location_page__info_item">
+              <p className="location_page__data">Dimension</p>
+
+              <p className="location_page__about">
+                {locationPageInfo?.dimension}
+              </p>
+            </div>
+            <div className="location_page__info_item">
+              <p className="location_page__data">Residents</p>
+
+              <p className="location_page__about">
+                {locationPageInfo?.residents?.length}
+              </p>
+            </div>
+          </div>
+
+        {characters?.map((character) => (
+          <CharacterCard
+            character={character}
+            key={`character-location-${character.id}`}
+          />
+        ))}
+        {/* <div>{characters.name}</div> */}
+        </div>
       </div>
-
-      {characters?.map((character) => (
-        <CharacterCard
-          character={character}
-          key={`character-location-${character.id}`}
-        />
-      ))}
-      {/* <div>{characters.name}</div> */}
-    </div>
+    </>
   );
 };
