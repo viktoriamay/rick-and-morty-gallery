@@ -1,0 +1,51 @@
+@import "../../assets/SCSS/variables.scss";
+
+.character_page {
+  @include montserrat-font(20px, 300, 0);
+
+  &__title {
+    // color: rgba(161, 161, 161, 0.525);
+    padding-bottom: 2rem;
+    color: $buttons-color-blue;
+    font-weight: 400;
+    font-size: 22px;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  &__info_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  &__name {
+    @include jura-font(38px, 700, -0.04em);
+    color: $buttons-color-green;
+    // text-decoration: overline;
+    // padding-bottom: 4px;
+    // padding: 0;
+    // margin: 0;
+    // border-bottom: 4px solid $buttons-color-green;
+  }
+  &__info {
+  }
+
+  &__info_data {
+    color: rgba(161, 161, 161, 0.525);
+    padding-bottom: 0.2rem;
+    font-size: 16px;
+  }
+
+  &__info_link {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: $buttons-color-blue;
+    }
+  }
+}
