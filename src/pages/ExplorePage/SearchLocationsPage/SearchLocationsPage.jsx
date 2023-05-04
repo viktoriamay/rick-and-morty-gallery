@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { LocationCard } from "../../../components/LocationCard/LocationCard";
+import { LocationCard } from "../../../components/Cards/LocationCard";
 import RickMortyApi from "../../../utils/api/rickMortyApi";
 import "../ExplorePage.scss";
 import { SearchInfo } from "../../../components/SearchInfo/SearchInfo";

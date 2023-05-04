@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RickMortyApi from "../../utils/api/rickMortyApi";
-import { CharacterCard } from "../../components/CharacterCard/CharacterCard";
+import { CharacterCard } from "../../components/Cards/CharacterCard";
 
 
 export const EpisodePage = () => {

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CharacterCard } from "../../CharacterCard/CharacterCard";
+import { CharacterCard } from "../../Cards/CharacterCard";
 import "./HomepageCharacters.scss";
 import { GalleryContext } from "../../../utils/context/GalleryContext";
 

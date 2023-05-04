@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { CharacterCard } from "../../../components/CharacterCard/CharacterCard";
+import { CharacterCard } from "../../../components/Cards/CharacterCard";
 import { Filter } from "../../../components/Filter/Filter";
 import { GalleryContext } from "../../../utils/context/GalleryContext";
 import { Pagination } from "../../../components/Pagination/Pagination";

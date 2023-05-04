@@ -34,9 +34,6 @@ export const Filter = ({ children }) => {
       </div>
       <div className="filter_form__inputs">
         {children}
-        {/* <Status />
-      <Species />
-      <Gender /> */}
       </div>
     </div>
   );

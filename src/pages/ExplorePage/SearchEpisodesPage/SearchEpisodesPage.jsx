@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { GalleryContext } from "../../../utils/context/GalleryContext";
-import { EpisodeCard } from "../../../components/EpisodeCard/EpisodeCard";
+import { EpisodeCard } from "../../../components/Cards/EpisodeCard";
 import { Filter } from "../../../components/Filter/Filter";
 import { SearchInfo } from "../../../components/SearchInfo/SearchInfo";
 import { Pagination } from "../../../components/Pagination/Pagination";

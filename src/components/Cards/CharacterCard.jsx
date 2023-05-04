@@ -31,17 +31,19 @@ export const CharacterCard = ({ character }) => {
       <div className="character__info_wrapper">
         <div className="wrappper">
           <p className="character__card_name">
-            {character?.name?.length > 18
+            {character?.name}
+            {/* {character?.name?.length > 18
               ? `${character?.name?.slice(0, 18)}...`
-              : character?.name}
+              : character?.name} */}
           </p> 
         </div>
         <span className="character__card_about">{getSpeciesIcon(character?.species)} {character?.species}</span>
         <span className="character__card_about">{character?.gender}</span>
         <span className="character__card_about">
-          {character?.location?.name?.length > 25
+          {character?.location?.name}
+          {/* {character?.location?.name?.length > 25
             ? `${character?.location?.name.slice(0, 25)}...`
-            : character?.location?.name}
+            : character?.location?.name} */}
         </span>
       </div>
     </Link>
