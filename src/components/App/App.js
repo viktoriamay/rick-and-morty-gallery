@@ -52,6 +52,8 @@ function App() {
     RickMortyApi.getLocations(pageNumberLocations, searchQuery, type, dimension).then((locations) => {
       setLocations(locations.results);
       setInfoLocations(locations.info);
+    }).catch(() => {
+      setLocations([])
     });
   }, [debounceSearchQueryLocations, dimension, pageNumberLocations, type]);
   /////////
@@ -87,6 +89,8 @@ function App() {
     RickMortyApi.getEpisodes(pageNumberEpisodes, searchQuery, episode).then((episodes) => {
       setEpisodes(episodes.results)
       setInfoEpisodes(episodes.info)
+    }).catch(() => {
+      setEpisodes([])
     })
   }, [debounceSearchQueryEpisodes, episode, pageNumberEpisodes]);
 
@@ -103,7 +107,7 @@ function App() {
     updateStatus,
     updateGender,
     updateSpecies,
-    searchQueryCharacters,
+    searchQueryCharacters,type,
     gender,
     species,
     locations,
