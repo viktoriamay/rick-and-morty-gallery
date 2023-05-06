@@ -8,7 +8,7 @@ import { GalleryContext } from "../../../../utils/context/GalleryContext";
 export const Species = () => {
 
   const {
-    updateSpecies,
+    updateSpecies,updatePageNumberCharacters
   } = useContext(GalleryContext);
 
   let species = [
@@ -25,7 +25,10 @@ export const Species = () => {
             index={index}
             name="species"
             optionName={option}
-            task={updateSpecies}
+            task={(option) => {
+              updateSpecies(option);
+    updatePageNumberCharacters(1);
+  }}
 
           />
         ))}

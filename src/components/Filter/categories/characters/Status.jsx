@@ -7,7 +7,7 @@ import { GalleryContext } from "../../../../utils/context/GalleryContext";
 export const Status = () => {
 
   const {
-    updateStatus,
+    updateStatus,updatePageNumberCharacters
   } = useContext(GalleryContext);
 
   const [selectedValue, setSelectedValue] = useState(null);
@@ -32,7 +32,10 @@ export const Status = () => {
             index={index}
             name="status"
             // updateStatus={updateStatus}
-            task={updateStatus}
+            task={(option) => {
+              updateStatus(option);
+    updatePageNumberCharacters(1);
+  }}
             optionName={option} //input item
             // status={status}
             // task={option}

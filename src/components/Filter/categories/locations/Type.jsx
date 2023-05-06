@@ -7,14 +7,11 @@ import { GalleryContext } from "../../../../utils/context/GalleryContext";
 export const Type = () => {
 
   const {
-    pageNumber,
-    updatePageNumber,
-    updateStatus,
     updateType,
-    updateSpecies,
+    updatePageNumberLocations
   } = useContext(GalleryContext);
   
-  let type = ["Planet", "Cluster", "Space station", "Microverse", "TV", "Resort", "Fantasy town", "Dream", "Dimension", "Menagerie", "Game", "Custom", "Unknown"];
+  let type = ["Planet", "Cluster", "Space station", "Microverse", "TV", "Resort", "Fantasy town", "Dream", "Dimension", "Menagerie", "Game", "Custom", "Daycare", "Spa", "Spacecraft", "Box", "Base", "Convention", "Death Star", "Arcade", "Non-Diegetic Alternative Reality", "Unknown"];
   return (
     <>
        <Accordion title="Тип">
@@ -24,8 +21,10 @@ export const Type = () => {
             name="gender"
             key={`gender-${index}`}
             optionName={option}
-            task={updateType}
-
+            task={(option) => {
+              updateType(option);
+    updatePageNumberLocations(1);
+  }}
           />
         ))}
       </Accordion>
