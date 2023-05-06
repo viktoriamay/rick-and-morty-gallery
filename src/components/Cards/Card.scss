@@ -1,0 +1,128 @@
+@import "../../assets/SCSS/variables.scss";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  background-color: $cards-color;
+  text-decoration: none;
+  min-width: 100%;
+  overflow: hidden;
+
+  &__img_wrapper {
+    height: 14rem;
+    position: relative;
+  }
+
+  &__status {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    @include jura-font(16px, 700, -0.04em);
+    padding: 0.1rem 0.3rem;
+    
+    color: $background-color;
+    // backdrop-filter: blur(10px);
+
+    
+    &_alive {
+      background-color: $buttons-color-green;
+      
+    }
+    &_dead {
+      background-color: #a82525;
+
+    }
+    &_unknown {
+      background-color: rgb(156, 155, 155);
+
+    }
+  }
+
+  &__cover_wrapper {
+    position: relative;
+    z-index: 3;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    object-fit: cover;
+  }
+
+  &__cover_name_wrapper {
+    background-color: rgba(0, 0, 0, 0.434);
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  }
+
+  &__cover_name_wrapper_location {
+    justify-content: center;
+  
+  
+  }
+
+  &__cover_name__episode {
+    @include montserrat-font(50px, 700, -0.04em);
+    color: rgba(0, 0, 0, 0.416);
+  }
+
+  &__cover_name__location {
+    @include jura-font(22px, 700, -0.04em);
+      // color: $text-color;
+      color: $buttons-color-green;
+  
+      backdrop-filter: blur(10px);
+      border-radius: 0.5rem;
+      border: 2px solid rgba(98, 98, 98, 0.0745098039);
+      // background-color: rgba(0, 0, 0, 0.437);
+      padding: 2% 5%;
+  }
+
+  &__info_wrapper {
+    padding: 10px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+  }
+
+
+
+  &__name {
+    background-color: $buttons-color-green;
+    @include jura-font(20px, 700, -0.04em);
+    color: $background-color;
+    padding: 5px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__name_location {
+    background-color: $buttons-color-blue;
+  }
+
+  &__info {
+    @include montserrat-font(14px, 400, 0em);
+    padding: 3px;
+    color: $text-color;
+    // width: fit-content;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
