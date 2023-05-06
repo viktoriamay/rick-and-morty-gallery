@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./Filter.scss";
 import { GalleryContext } from "../../utils/context/GalleryContext";
 
@@ -6,10 +6,11 @@ export const Filter = ({ children }) => {
   const {
     updatePageNumberCharacters,
     updatePageNumberLocations,
+    updatePageNumberEpisodes,
     updateStatus,
     updateGender,
     updateSpecies,
-    updateType
+    updateType, updateEpisode
   } = useContext(GalleryContext);
 
   const radios = document.querySelectorAll('input[type="radio"]');
@@ -21,11 +22,14 @@ export const Filter = ({ children }) => {
     updateStatus("");
     updateGender("");
     updateSpecies("");
-    updateType("")
+    updateType("");
+    updateEpisode("")
     updatePageNumberCharacters(1);
-    // updatePageNumberLocations(1);
+    updatePageNumberLocations(1);
+    updatePageNumberEpisodes(1);
     clearF();
   };
+
   return (
     <div>
       <h3 className="filter_form__title">Фильтры</h3>
