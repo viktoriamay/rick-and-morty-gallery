@@ -6,9 +6,15 @@ import { useLocation } from "react-router-dom";
 
 export const Search = () => {
   const {
-    updatePageNumber,
+    updatePageNumberCharacters,
+    updatePageNumberLocations,
+    updatePageNumberEpisodes,
     setSearchQueryCharacters,
-    setSearchQueryLocations,setSearchQueryEpisodes
+    setSearchQueryLocations,
+    setSearchQueryEpisodes,
+    searchQueryCharacters,
+    searchQueryLocations,
+    searchQueryEpisodes,
   } = useContext(GalleryContext);
 
   const searchRequest = (e) => e.preventDefault();
@@ -18,11 +24,34 @@ export const Search = () => {
   const searchQuery = (location, e) => {
     switch (location) {
       case "/rick-and-morty-gallery/explore/characters":
-        return setSearchQueryCharacters(e.target.value);
+        updatePageNumberCharacters(1);
+        setSearchQueryCharacters(e.target.value);
+        break;
+
       case "/rick-and-morty-gallery/explore/locations":
-        return setSearchQueryLocations(e.target.value);
+        updatePageNumberLocations(1);
+        setSearchQueryLocations(e.target.value);
+        break;
+
       case "/rick-and-morty-gallery/explore/episodes":
-        return setSearchQueryEpisodes(e.target.value);
+        updatePageNumberEpisodes(1);
+        setSearchQueryEpisodes(e.target.value);
+        break;
+
+      default:
+        return null;
+    }
+  };
+  const valueInput = (location) => {
+    switch (location) {
+      case "/rick-and-morty-gallery/explore/characters":
+        return searchQueryCharacters;
+
+      case "/rick-and-morty-gallery/explore/locations":
+        return searchQueryLocations;
+
+      case "/rick-and-morty-gallery/explore/episodes":
+        return searchQueryEpisodes;
 
       default:
         return null;
@@ -36,8 +65,8 @@ export const Search = () => {
           className="search__input"
           type="text"
           placeholder="Поиск"
+          value={valueInput(location.pathname)}
           onChange={(e) => {
-            // updatePageNumber(1);
             searchQuery(location.pathname, e);
           }}
         />
