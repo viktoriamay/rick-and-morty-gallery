@@ -13,9 +13,9 @@ import { useEffect, useState } from "react";
 import RickMortyApi from "../../utils/api/rickMortyApi";
 import { GalleryContext } from "../../utils/context/GalleryContext";
 import useDebounce from "../../hooks/useDebounce";
-import { CharacterPage } from "../../pages/CharacterPage/CharacterPage";
-import { LocationPage } from "../../pages/LocationPage/LocationPage";
-import { EpisodePage } from "../../pages/EpisodePage/EpisodePage";
+import { CharacterPage } from "../../pages/ResourcesPages/CharacterPage/CharacterPage";
+import { LocationPage } from "../../pages/ResourcesPages/LocationPage/LocationPage";
+import { EpisodePage } from "../../pages/ResourcesPages/EpisodePage/EpisodePage";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -79,14 +79,12 @@ function App() {
   const [episode, updateEpisode] = useState([]);
   const [pageNumberEpisodes, updatePageNumberEpisodes] = useState(1);
 
-
-
-
   useEffect(() => {
 
     const searchQuery = debounceSearchQueryEpisodes;
 
     RickMortyApi.getEpisodes(pageNumberEpisodes, searchQuery, episode).then((episodes) => {
+      
       setEpisodes(episodes.results)
       setInfoEpisodes(episodes.info)
     }).catch(() => {
@@ -108,7 +106,7 @@ function App() {
     updateGender,
     updateSpecies,
     searchQueryCharacters,type,
-    gender,
+    gender,setEpisodes,
     species,
     locations,
     setLocations,
