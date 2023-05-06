@@ -20,7 +20,12 @@
     // margin-top: 2rem;
     // border-top: 1px solid aliceblue;
     gap: 1rem;
+    padding: 0;
     // padding: 2rem;
+    li {
+
+      list-style: none;
+    }
 
   }
 
