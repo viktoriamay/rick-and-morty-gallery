@@ -24,7 +24,7 @@ export const SearchLocationsPage = () => {
       <SearchInfo />
         <div className="search_page_cards__container">
           {locations.map((location) => (
-            <LocationCard location={location} />
+            <LocationCard location={location} key={`location-${location.id}`} />
           ))}
         </div>
       </div>

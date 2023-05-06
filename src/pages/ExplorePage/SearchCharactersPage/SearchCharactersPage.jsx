@@ -43,7 +43,7 @@ export const SearchCharactersPage = () => {
           <SearchInfo />
           <div className="search_page_cards__container">
             {characters.map((character) => (
-              <CharacterCard character={character} key={character.id} />
+              <CharacterCard character={character} key={`character-${character.id}`} />
             ))}
           </div>
         </div>

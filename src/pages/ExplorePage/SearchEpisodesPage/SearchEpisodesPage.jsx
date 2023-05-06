@@ -20,16 +20,16 @@ export const SearchEpisodesPage = () => {
       <div className="search_page__flex_container">
         <Filter>
           <Season1 />
-          {/* <Season2 /> */}
-          {/* <Season3 /> */}
-          {/* <Season4 /> */}
-          {/* <Season5 /> */}
+          <Season2 />
+          <Season3 />
+          <Season4 />
+          <Season5 />
         </Filter>
         <div className="search_page__cards_info">
           <SearchInfo />
           <div className="search_page_cards__container">
             {episodes.map((episode) => (
-              <EpisodeCard episode={episode} />
+              <EpisodeCard episode={episode} key={`episode-${episode.id}`} />
             ))}
           </div>
         </div>
