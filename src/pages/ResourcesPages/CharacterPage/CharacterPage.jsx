@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import RickMortyApi from "../../utils/api/rickMortyApi";
+import RickMortyApi from "../../../utils/api/rickMortyApi";
 import { Link, useParams } from "react-router-dom";
-import "./CharacterPage.scss";
-import { Accordion } from "../../components/Accordion/Accordion";
+import "../ResourcePage.scss";
+import { Accordion } from "../../../components/Accordion/Accordion";
 
 export const CharacterPage = () => {
   const [characterPageInfo, setCharacterPageInfo] = useState({});
@@ -43,53 +43,49 @@ export const CharacterPage = () => {
   }, [characterPageInfo.location]);
 
   return (
-    <div className="character_page">
+    <div className="resource_page">
       <div className="container">
-        <p className="character_page__title">
+        <p className="resource_page__title">
           Профиль персонажа #{characterPageInfo?.id}
         </p>
         <div className="character_page__wrapper">
           <div className="character_page__img">
             <img
               src={characterPageInfo?.image}
-              alt={`Avatar of ${characterPageInfo?.name}`}
+              alt={`${characterPageInfo?.name}'s Avatar`}
             />
           </div>
-          <div className="character_page__info_wrapper">
-            <div className="character_page__info_item">
-              <p className="character_page__info_data">Name </p>
-              <p className="character_page__name">{characterPageInfo?.name}</p>
+          <div className="resource_page__info_wrapper">
+            <div className="resource_page__info_item">
+              <span className="resource_page__parameter">Name </span>
+              <p className="resource_page__name">{characterPageInfo?.name}</p>
             </div>
-            <div className="character_page__info_item">
-              <p className="character_page__info_data">Gender </p>
-              <p className="character_page__info">
-                {characterPageInfo?.gender}
-              </p>
+            <div className="resource_page__info_item">
+              <span className="resource_page__parameter">Gender </span>
+              <p className="resource_page__info">{characterPageInfo?.gender}</p>
             </div>
 
-            <div className="character_page__info_item">
-              <p className="character_page__info_data">Status </p>
-              <p className="character_page__info">
-                {characterPageInfo?.status}
-              </p>
+            <div className="resource_page__info_item">
+              <span className="resource_page__parameter">Status </span>
+              <p className="resource_page__info">{characterPageInfo?.status}</p>
             </div>
-            <div className="character_page__info_item">
-              <p className="character_page__info_data">Species </p>
-              <p className="character_page__info">
+            <div className="resource_page__info_item">
+              <span className="resource_page__parameter">Species </span>
+              <p className="resource_page__info">
                 {characterPageInfo?.species}
               </p>
             </div>
-            <div className="character_page__info_item">
-              <p className="character_page__info_data">Created at </p>
-              <p className="character_page__info">
+            <div className="resource_page__info_item">
+              <span className="resource_page__parameter">Created at </span>
+              <p className="resource_page__info">
                 {new Date(characterPageInfo?.created).toLocaleString("ru-ru")}
               </p>
             </div>
-            <div className="character_page__info_item">
-              <p className="character_page__info_data">Last location </p>
+            <div className="resource_page__info_item">
+              <span className="resource_page__parameter">Last location </span>
               <Link
                 to={`/rick-and-morty-gallery/location/${location.id}`}
-                className="character_page__info character_page__info_link"
+                className="resource_page__info resource_page__info_link"
               >
                 {location.name}
               </Link>

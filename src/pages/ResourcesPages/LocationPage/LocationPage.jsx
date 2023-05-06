@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import RickMortyApi from "../../utils/api/rickMortyApi";
-import { CharacterCard } from "../../components/Cards/CharacterCard";
-import "./LocationPage.scss";
+import RickMortyApi from "../../../utils/api/rickMortyApi";
+import { CharacterCard } from "../../../components/Cards/CharacterCard";
+import "../ResourcePage.scss";
 
 export const LocationPage = () => {
   const [locationPageInfo, setLocationPageInfo] = useState({});
@@ -46,59 +46,51 @@ export const LocationPage = () => {
   }, [locationPageInfo?.residents]);
 
   return (
-    <>
-      
-        <div className="container">
-        <p className="location_page__about_title">
+    <div className="resource_page">
+      <div className="container">
+        <p className="resource_page__title">
           Location #{locationPageInfo?.id} — Residents Info
         </p>
-      <div className="search_page_cards__container">
-          <div className="location_page__info">
-            {/* <div className="location_page__info_item">
-          <p className="location_page__data">Location #</p>
-
-        </div> */}
-            <div className="location_page__info_item">
-              <p className="location_page__data">Name</p>
-              <p className="location_page__name">{locationPageInfo?.name}</p>
+        <div className="resource_page__cards_container">
+          <div className="resource_page__info_wrapper resource_page__info_wrapper_about">
+            <div className="resource_page__info_item">
+              <span className="resource_page__parameter">Name</span>
+              <p className="resource_page__name">{locationPageInfo?.name}</p>
             </div>
-            <div className="location_page__info_item">
-              <p className="location_page__data">Created at</p>
+            <div className="resource_page__info_item">
+              <span className="resource_page__parameter">Created at</span>
 
-              <p className="location_page__about">
-                {locationPageInfo?.created}
-              </p>
+              <p className="resource_page__info">{locationPageInfo?.created}</p>
             </div>
-            <div className="location_page__info_item">
-              <p className="location_page__data">Type</p>
+            <div className="resource_page__info_item">
+              <span className="resource_page__parameter">Type</span>
 
-              <p className="location_page__about">{locationPageInfo?.type}</p>
+              <p className="resource_page__info">{locationPageInfo?.type}</p>
             </div>
-            <div className="location_page__info_item">
-              <p className="location_page__data">Dimension</p>
+            <div className="resource_page__info_item">
+              <span className="resource_page__parameter">Dimension</span>
 
-              <p className="location_page__about">
+              <p className="resource_page__info">
                 {locationPageInfo?.dimension}
               </p>
             </div>
-            <div className="location_page__info_item">
-              <p className="location_page__data">Residents</p>
+            <div className="resource_page__info_item">
+              <span className="resource_page__parameter">Residents</span>
 
-              <p className="location_page__about">
+              <p className="resource_page__info">
                 {locationPageInfo?.residents?.length}
               </p>
             </div>
           </div>
 
-        {characters?.map((character) => (
-          <CharacterCard
-            character={character}
-            key={`character-location-${character.id}`}
-          />
-        ))}
-        {/* <div>{characters.name}</div> */}
+          {characters?.map((character) => (
+            <CharacterCard
+              character={character}
+              key={`character-location-${character.id}`}
+            />
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };

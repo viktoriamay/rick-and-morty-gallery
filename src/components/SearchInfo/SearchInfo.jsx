@@ -59,6 +59,7 @@ export const SearchInfo = () => {
             </div>
           )
         );
+
       case "/rick-and-morty-gallery/explore/episodes":
         return (
           searchQueryEpisodes &&
@@ -134,7 +135,6 @@ export const SearchInfo = () => {
   return (
     <>
       {searchText(location.pathname)}
-
       {searchCards(location.pathname)}
     </>
   );

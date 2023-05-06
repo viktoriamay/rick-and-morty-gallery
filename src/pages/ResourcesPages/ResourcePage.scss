@@ -1,19 +1,18 @@
 @import "../../assets/SCSS/variables.scss";
 
-.character_page {
+.resource_page {
   @include montserrat-font(20px, 300, 0);
 
   &__title {
-    // color: rgba(161, 161, 161, 0.525);
-    padding-bottom: 2rem;
+    font-size: 30px;
     color: $buttons-color-blue;
-    font-weight: 400;
-    font-size: 22px;
+    margin-bottom: 1.5rem;
   }
-  &__wrapper {
-    display: flex;
-    align-items: center;
-    gap: 5rem;
+
+  &__cards_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
   }
 
   &__info_wrapper {
@@ -21,31 +20,37 @@
     flex-direction: column;
     gap: 0.6rem;
   }
-  &__name {
-    @include jura-font(38px, 700, -0.04em);
-    color: $buttons-color-green;
-    // text-decoration: overline;
-    // padding-bottom: 4px;
-    // padding: 0;
-    // margin: 0;
-    // border-bottom: 4px solid $buttons-color-green;
-  }
-  &__info {
+
+  &__info_wrapper_about {
+    margin-top: 1rem;
   }
 
-  &__info_data {
+  &__parameter {
     color: rgba(161, 161, 161, 0.525);
     padding-bottom: 0.2rem;
     font-size: 16px;
+  }
+
+  &__name {
+    @include jura-font(38px, 700, -0.04em);
+    color: $buttons-color-green;
   }
 
   &__info_link {
     text-decoration: none;
     color: inherit;
     transition: all 0.1s ease;
+    display: block;
+    width: fit-content;
 
     &:hover {
       color: $buttons-color-blue;
     }
   }
+}
+
+.character_page__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
 }
