@@ -47,13 +47,29 @@ export const Pagination = () => {
         return null;
     }
   };
+  
+  const paginationCountCards = (location) => {
+    switch (location) {
+      case "/rick-and-morty-gallery/explore/characters":
+        return characters.length !== 0 && infoCharacters.count > 20;
+      case "/rick-and-morty-gallery/explore/locations":
+        return locations.length !== 0 && infoLocations.count > 20;
+      case "/rick-and-morty-gallery/explore/episodes":
+        return episodes.length !== 0 && infoEpisodes.count > 20;
+      default:
+        return null;
+    }
+  };
 
   const {
-    infoCharacters,pageNumberEpisodes,infoEpisodes,
+    infoCharacters,characters,episodes, locations,
+    pageNumberEpisodes,
+    infoEpisodes,
     pageNumberCharacters,
     pageNumberLocations,
     updatePageNumberLocations,
-    updatePageNumberCharacters, updatePageNumberEpisodes,
+    updatePageNumberCharacters,
+    updatePageNumberEpisodes,
     infoLocations,
   } = useContext(GalleryContext);
   // const [width, setWidth] = useState(window.innerWidth);
@@ -71,7 +87,7 @@ export const Pagination = () => {
 
   return (
     <>
-      {infoCharacters.count > 20 && (
+      {paginationCountCards(location.pathname) && (
         <ReactPaginate
           className="pagination"
           nextLabel="Следующая"
