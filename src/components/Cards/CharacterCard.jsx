@@ -49,8 +49,7 @@ export const CharacterCard = ({ character }) => {
       </div>
       <div className="card__info_wrapper">
         <p className="card__name">{character?.name}</p>
-        <p className="card__info">
-          {getSpeciesIcon(character?.species)} {character?.species}
+        <p className="card__info">{parameter(character?.species, ' Species')}
         </p>
         <p className="card__info">{parameter(character?.gender, ' Gender')}</p>
         <p className="card__info">{parameter(character?.location?.name, ' Dimension') }</p>
