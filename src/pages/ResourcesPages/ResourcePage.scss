@@ -54,3 +54,35 @@
   align-items: center;
   gap: 5rem;
 }
+
+.character_page__button {
+  border: none;
+  padding: 8px;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid $buttons-color-green;
+  background-color: $buttons-color-green;
+
+  &:hover {
+    background-color: transparent;
+    border: 1px solid $buttons-color-green;
+    color: $buttons-color-green;
+  }
+}
+
+.acc {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.accordion__character {
+  //   a {
+  //   @include montserrat-font(20px, 300, 0);
+  // text-decoration: none;
+  // color: $text-color;
+  //     display: block;
+  //   }
+}

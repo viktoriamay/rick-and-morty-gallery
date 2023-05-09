@@ -8,6 +8,12 @@ export const CharacterPage = () => {
   const [characterPageInfo, setCharacterPageInfo] = useState({});
   const params = useParams();
 
+  const [showAll, setShowAll] = useState(false);
+
+  const toggleShowAll = () => {
+    setShowAll(showAll => !showAll);
+  };
+
   useEffect(() => {
     RickMortyApi.getCharacterByID(params.characterID).then((data) => {
       setCharacterPageInfo(data);
@@ -48,6 +54,8 @@ export const CharacterPage = () => {
         <p className="resource_page__title">
           Профиль персонажа #{characterPageInfo?.id}
         </p>
+        <div className="acc">
+
         <div className="character_page__wrapper">
           <div className="character_page__img">
             <img
@@ -92,13 +100,26 @@ export const CharacterPage = () => {
             </div>
           </div>
         </div>
-        <Accordion title="Episodes">
-          {/* {episodes.map((episode) => (
-            <Link to={`/rick-and-morty-gallery/episode/${episode.id}`}>
-              {episode.name} #{episode.id}
+          <div className="resource_page__info_wrapper">
+          <div className="resource_page__info_item">
+              {/* <span className="resource_page__parameter">Name </span> */}
+              <p className="resource_page__name">Эпизоды с участием персонажа: {characterPageInfo?.episode?.length}</p>
+            </div>
+          {episodes.map((episode) => (
+            <div className="resource_page__info_item">
+            <span className="resource_page__parameter">{`Episode #${episode.id}`}</span>
+            <Link className="resource_page__info resource_page__info_link" to={`/rick-and-morty-gallery/episode/${episode.id}`}>
+              {episode.name}
             </Link>
-          ))} */}
-        </Accordion>
+            </div>
+          )).slice(0, showAll ? episodes.length : 5)}
+          { characterPageInfo?.episode?.length > 5 &&
+
+          <button className="character_page__button" onClick={toggleShowAll}>{showAll ? 'Скрыть' : 'Показать все'}</button>
+          }
+          </div>
+        </div>
+
       </div>
     </div>
   );
