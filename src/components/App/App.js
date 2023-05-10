@@ -43,7 +43,6 @@ function App() {
 
   const [pageNumberLocations, updatePageNumberLocations] = useState(1);
 
-  
   const debounceSearchQueryLocations = useDebounce(searchQueryLocations, 1000);
 
   useEffect(() => {
