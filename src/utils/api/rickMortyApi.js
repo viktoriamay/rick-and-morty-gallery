@@ -44,12 +44,25 @@ class Api {
     }).then(onResponse);
   }
   
+  getPosts() {
+    return fetch("https://api.spaceflightnewsapi.net/v4/articles?limit=100&offset=0&title_contains=planet", {
+      method: "GET",
+    }).then(onResponse);
+  }
+
+  getPostByID(articleID) {
+    return fetch(`https://api.spaceflightnewsapi.net/v4/articles/${articleID}/`, {
+      method: "GET",
+    }).then(onResponse);
+  }
+  
 }
 
 const config = {
   baseUrl: "https://rickandmortyapi.com/api",
   headers: {
     "content-type": "application/json",
+    
   },
 };
 
