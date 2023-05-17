@@ -14,15 +14,15 @@ export const BackButton = () => {
 
   const loo = () => {
 
-    navigate('/rick-and-morty-gallery/explore/characters', { state: { from: '/rick-and-morty-gallery/explore' } });
+    navigate('/explore/characters', { state: { from: '/explore' } });
   } 
 
-  console.log(window.location.pathname === '/rick-and-morty-gallery/explore');
+  console.log(window.location.pathname === '/explore');
 
-  const prev = location.pathname === '/rick-and-morty-gallery/explore/characters' 
+  const prev = location.pathname === '/explore/characters' 
 
   const pathBack = () => {
-    if (location.pathname === '/rick-and-morty-gallery/explore/characters' ) {
+    if (location.pathname === '/explore/characters' ) {
       navigate(-2)
       console.log(-2);
     } else {

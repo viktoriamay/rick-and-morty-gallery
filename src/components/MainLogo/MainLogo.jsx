@@ -4,7 +4,7 @@ import "./MainLogo.scss";
 
 export const MainLogo = () => {
   return (
-    <Link to="/rick-and-morty-gallery">
+    <Link to="/">
       <img className="main__logo" src={Logo} alt="rick-and-morty-logo" />
     </Link>
   );

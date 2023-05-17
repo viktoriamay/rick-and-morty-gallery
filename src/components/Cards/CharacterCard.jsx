@@ -40,7 +40,7 @@ export const CharacterCard = ({ character }) => {
 
   return (
     <Link
-      to={`/rick-and-morty-gallery/character/${character?.id}`}
+      to={`/character/${character?.id}`}
       className={`card ${theme}`}
     >
       <div className="card__img_wrapper">

@@ -35,7 +35,7 @@ export const EpisodeCard = ({ episode }) => {
   };
   
   return (
-    <Link to={`/rick-and-morty-gallery/episode/${episode.id}`} className={`card ${theme}`}>
+    <Link to={`/episode/${episode.id}`} className={`card ${theme}`}>
       <div className="card__img_wrapper card__cover_wrapper">
         <img
           className="card__img"

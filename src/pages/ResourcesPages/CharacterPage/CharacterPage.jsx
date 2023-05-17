@@ -94,7 +94,7 @@ export const CharacterPage = () => {
             <div className="resource_page__info_item">
               <span className="resource_page__parameter">Last location </span>
               <Link
-                to={`/rick-and-morty-gallery/location/${location.id}`}
+                to={`/location/${location.id}`}
                 className="resource_page__info resource_page__info_link"
               >
                 {location.name}
@@ -110,7 +110,7 @@ export const CharacterPage = () => {
           {episodes.map((episode) => (
             <div className="resource_page__info_item">
             <span className="resource_page__parameter">{`Episode #${episode.id}`}</span>
-            <Link className="resource_page__info resource_page__info_link" to={`/rick-and-morty-gallery/episode/${episode.id}`}>
+            <Link className="resource_page__info resource_page__info_link" to={`/episode/${episode.id}`}>
               {episode.name}
             </Link>
             </div>

@@ -154,19 +154,19 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/rick-and-morty-gallery" element={<MainPage />} />
+          <Route path="/" element={<MainPage />} />
         </Routes>
 
         <main className="main">
           <Routes>
             <Route
-              path="/rick-and-morty-gallery/explore"
+              path="/explore"
               element={
-                <Navigate to="/rick-and-morty-gallery/explore/characters" />
+                <Navigate to="/explore/characters" />
               }
             />
             <Route
-              path="/rick-and-morty-gallery/explore/*"
+              path="/explore/*"
               element={<ExplorePage />}
             >
               <Route path="characters" element={<SearchCharactersPage />} />
@@ -174,25 +174,25 @@ function App() {
               <Route path="episodes" element={<SearchEpisodesPage />} />
             </Route>
             <Route
-              path="/rick-and-morty-gallery/character/:characterID"
+              path="/character/:characterID"
               element={<CharacterPage />}
             />
             <Route
-              path="/rick-and-morty-gallery/location/:locationID"
+              path="/location/:locationID"
               element={<LocationPage />}
             />
             <Route
-              path="/rick-and-morty-gallery/episode/:episodeID"
+              path="/episode/:episodeID"
               element={<EpisodePage />}
             />
 
             <Route
-              path="/rick-and-morty-gallery/statistics"
+              path="/statistics"
               element={<StatisticsPage />}
             />
-            <Route path="/rick-and-morty-gallery/news" element={<NewsPage />} />
+            <Route path="/news" element={<NewsPage />} />
             <Route
-              path="/rick-and-morty-gallery/news/:articleID"
+              path="/news/:articleID"
               element={<ArticlePage />}
             />
           </Routes>

@@ -82,7 +82,7 @@ export const LocationCard = ({ location }) => {
   }
   return (
     <Link
-      to={`/rick-and-morty-gallery/location/${location.id}`}
+      to={`/location/${location.id}`}
       className={`card ${theme}`}
     >
       <div className="card__img_wrapper card__cover_wrapper">

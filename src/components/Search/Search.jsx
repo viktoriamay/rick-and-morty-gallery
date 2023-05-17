@@ -23,17 +23,17 @@ export const Search = () => {
 
   const searchQuery = (location, e) => {
     switch (location) {
-      case "/rick-and-morty-gallery/explore/characters":
+      case "/explore/characters":
         updatePageNumberCharacters(1);
         setSearchQueryCharacters(e.target.value);
         break;
 
-      case "/rick-and-morty-gallery/explore/locations":
+      case "/explore/locations":
         updatePageNumberLocations(1);
         setSearchQueryLocations(e.target.value);
         break;
 
-      case "/rick-and-morty-gallery/explore/episodes":
+      case "/explore/episodes":
         updatePageNumberEpisodes(1);
         setSearchQueryEpisodes(e.target.value);
         break;
@@ -44,13 +44,13 @@ export const Search = () => {
   };
   const valueInput = (location) => {
     switch (location) {
-      case "/rick-and-morty-gallery/explore/characters":
+      case "/explore/characters":
         return searchQueryCharacters;
 
-      case "/rick-and-morty-gallery/explore/locations":
+      case "/explore/locations":
         return searchQueryLocations;
 
-      case "/rick-and-morty-gallery/explore/episodes":
+      case "/explore/episodes":
         return searchQueryEpisodes;
 
       default:

@@ -43,7 +43,7 @@ export const ExplorePage = () => {
             <li>
               <NavLink
                 className={`explore_page__navlink ${theme}`}
-                to={"/rick-and-morty-gallery/explore/characters"}
+                to={"/explore/characters"}
                 onClick={clearQuery}
               >
                 Персонажи
@@ -52,7 +52,7 @@ export const ExplorePage = () => {
             <li>
               <NavLink
                 className={`explore_page__navlink ${theme}`}
-                to={"/rick-and-morty-gallery/explore/locations"}
+                to={"/explore/locations"}
                 onClick={clearQuery}
               >
                 Локации
@@ -61,7 +61,7 @@ export const ExplorePage = () => {
             <li>
               <NavLink
                 className={`explore_page__navlink ${theme}`}
-                to={"/rick-and-morty-gallery/explore/episodes"}
+                to={"/explore/episodes"}
                 onClick={clearQuery}
               >
                 Эпизоды

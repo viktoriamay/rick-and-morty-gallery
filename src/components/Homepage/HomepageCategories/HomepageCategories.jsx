@@ -15,7 +15,7 @@ export const HomepageCategories = () => {
           Категории
         </h2>
         <div className="homepage_categories__cards">
-          <Link to='/rick-and-morty-gallery/explore/characters' className={`homepage_categories__card ${theme}`}>
+          <Link to='/explore/characters' className={`homepage_categories__card ${theme}`}>
             <div className="homepage_categories__card_img__container">
               <img
                 src={characters}
@@ -27,7 +27,7 @@ export const HomepageCategories = () => {
               <span className="homepage_categories__card_title">Персонажи</span>
             </div>
           </Link>
-          <Link to='/rick-and-morty-gallery/explore/locations' className={`homepage_categories__card ${theme}`}>
+          <Link to='/explore/locations' className={`homepage_categories__card ${theme}`}>
             <div className="homepage_categories__card_img__container">
               <img
                 src={locations}
@@ -39,7 +39,7 @@ export const HomepageCategories = () => {
               <span className="homepage_categories__card_title">Локации</span>
             </div>
           </Link>
-          <Link to='/rick-and-morty-gallery/explore/episodes' className={`homepage_categories__card ${theme}`}>
+          <Link to='/explore/episodes' className={`homepage_categories__card ${theme}`}>
             <div className="homepage_categories__card_img__container">
               <img
                 src={episodes}

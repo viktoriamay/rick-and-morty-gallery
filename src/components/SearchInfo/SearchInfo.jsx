@@ -24,7 +24,7 @@ export const SearchInfo = () => {
 
   const searchText = (location) => {
     switch (location) {
-      case "/rick-and-morty-gallery/explore/characters":
+      case "/explore/characters":
         return (
           (searchQueryCharacters || status || gender || species) &&
           characters?.length !== 0 && (
@@ -42,7 +42,7 @@ export const SearchInfo = () => {
           )
         );
 
-      case "/rick-and-morty-gallery/explore/locations":
+      case "/explore/locations":
         return (
           (searchQueryLocations || type) &&
           locations?.length !== 0 && (
@@ -60,7 +60,7 @@ export const SearchInfo = () => {
           )
         );
 
-      case "/rick-and-morty-gallery/explore/episodes":
+      case "/explore/episodes":
         return (
           searchQueryEpisodes &&
           episodes?.length !== 0 && (
@@ -85,7 +85,7 @@ export const SearchInfo = () => {
 
   const searchCards = (location) => {
     switch (location) {
-      case "/rick-and-morty-gallery/explore/characters":
+      case "/explore/characters":
         return (
           characters?.length === 0 && (
             <div className="search_info">
@@ -99,7 +99,7 @@ export const SearchInfo = () => {
           )
         );
 
-      case "/rick-and-morty-gallery/explore/locations":
+      case "/explore/locations":
         return (
           locations?.length === 0 && (
             <div className="search_info">
@@ -113,7 +113,7 @@ export const SearchInfo = () => {
           )
         );
 
-      case "/rick-and-morty-gallery/explore/episodes":
+      case "/explore/episodes":
         return (
           episodes?.length === 0 && (
             <div className="search_info">

@@ -8,14 +8,14 @@ export const Pagination = () => {
   const {theme} = useContext(GalleryContext)
   const location = useLocation();
   const pageChange = (data) => {
-    if (location.pathname === "/rick-and-morty-gallery/explore/characters") {
+    if (location.pathname === "/explore/characters") {
       updatePageNumberCharacters(data.selected + 1);
     } else if (
-      location.pathname === "/rick-and-morty-gallery/explore/locations"
+      location.pathname === "/explore/locations"
     ) {
       updatePageNumberLocations(data.selected + 1);
     } else if (
-      location.pathname === "/rick-and-morty-gallery/explore/episodes"
+      location.pathname === "/explore/episodes"
     ) {
       updatePageNumberEpisodes(data.selected + 1);
     }
@@ -23,11 +23,11 @@ export const Pagination = () => {
 
   const paginationCount = (location) => {
     switch (location) {
-      case "/rick-and-morty-gallery/explore/characters":
+      case "/explore/characters":
         return infoCharacters?.pages;
-      case "/rick-and-morty-gallery/explore/locations":
+      case "/explore/locations":
         return infoLocations?.pages;
-      case "/rick-and-morty-gallery/explore/episodes":
+      case "/explore/episodes":
         return infoEpisodes?.pages;
 
       default:
@@ -37,11 +37,11 @@ export const Pagination = () => {
 
   const paginationCurrentPage = (location) => {
     switch (location) {
-      case "/rick-and-morty-gallery/explore/characters":
+      case "/explore/characters":
         return pageNumberCharacters - 1;
-      case "/rick-and-morty-gallery/explore/locations":
+      case "/explore/locations":
         return pageNumberLocations - 1;
-      case "/rick-and-morty-gallery/explore/episodes":
+      case "/explore/episodes":
         return pageNumberEpisodes - 1;
 
       default:
@@ -51,11 +51,11 @@ export const Pagination = () => {
   
   const paginationCountCards = (location) => {
     switch (location) {
-      case "/rick-and-morty-gallery/explore/characters":
+      case "/explore/characters":
         return characters.length !== 0 && infoCharacters.count > 20;
-      case "/rick-and-morty-gallery/explore/locations":
+      case "/explore/locations":
         return locations.length !== 0 && infoLocations.count > 20;
-      case "/rick-and-morty-gallery/explore/episodes":
+      case "/explore/episodes":
         return episodes.length !== 0 && infoEpisodes.count > 20;
       default:
         return null;

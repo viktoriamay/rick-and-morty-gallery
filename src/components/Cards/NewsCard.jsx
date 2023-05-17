@@ -7,7 +7,7 @@ export const NewsCard = ({data}) => {
   const {theme} = useContext(GalleryContext)
 
   return (
-    <Link to={`/rick-and-morty-gallery/news/${data?.id}`} className={`news__card ${theme}`}>
+    <Link to={`/news/${data?.id}`} className={`news__card ${theme}`}>
     <div className="card__img_wrapper">
       <img
         src={data?.image_url}
