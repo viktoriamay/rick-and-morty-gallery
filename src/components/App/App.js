@@ -16,6 +16,7 @@ import useDebounce from "../../hooks/useDebounce";
 import { CharacterPage } from "../../pages/ResourcesPages/CharacterPage/CharacterPage";
 import { LocationPage } from "../../pages/ResourcesPages/LocationPage/LocationPage";
 import { EpisodePage } from "../../pages/ResourcesPages/EpisodePage/EpisodePage";
+import { ArticlePage } from "../../pages/ArticlePage/ArticlePage";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -26,13 +27,11 @@ function App() {
   const [gender, updateGender] = useState("");
   const [species, updateSpecies] = useState("");
 
+  const debounceSearchQueryCharacters = useDebounce(
+    searchQueryCharacters,
+    1000
+  );
 
-
-
-
-
-  const debounceSearchQueryCharacters = useDebounce(searchQueryCharacters, 1000);
-  
   //////// locations
 
   const [locations, setLocations] = useState([]);
@@ -48,12 +47,14 @@ function App() {
   useEffect(() => {
     const searchQuery = debounceSearchQueryLocations;
 
-    RickMortyApi.getLocations(pageNumberLocations, searchQuery, type, dimension).then((locations) => {
-      setLocations(locations.results);
-      setInfoLocations(locations.info);
-    }).catch(() => {
-      setLocations([])
-    });
+    RickMortyApi.getLocations(pageNumberLocations, searchQuery, type, dimension)
+      .then((locations) => {
+        setLocations(locations.results);
+        setInfoLocations(locations.info);
+      })
+      .catch(() => {
+        setLocations([]);
+      });
   }, [debounceSearchQueryLocations, dimension, pageNumberLocations, type]);
   /////////
   const [searchQueryEpisodes, setSearchQueryEpisodes] = useState("");
@@ -63,7 +64,13 @@ function App() {
   useEffect(() => {
     const searchQuery = debounceSearchQueryCharacters;
 
-    RickMortyApi.getCharacters(pageNumberCharacters, searchQuery, status, gender, species)
+    RickMortyApi.getCharacters(
+      pageNumberCharacters,
+      searchQuery,
+      status,
+      gender,
+      species
+    )
       .then((characters) => {
         setCharacters(characters.results);
         setInfoCharacters(characters.info);
@@ -71,7 +78,13 @@ function App() {
       .catch(() => {
         setCharacters([]);
       });
-  }, [debounceSearchQueryCharacters, gender, pageNumberCharacters, species, status]);
+  }, [
+    debounceSearchQueryCharacters,
+    gender,
+    pageNumberCharacters,
+    species,
+    status,
+  ]);
 
   const [episodes, setEpisodes] = useState([]);
   const [infoEpisodes, setInfoEpisodes] = useState({});
@@ -79,20 +92,33 @@ function App() {
   const [pageNumberEpisodes, updatePageNumberEpisodes] = useState(1);
 
   useEffect(() => {
-
     const searchQuery = debounceSearchQueryEpisodes;
 
-    RickMortyApi.getEpisodes(pageNumberEpisodes, searchQuery, episode).then((episodes) => {
-      
-      setEpisodes(episodes.results)
-      setInfoEpisodes(episodes.info)
-    }).catch(() => {
-      setEpisodes([])
-    })
+    RickMortyApi.getEpisodes(pageNumberEpisodes, searchQuery, episode)
+      .then((episodes) => {
+        setEpisodes(episodes.results);
+        setInfoEpisodes(episodes.info);
+      })
+      .catch(() => {
+        setEpisodes([]);
+      });
   }, [debounceSearchQueryEpisodes, episode, pageNumberEpisodes]);
 
+  const [theme, setTheme] = useState("dark");
+
+  const handleThemeChange = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   const valueContextProvider = {
-    episode, updateEpisode,searchQueryEpisodes, setSearchQueryEpisodes,infoEpisodes, pageNumberEpisodes, updatePageNumberEpisodes,setInfoEpisodes,
+    episode,
+    updateEpisode,
+    searchQueryEpisodes,
+    setSearchQueryEpisodes,
+    infoEpisodes,
+    pageNumberEpisodes,
+    updatePageNumberEpisodes,
+    setInfoEpisodes,
     episodes,
     characters,
     setCharacters,
@@ -104,25 +130,34 @@ function App() {
     updateStatus,
     updateGender,
     updateSpecies,
-    searchQueryCharacters,type,
-    gender,setEpisodes,
+    searchQueryCharacters,
+    type,
+    gender,
+    setEpisodes,
     species,
     locations,
     setLocations,
     infoLocations,
-    setInfoLocations,searchQueryLocations, setSearchQueryLocations, pageNumberLocations, updatePageNumberLocations,updateType
-  }; 
+    setInfoLocations,
+    searchQueryLocations,
+    setSearchQueryLocations,
+    pageNumberLocations,
+    updatePageNumberLocations,
+    updateType,
+    theme,
+    handleThemeChange,
+  };
 
   return (
     <GalleryContext.Provider value={valueContextProvider}>
-      <div className="App">
+      <div className={`App ${theme}`}>
         <Header />
 
         <Routes>
           <Route path="/rick-and-morty-gallery" element={<MainPage />} />
         </Routes>
 
-        <div className="main">
+        <main className="main">
           <Routes>
             <Route
               path="/rick-and-morty-gallery/explore"
@@ -156,8 +191,12 @@ function App() {
               element={<StatisticsPage />}
             />
             <Route path="/rick-and-morty-gallery/news" element={<NewsPage />} />
+            <Route
+              path="/rick-and-morty-gallery/news/:articleID"
+              element={<ArticlePage />}
+            />
           </Routes>
-        </div>
+        </main>
         <Footer />
       </div>
     </GalleryContext.Provider>
