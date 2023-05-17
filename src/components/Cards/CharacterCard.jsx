@@ -3,8 +3,12 @@ import { RiAliensLine } from "react-icons/ri";
 
 import "./Card.scss";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { GalleryContext } from "../../utils/context/GalleryContext";
 
 export const CharacterCard = ({ character }) => {
+
+  const {theme} = useContext(GalleryContext)
   const getSpeciesIcon = (species) => {
     switch (species) {
       case "Human":
@@ -37,7 +41,7 @@ export const CharacterCard = ({ character }) => {
   return (
     <Link
       to={`/rick-and-morty-gallery/character/${character?.id}`}
-      className="card"
+      className={`card ${theme}`}
     >
       <div className="card__img_wrapper">
         <img
@@ -49,10 +53,10 @@ export const CharacterCard = ({ character }) => {
       </div>
       <div className="card__info_wrapper">
         <p className="card__name">{character?.name}</p>
-        <p className="card__info">{parameter(character?.species, ' Species')}
+        <p className={`card__info ${theme}`}>{parameter(character?.species, ' Species')}
         </p>
-        <p className="card__info">{parameter(character?.gender, ' Gender')}</p>
-        <p className="card__info">{parameter(character?.location?.name, ' Dimension') }</p>
+        <p className={`card__info ${theme}`}>{parameter(character?.gender, ' Gender')}</p>
+        <p className={`card__info ${theme}`}>{parameter(character?.location?.name, ' Dimension') }</p>
       </div>
     </Link>
   );

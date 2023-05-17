@@ -5,6 +5,7 @@ import { GalleryContext } from "../../utils/context/GalleryContext";
 import { useLocation } from "react-router-dom";
 
 export const Pagination = () => {
+  const {theme} = useContext(GalleryContext)
   const location = useLocation();
   const pageChange = (data) => {
     if (location.pathname === "/rick-and-morty-gallery/explore/characters") {
@@ -92,10 +93,10 @@ export const Pagination = () => {
           className="pagination"
           nextLabel="Следующая"
           previousLabel="Предыдущая"
-          previousClassName="pagination__nav_button"
-          nextClassName="pagination__nav_button"
+          previousClassName={`pagination__nav_button pagination__color_button ${theme}`}
+          nextClassName={`pagination__nav_button pagination__color_button ${theme}`}
           activeClassName="active"
-          pageClassName="pagination__page_button"
+          pageClassName={`pagination__page_button pagination__color_button ${theme}`}
           pageLinkClassName="pagination__page_link_button"
           // marginPagesDisplayed={width < 576 ? 1 : 2}
           // pageRangeDisplayed={width < 576 ? 1 : 2}

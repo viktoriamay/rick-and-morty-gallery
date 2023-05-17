@@ -4,6 +4,7 @@ import { GalleryContext } from "../../utils/context/GalleryContext";
 import RickMortyApi from "../../utils/api/rickMortyApi";
 
 export const LocationsTypeChart = ({planet, spaceStation,microverse,dimension,dream}) => {
+
 //   const {
 //     characters,
 //     locationTypePlanet,

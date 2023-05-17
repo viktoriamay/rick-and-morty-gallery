@@ -3,6 +3,7 @@ import RickMortyApi from "../../../utils/api/rickMortyApi";
 import { Link, useParams } from "react-router-dom";
 import "../ResourcePage.scss";
 import { Accordion } from "../../../components/Accordion/Accordion";
+import { BackButton } from "../../../components/BackButton/BackButton";
 
 export const CharacterPage = () => {
   const [characterPageInfo, setCharacterPageInfo] = useState({});
@@ -51,6 +52,7 @@ export const CharacterPage = () => {
   return (
     <div className="resource_page">
       <div className="container">
+      <BackButton />
         <p className="resource_page__title">
           Профиль персонажа #{characterPageInfo?.id}
         </p>

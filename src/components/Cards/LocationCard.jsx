@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Card.scss";
+import { useContext } from "react";
+import { GalleryContext } from "../../utils/context/GalleryContext";
 
 export const LocationCard = ({ location }) => {
+
+  const {theme} = useContext(GalleryContext)
+
   const locationImage = (type) => {
     switch (type) {
       case "Planet":
@@ -78,7 +83,7 @@ export const LocationCard = ({ location }) => {
   return (
     <Link
       to={`/rick-and-morty-gallery/location/${location.id}`}
-      className="card"
+      className={`card ${theme}`}
     >
       <div className="card__img_wrapper card__cover_wrapper">
         <img
@@ -95,9 +100,9 @@ export const LocationCard = ({ location }) => {
         <p className="card__name card__name_location">
           Location #{location.id}
         </p>
-        <p className="card__info">{parameter(location.type, " Type")}</p>
-        <p className="card__info">{parameter(location.dimension, " Dimension")}</p>
-        <p className="card__info">Residents: {location.residents.length}</p>
+        <p className={`card__info ${theme}`}>{parameter(location.type, " Type")}</p>
+        <p className={`card__info ${theme}`}>{parameter(location.dimension, " Dimension")}</p>
+        <p className={`card__info ${theme}`}>Residents: {location.residents.length}</p>
       </div>
     </Link>
   );

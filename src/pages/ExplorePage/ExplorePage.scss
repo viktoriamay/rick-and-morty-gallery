@@ -30,11 +30,12 @@
   }
 
   &__navlink {
-    color: $text-color;
+    // color: $text-color;
     text-decoration: none;
     // @include jura-font(18px, 700, 0em);
     @include montserrat-font(15px, 500, 0em);
     padding: 5px 10px;
+    cursor: pointer;
     
     &.active {
       color: $buttons-color-blue;

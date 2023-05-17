@@ -3,6 +3,7 @@ import "./ExplorePage.scss";
 import { Search } from "../../components/Search/Search";
 import { useContext } from "react";
 import { GalleryContext } from "../../utils/context/GalleryContext";
+import { BackButton } from "../../components/BackButton/BackButton";
 
 export const ExplorePage = () => {
   const {
@@ -16,7 +17,7 @@ export const ExplorePage = () => {
     updateGender,
     updateSpecies,
     updateEpisode,
-    updateType,
+    updateType, theme
   } = useContext(GalleryContext);
 
   const clearQuery = () => {
@@ -36,11 +37,12 @@ export const ExplorePage = () => {
   return (
     <div className="explore_page">
       <div className="container">
-        <div className="explore_page__container">
+      <BackButton />
+        <div className="explore_page__container"> 
           <ul className="explore_page__navlink_container">
             <li>
               <NavLink
-                className="explore_page__navlink"
+                className={`explore_page__navlink ${theme}`}
                 to={"/rick-and-morty-gallery/explore/characters"}
                 onClick={clearQuery}
               >
@@ -49,7 +51,7 @@ export const ExplorePage = () => {
             </li>
             <li>
               <NavLink
-                className="explore_page__navlink"
+                className={`explore_page__navlink ${theme}`}
                 to={"/rick-and-morty-gallery/explore/locations"}
                 onClick={clearQuery}
               >
@@ -58,7 +60,7 @@ export const ExplorePage = () => {
             </li>
             <li>
               <NavLink
-                className="explore_page__navlink"
+                className={`explore_page__navlink ${theme}`}
                 to={"/rick-and-morty-gallery/explore/episodes"}
                 onClick={clearQuery}
               >

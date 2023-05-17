@@ -52,7 +52,6 @@ width: fit-content;
   // border-top: none;
   // border-right: none;
   border: none;
-  color: aliceblue;
   // border-radius: 6px;
   @include montserrat-font(15px, 500, -0.02em);
   
@@ -62,7 +61,7 @@ width: fit-content;
     outline: none;
   }
    &::placeholder {
-    color: $text-color;
+    color: inherit;
     // @include jura-font(18px, 700, 0em)
     @include montserrat-font(15px, 500, -0.02em)
 

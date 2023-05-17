@@ -9,9 +9,13 @@
   @include jura-font(20px, 700, 0em);
   margin-top: 2.5rem;
 
+  &__color_button {
+    background-color: $cards-color;
+
+  }
+
   &__nav_button {
     padding: 0.5rem 0.8rem;
-    background-color: $cards-color;
     cursor: pointer;
     border-radius: 5px;
     color: $buttons-color-blue;
@@ -25,7 +29,7 @@
   &__page_button {
     cursor: pointer;
 
-    background-color: $cards-color;
+    // background-color: $cards-color;
     border-radius: 5px;
     color: $buttons-color-green;
     &:hover {

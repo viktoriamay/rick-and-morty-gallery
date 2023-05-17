@@ -1,0 +1,46 @@
+@import "../../assets/SCSS/variables.scss";
+
+.back_button {
+  @include montserrat-font(18px, 400, 0);
+  color: $grey-color;
+  // margin-bottom: 1.5rem;
+  padding-left: 10px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.1s ease;
+  width: fit-content;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 2px;
+    top: calc(50% - 2px);
+    left: 0;
+    background-color: $grey-color;
+    transform: rotate(-45deg);
+    transition: all 0.1s ease;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 2px;
+    top: calc(50% + 2px);
+    left: 0;
+    background-color: $grey-color;
+    transform: rotate(45deg);
+    transition: all 0.1s ease;
+  }
+
+  &:hover::after,
+  &:hover::before {
+    background-color: $text-color;
+  }
+
+  &:hover {
+    color: $text-color;
+  }
+}

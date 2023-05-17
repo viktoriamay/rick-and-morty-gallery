@@ -10,7 +10,7 @@ export const CharactersStatusChart = ({ alive, dead, unknown }) => {
     let option;
 
     option = {
-      backgroundColor: null,
+      backgroundColor: 'transparent',
       title: {
         text: null,
         left: "center",

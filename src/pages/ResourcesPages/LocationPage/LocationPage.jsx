@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import RickMortyApi from "../../../utils/api/rickMortyApi";
 import { CharacterCard } from "../../../components/Cards/CharacterCard";
 import "../ResourcePage.scss";
+import { BackButton } from "../../../components/BackButton/BackButton";
 
 export const LocationPage = () => {
   const [locationPageInfo, setLocationPageInfo] = useState({});
@@ -48,6 +49,7 @@ export const LocationPage = () => {
   return (
     <div className="resource_page">
       <div className="container">
+      <BackButton />
         <p className="resource_page__title">
           Location #{locationPageInfo?.id} — Residents Info
         </p>

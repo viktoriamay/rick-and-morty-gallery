@@ -6,14 +6,17 @@ import { Link, useLocation } from "react-router-dom";
 import { FiGithub } from "react-icons/fi";
 import { TbBrandTelegram } from "react-icons/tb";
 import { MdAlternateEmail } from "react-icons/md";
+import { useContext } from "react";
+import { GalleryContext } from "../../utils/context/GalleryContext";
 
 
 export const Footer = () => {
+  const {theme} = useContext(GalleryContext)
 
   const location = useLocation();
 
   return (
-    <footer className={location.pathname === '/rick-and-morty-gallery' ? "footer" : 'footer footer__main'}>
+    <footer className={location.pathname === '/rick-and-morty-gallery' ?  `footer ${theme}` : `footer footer__main ${theme}`}>
       <div className="container">
         <div className="footer__wrapper">
           <div>

@@ -4,14 +4,17 @@ import "./Header.scss";
 
 import { CgArrowsExchangeAltV } from "react-icons/cg";
 import { Search } from "../Search/Search";
+import { useContext } from "react";
+import { GalleryContext } from "../../utils/context/GalleryContext";
 
 
 export const Header = () => {
+  const {theme, handleThemeChange} = useContext(GalleryContext)
   const location = useLocation();
 
   
   return (
-    <header className={location.pathname === '/rick-and-morty-gallery' ? "header" : 'header__exp'}>
+    <header className={location.pathname === '/rick-and-morty-gallery' ? `header`: `header__exp ${theme}`}>
       <div className="container">
         <div className="header__content">
           <MainLogo />
@@ -22,7 +25,7 @@ export const Header = () => {
           </nav>
           {/* <Search /> */}
           <div className="header__theme">
-            <div><CgArrowsExchangeAltV /></div>
+            <div onClick={handleThemeChange}><CgArrowsExchangeAltV /></div>
           </div>
         </div>
       </div>

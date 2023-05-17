@@ -8,6 +8,11 @@ $dark-color: #00000030;
 $buttons-color-blue: #12b0c9;
 $text-color: #ffffff;
 
+$grey-color: #7c7c7c;
+
+$cards-color-light: #b3b3b33b;
+
+
 // calc(28px + 20 * ((100vw - 320px) / (1920 - 320)));
 
 @mixin jura-font($fontSize, $fontWeight, $letterSpacing) {

@@ -4,6 +4,7 @@ import { LocationsTypeChart } from "../../components/Charts/LocationsTypeChart";
 import { CharactersEpisodesChart } from "../../components/Charts/CharactersEpisodesChart";
 import RickMortyApi from "../../utils/api/rickMortyApi";
 import { CharactersStatusChart } from "../../components/Charts/CharactersStatusChart";
+import { BackButton } from "../../components/BackButton/BackButton";
 
 export const StatisticsPage = () => {
   // const { characters, infoCharacters, infoLocations, infoEpisodes } =
@@ -146,7 +147,7 @@ export const StatisticsPage = () => {
     infoEpisodes,
     updateType,
     type,
-    locations,
+    locations, theme
   } = useContext(GalleryContext);
 
   const [planet, setPlanet] = useState(0);
@@ -213,12 +214,12 @@ const [alive, setAlive] = useState(0);
   return (
     <div>
     <div className="container">
-
-      <ul>
+<BackButton />
+      <ul className="explore_page__navlink_container">
         {tabs.map((tab, index) => (
           <li
             key={index}
-            className={activeTab === index ? "active" : ""}
+            className={activeTab === index ? `active explore_page__navlink ${theme}`: `explore_page__navlink ${theme}`}
             onClick={() => handleTabClick(index)}
           >
             {tab.label}

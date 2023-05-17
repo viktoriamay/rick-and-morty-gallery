@@ -10,11 +10,13 @@
   background-color: $cards-color;
   text-decoration: none;
   min-width: 100%;
+  height: fit-content;
   overflow: hidden;
 
   &__img_wrapper {
-    height: 14rem;
+    height: 17rem;
     position: relative;
+    z-index: 10;
   }
 
   &__status {
@@ -50,9 +52,7 @@
 
   &__img {
     width: 100%;
-    height: 100%;
-    border-top-right-radius: 0.5rem;
-    border-top-left-radius: 0.5rem;
+    height: 17rem;
     object-fit: cover;
   }
 
@@ -97,8 +97,13 @@
     flex-direction: column;
     gap: 10px;
     position: relative;
+    height: 100%;
+
   }
 
+  &__info__news_wrapper {
+    gap: 1.5rem;
+  }
 
 
   &__name {
@@ -124,5 +129,148 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+  
+}
+
+
+.news {
+  // &__title {
+  //   text-align: left;
+  // }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    cursor: pointer;
+  min-width: 100%;
+  background-color: $dark-color;
+  text-decoration: none;
+
+
+  &:hover {
+    // background-color: transparent;
+  }
+
+
+    &::after {
+      content: '';
+      width: 10%;
+      height: 10%;
+      border: 3px solid $buttons-color-green;
+      border-top: none;
+      border-left: none;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transition: all 0.4s ease;
+    }
+
+    &::before {
+      content: '';
+      width: 0%;
+      height: 0%;
+      border: 3px solid $buttons-color-blue;
+      border-right: none;
+      border-bottom: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: width 0.4s, height 0.4s ease;
+      opacity: 0;
+    }
+
+    &:hover::after, &:hover::before {
+      width: 99.2%;
+      height: 99.2%;
+      opacity: 0.7;
+
+    }
+  }
+
+  // &__card_img_wrapper {
+  //   height: 15rem;
+  //   z-index: 10;
+  // }
+
+  // &__card_img {
+  //   width: 100%;
+  //   height: 100%;
+  //   object-fit: cover;
+  // }
+
+//   &__card_info__wrapper {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 20px;
+//     padding: 0 20px 20px;
+//     height: 100%;
+//   }
+
+//   &__card_title {
+//     @include jura-font(20px, 700, -0.04em);
+//     background-color: $buttons-color-green;
+// color: $background-color
+//   }
+
+  &__card_text {
+    @include montserrat-font(16px, 300, 0em);
+    color: $text-color;
+
+    flex: 1;
+  }
+
+  &__card_button {
+    width: fit-content;
+    @include montserrat-font(16px, 300, 0em);
+    // padding: 8px;
+    position: relative;
+    padding-right: 10px;
+    // color: rgba(161, 161, 161, 0.525);
+    color: $grey-color;
+    // background-color: $cards-color;
+    // border: 1px solid $cards-color;
+
+    &::after {
+      content: '';
+      width: 2px;
+      height: 8px;
+      // background-color: rgba(161, 161, 161, 0.525);
+      background-color: $grey-color;
+      top: 3px;
+      // top: calc(50% - 3px);
+
+      right: 0;
+      position: absolute;
+      transform: rotate(-45deg);
+
+
+      
+    }
+
+    &::before {
+      content: '';
+      width: 2px;
+      height: 8px;
+      // background-color: rgba(161, 161, 161, 0.525);
+      background-color: $grey-color;
+
+      top: 0;
+      top: calc(50% - 1px);
+
+      right: 0;
+      position: absolute;
+      transform: rotate(45deg);
+
+    }
+
   }
 }

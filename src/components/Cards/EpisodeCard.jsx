@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Card.scss";
+import { useContext } from "react";
+import { GalleryContext } from "../../utils/context/GalleryContext";
 
 export const EpisodeCard = ({ episode }) => {
+
+  const {theme} = useContext(GalleryContext)
+
   const episodeImage = (episode) => {
     switch (true) {
       case episode?.episode?.includes("E01"):
@@ -30,7 +35,7 @@ export const EpisodeCard = ({ episode }) => {
   };
   
   return (
-    <Link to={`/rick-and-morty-gallery/episode/${episode.id}`} className="card">
+    <Link to={`/rick-and-morty-gallery/episode/${episode.id}`} className={`card ${theme}`}>
       <div className="card__img_wrapper card__cover_wrapper">
         <img
           className="card__img"
@@ -44,9 +49,9 @@ export const EpisodeCard = ({ episode }) => {
       </div>
       <div className="card__info_wrapper">
         <p className="card__name">{episode.name}</p>
-        <p className="card__info">Air date: {episode.air_date}</p>
-        <p className="card__info">Episode: {episode.episode}</p>
-        <p className="card__info">Characters: {episode.characters.length}</p>
+        <p className={`card__info ${theme}`}>Air date: {episode.air_date}</p>
+        <p className={`card__info ${theme}`}>Episode: {episode.episode}</p>
+        <p className={`card__info ${theme}`}>Characters: {episode.characters.length}</p>
       </div>
     </Link>
   );

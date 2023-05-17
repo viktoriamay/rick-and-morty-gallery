@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import RickMortyApi from "../../../utils/api/rickMortyApi";
 import { CharacterCard } from "../../../components/Cards/CharacterCard";
 import "../ResourcePage.scss";
+import { BackButton } from "../../../components/BackButton/BackButton";
 
 export const EpisodePage = () => {
   const [episodePageInfo, setEpisodePageInfo] = useState({});
@@ -36,6 +37,7 @@ export const EpisodePage = () => {
   return (
     <div className="resource_page">
       <div className="container">
+      <BackButton />
         <p className="resource_page__title">
           Episode #{episodePageInfo?.id} — Characters Info
         </p>
