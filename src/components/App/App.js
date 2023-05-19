@@ -17,6 +17,9 @@ import { CharacterPage } from "../../pages/ResourcesPages/CharacterPage/Characte
 import { LocationPage } from "../../pages/ResourcesPages/LocationPage/LocationPage";
 import { EpisodePage } from "../../pages/ResourcesPages/EpisodePage/EpisodePage";
 import { ArticlePage } from "../../pages/ArticlePage/ArticlePage";
+import { useTranslation } from "react-i18next";
+import { AboutProject } from "../../pages/AboutProject/AboutProject";
+
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -110,6 +113,18 @@ function App() {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
+  const {t, i18n} = useTranslation()
+
+  const [lang, setLang] = useState('ru')
+
+  const changeLanguage = () => {
+    const lang = localStorage.getItem('lang') ?? 'ru'
+    const newLang = lang === 'ru' ? 'en' : 'ru'
+    i18n.changeLanguage(newLang)
+    setLang(newLang)
+    localStorage.setItem('lang', newLang)
+  }
+
   const valueContextProvider = {
     episode,
     updateEpisode,
@@ -145,7 +160,7 @@ function App() {
     updatePageNumberLocations,
     updateType,
     theme,
-    handleThemeChange,
+    handleThemeChange, t, lang, setLang,changeLanguage
   };
 
   return (
@@ -194,6 +209,10 @@ function App() {
             <Route
               path="/news/:articleID"
               element={<ArticlePage />}
+            />
+            <Route
+              path="/about-project"
+              element={<AboutProject />}
             />
           </Routes>
         </main>
