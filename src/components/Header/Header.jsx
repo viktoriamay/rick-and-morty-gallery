@@ -2,11 +2,11 @@ import { NavLink, useLocation } from "react-router-dom";
 import { MainLogo } from "../MainLogo/MainLogo";
 import "./Header.scss";
 import { CgArrowsExchangeAltV } from "react-icons/cg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GalleryContext } from "../../utils/context/GalleryContext";
 
 export const Header = () => {
-  const { theme, handleThemeChange } = useContext(GalleryContext);
+  const { theme, handleThemeChange, t, lang,changeLanguage } = useContext(GalleryContext);
   const location = useLocation();
 
   return (
@@ -18,18 +18,20 @@ export const Header = () => {
           <MainLogo />
           <nav className="header__links">
             <NavLink to={"/explore"} className="header__link">
-              Исследовать
+              {t("explore")}
             </NavLink>
             <NavLink to={"/statistics"} className="header__link">
-              Статистика
+            {t("statistics")}
             </NavLink>
             <NavLink to={"/news"} className="header__link">
-              Новости
+            {t("news")}
             </NavLink>
           </nav>
           <div className="header__theme">
+      <div onClick={() => changeLanguage()}>{lang}</div>
             <div onClick={handleThemeChange}>
               <CgArrowsExchangeAltV />
+
             </div>
           </div>
         </div>

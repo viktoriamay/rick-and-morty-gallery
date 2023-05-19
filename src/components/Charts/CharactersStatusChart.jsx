@@ -32,7 +32,7 @@ export const CharactersStatusChart = ({ alive, dead, unknown }) => {
       },
       series: [
         {
-          name: "Access From",
+          name: "",
           type: "pie",
           radius: "75%",
           center: ["50%", "50%"],

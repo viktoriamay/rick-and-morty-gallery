@@ -10,7 +10,7 @@ export const Filter = ({ children }) => {
     updateStatus,
     updateGender,
     updateSpecies,
-    updateType, updateEpisode
+    updateType, updateEpisode, t
   } = useContext(GalleryContext);
 
   const radios = document.querySelectorAll('input[type="radio"]');
@@ -32,9 +32,9 @@ export const Filter = ({ children }) => {
 
   return (
     <div>
-      <h3 className="filter_form__title">Фильтры</h3>
+      <h3 className="filter_form__title">{t('filters')}</h3>
       <div className="filter_form__clear_btn" onClick={clearFilters}>
-        Очистить фильтры
+      {t('clearFilters')}
       </div>
       <div className="filter_form__inputs">
         {children}

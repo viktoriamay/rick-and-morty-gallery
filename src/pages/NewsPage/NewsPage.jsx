@@ -7,17 +7,13 @@ import { GalleryContext } from "../../utils/context/GalleryContext";
 
 export const NewsPage = () => {
 
-  const {theme} = useContext(GalleryContext)
+  const {theme, t} = useContext(GalleryContext)
 
   const [data, setData] = useState([]);
 
   const [paginated, setPaginated] = useState([]);
   const [page, setPage] = useState(1);
   const [size, setSize] = useState(10);
-
-  console.log({ paginated });
-  console.log({ data });
-  console.log({ page });
 
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(9);
@@ -64,7 +60,7 @@ export const NewsPage = () => {
         <div className="empty"></div>
 
         <div className={`sort__item ${theme}`}onClick={() => sortItems()}>
-          {isAscending ? "Сначала новые" : "Сначала старые"}
+          {isAscending ? t('newest') : t('oldest')}
         </div>
       </div>
       <div className="news__cards">
@@ -75,8 +71,8 @@ export const NewsPage = () => {
 
       <ReactPaginate
         className="pagination"
-        nextLabel="Следующая"
-        previousLabel="Предыдущая"
+        nextLabel={t('next')}
+        previousLabel={t('prev')}
         previousClassName={`pagination__nav_button pagination__color_button ${theme}`}
         nextClassName={`pagination__nav_button pagination__color_button ${theme}`}
         activeClassName="active"

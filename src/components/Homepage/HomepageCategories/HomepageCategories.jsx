@@ -7,12 +7,12 @@ import { useContext } from "react";
 import { GalleryContext } from "../../../utils/context/GalleryContext";
 
 export const HomepageCategories = () => {
-  const {theme} = useContext(GalleryContext)
+  const {theme, t} = useContext(GalleryContext)
   return (
     <div className="homepage_categories">
       <div className="container">
         <h2 className="homepage__title homepage_categories__title">
-          Категории
+        {t('categories')}
         </h2>
         <div className="homepage_categories__cards">
           <Link to='/explore/characters' className={`homepage_categories__card ${theme}`}>
@@ -24,7 +24,7 @@ export const HomepageCategories = () => {
               />
             </div>
             <div className="homepage_categories__card_title__wrapper">
-              <span className="homepage_categories__card_title">Персонажи</span>
+              <span className="homepage_categories__card_title">{t('characters')}</span>
             </div>
           </Link>
           <Link to='/explore/locations' className={`homepage_categories__card ${theme}`}>
@@ -36,7 +36,7 @@ export const HomepageCategories = () => {
               />
             </div>
             <div className="homepage_categories__card_title__wrapper">
-              <span className="homepage_categories__card_title">Локации</span>
+              <span className="homepage_categories__card_title">{t('locations')}</span>
             </div>
           </Link>
           <Link to='/explore/episodes' className={`homepage_categories__card ${theme}`}>
@@ -48,7 +48,7 @@ export const HomepageCategories = () => {
               />
             </div>
             <div className="homepage_categories__card_title__wrapper">
-              <span className="homepage_categories__card_title">Эпизоды</span>
+              <span className="homepage_categories__card_title">{t('episodes')}</span>
             </div>
           </Link>
         </div>

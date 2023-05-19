@@ -4,13 +4,12 @@ import { FilterOptionBTN } from "../../FilterOptionBTN";
 import { GalleryContext } from "../../../../utils/context/GalleryContext";
 
 export const Gender = () => {
-  const { updateGender, updatePageNumberCharacters } =
+  const { updateGender, updatePageNumberCharacters, t } =
     useContext(GalleryContext);
   let gender = ["Female", "Male", "Genderless", "Unknown"];
 
   return (
-    <>
-      <Accordion title="Пол">
+      <Accordion title={t('gender')}>
         {gender.map((option, index) => (
           <FilterOptionBTN
             index={index}
@@ -24,6 +23,5 @@ export const Gender = () => {
           />
         ))}
       </Accordion>
-    </>
   );
 };

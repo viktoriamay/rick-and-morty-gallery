@@ -17,7 +17,9 @@ export const ExplorePage = () => {
     updateGender,
     updateSpecies,
     updateEpisode,
-    updateType, theme
+    updateType,
+    theme,
+    t,
   } = useContext(GalleryContext);
 
   const clearQuery = () => {
@@ -37,8 +39,8 @@ export const ExplorePage = () => {
   return (
     <div className="explore_page">
       <div className="container">
-      <BackButton />
-        <div className="explore_page__container"> 
+        <BackButton />
+        <div className="explore_page__container">
           <ul className="explore_page__navlink_container">
             <li>
               <NavLink
@@ -46,7 +48,7 @@ export const ExplorePage = () => {
                 to={"/explore/characters"}
                 onClick={clearQuery}
               >
-                Персонажи
+                {t("characters")}
               </NavLink>
             </li>
             <li>
@@ -55,7 +57,7 @@ export const ExplorePage = () => {
                 to={"/explore/locations"}
                 onClick={clearQuery}
               >
-                Локации
+                {t("locations")}
               </NavLink>
             </li>
             <li>
@@ -64,7 +66,7 @@ export const ExplorePage = () => {
                 to={"/explore/episodes"}
                 onClick={clearQuery}
               >
-                Эпизоды
+                {t("episodes")}
               </NavLink>
             </li>
           </ul>

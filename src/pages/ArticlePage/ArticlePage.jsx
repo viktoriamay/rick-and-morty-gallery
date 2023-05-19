@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import RickMortyApi from "../../utils/api/rickMortyApi";
 import "./ArticlePage.scss";
 import { BackButton } from "../../components/BackButton/BackButton";
+import { GalleryContext } from "../../utils/context/GalleryContext";
 
 export const ArticlePage = () => {
+  const {t} = useContext(GalleryContext)
   const [articlePageInfo, setArticlePageInfo] = useState({});
   const params = useParams();
 
@@ -17,7 +19,7 @@ export const ArticlePage = () => {
     <div className="container">
       <div className="article">
       <BackButton />
-        <span className="article__id">Article #{articlePageInfo?.id}</span>
+        <span className="article__id">{t('article')} #{articlePageInfo?.id}</span>
         <h1 className="article__title">{articlePageInfo?.title}</h1>
         <p className="article__created">
           {new Date(articlePageInfo?.published_at).toLocaleString("ru-ru")}

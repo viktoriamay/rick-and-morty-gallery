@@ -1,34 +1,37 @@
 import RickMortyMainPage from "./img/rick-and-morty-portal.png";
 import "./HomepageInfo.scss";
 import { BaseButton } from "./../../BaseButton/BaseButton";
+import { useContext } from "react";
+import { GalleryContext } from "../../../utils/context/GalleryContext";
 
 export const HomepageInfo = () => {
+
+  const {t} = useContext(GalleryContext);
   return (
     <div className="container">
       <div className="homepage_info__preview">
         <div className="homepage_info__info">
-          {/* <p className="homepage_info__subtitle">RICK AND MORTY</p> */}
           <h1 className="homepage_info__title">
-            Галерея персонажей анимационного сериала Рик и Морти
+            {t('galleryTitle')}
           </h1>
-          <BaseButton>Исследовать</BaseButton>
+          <BaseButton>{t('explore')}</BaseButton>
           <div className="homepage_info__statistics">
             <span className="homepage_info__statistics_count">
               826
               <span className="homepage_info__statistics_description">
-                Персонажей
+              {t('charactersGalleryTitle')}
               </span>
             </span>
             <span className="homepage_info__statistics_count">
               51
               <span className="homepage_info__statistics_description">
-                Эпизод
+              {t('episodesGalleryTitle')}
               </span>
             </span>
             <span className="homepage_info__statistics_count">
               126
               <span className="homepage_info__statistics_description">
-                Локаций
+              {t('locationsGalleryTitle')}
               </span>
             </span>
           </div>

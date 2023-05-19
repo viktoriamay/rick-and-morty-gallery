@@ -1,10 +1,15 @@
+import { useContext } from "react";
 import "./HomepageNews.scss";
+import { GalleryContext } from "../../../utils/context/GalleryContext";
 
 export const HomepageNews = () => {
+
+  const {t} = useContext(GalleryContext)
+
   return (
     <div className="container">
       <div className="homepage_news">
-        <h2 className="homepage__title">News</h2>
+        <h2 className="homepage__title">{t('news')}</h2>
         <div className="homepage_news__cards">
           <div className="homepage_news__card">
             <div className="homepage_news__card_img_wrapper">

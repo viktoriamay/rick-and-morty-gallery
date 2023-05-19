@@ -19,21 +19,21 @@ export const Footer = () => {
         <div className="footer__wrapper">
           <div>
             <MainLogo />
-            <div className="footer__copyright">Made by viktoriamay</div>
+            <div className="footer__copyright">Made by <Link to="https://github.com/viktoriamay" target="_blank">viktoriamay</Link></div>
           </div>
           <nav className="footer__links">
-            <Link to="/">About project</Link>
+            <Link to="/about-project">About project</Link>
             <Link to="/">About RM</Link>
             <Link to="/">Accordion</Link>
           </nav>
           <div className="footer__icons_wrapper">
-            <Link to="" target="_blank">
+            <Link to="https://github.com/viktoriamay" target="_blank">
               <FiGithub />
             </Link>
-            <Link to="" target="_blank">
+            <Link to="https://t.me/etern8ty" target="_blank">
               <TbBrandTelegram />
             </Link>
-            <Link to="" target="_blank">
+            <Link to="mailto:viktoriagmay@gmail.com" target="_blank">
               <MdAlternateEmail />
             </Link>
           </div>

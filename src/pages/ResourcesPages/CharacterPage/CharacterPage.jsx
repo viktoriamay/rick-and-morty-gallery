@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RickMortyApi from "../../../utils/api/rickMortyApi";
 import { Link, useParams } from "react-router-dom";
 import "../ResourcePage.scss";
 import { Accordion } from "../../../components/Accordion/Accordion";
 import { BackButton } from "../../../components/BackButton/BackButton";
+import { GalleryContext } from "../../../utils/context/GalleryContext";
 
 export const CharacterPage = () => {
+  const {t} = useContext(GalleryContext)
   const [characterPageInfo, setCharacterPageInfo] = useState({});
   const params = useParams();
 
@@ -54,7 +56,7 @@ export const CharacterPage = () => {
       <div className="container">
       <BackButton />
         <p className="resource_page__title">
-          Профиль персонажа #{characterPageInfo?.id}
+          {t('characterProfile')} #{characterPageInfo?.id}
         </p>
         <div className="acc">
 
@@ -67,32 +69,32 @@ export const CharacterPage = () => {
           </div>
           <div className="resource_page__info_wrapper">
             <div className="resource_page__info_item">
-              <span className="resource_page__parameter">Name </span>
+              <span className="resource_page__parameter">{t('name')}</span>
               <p className="resource_page__name">{characterPageInfo?.name}</p>
             </div>
             <div className="resource_page__info_item">
-              <span className="resource_page__parameter">Gender </span>
+              <span className="resource_page__parameter">{t('gender')} </span>
               <p className="resource_page__info">{characterPageInfo?.gender}</p>
             </div>
 
             <div className="resource_page__info_item">
-              <span className="resource_page__parameter">Status </span>
+              <span className="resource_page__parameter">{t('status')}</span>
               <p className="resource_page__info">{characterPageInfo?.status}</p>
             </div>
             <div className="resource_page__info_item">
-              <span className="resource_page__parameter">Species </span>
+              <span className="resource_page__parameter">{t('species')}</span>
               <p className="resource_page__info">
                 {characterPageInfo?.species}
               </p>
             </div>
             <div className="resource_page__info_item">
-              <span className="resource_page__parameter">Created at </span>
+              <span className="resource_page__parameter">{t('createdAt')}</span>
               <p className="resource_page__info">
                 {new Date(characterPageInfo?.created).toLocaleString("ru-ru")}
               </p>
             </div>
             <div className="resource_page__info_item">
-              <span className="resource_page__parameter">Last location </span>
+              <span className="resource_page__parameter">{t('lastLocation')}</span>
               <Link
                 to={`/location/${location.id}`}
                 className="resource_page__info resource_page__info_link"
@@ -105,11 +107,11 @@ export const CharacterPage = () => {
           <div className="resource_page__info_wrapper">
           <div className="resource_page__info_item">
               {/* <span className="resource_page__parameter">Name </span> */}
-              <p className="resource_page__name">Эпизоды с участием персонажа: {characterPageInfo?.episode?.length}</p>
+              <p className="resource_page__name">{t('episodesWithCharacter')}: {characterPageInfo?.episode?.length}</p>
             </div>
           {episodes.map((episode) => (
             <div className="resource_page__info_item">
-            <span className="resource_page__parameter">{`Episode #${episode.id}`}</span>
+            <span className="resource_page__parameter">{`${t('episode')} #${episode.id}`}</span>
             <Link className="resource_page__info resource_page__info_link" to={`/episode/${episode.id}`}>
               {episode.name}
             </Link>
@@ -117,7 +119,7 @@ export const CharacterPage = () => {
           )).slice(0, showAll ? episodes.length : 5)}
           { characterPageInfo?.episode?.length > 5 &&
 
-          <button className="character_page__button" onClick={toggleShowAll}>{showAll ? 'Скрыть' : 'Показать все'}</button>
+          <button className="character_page__button" onClick={toggleShowAll}>{showAll ? t('hideAll') : t('showAll')}</button>
           }
           </div>
         </div>

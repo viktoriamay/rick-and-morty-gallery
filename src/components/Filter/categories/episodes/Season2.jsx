@@ -4,7 +4,7 @@ import { FilterOptionBTN } from "../../FilterOptionBTN";
 import { GalleryContext } from "../../../../utils/context/GalleryContext";
 
 export const Season2 = () => {
-  const { updateEpisode, updatePageNumberEpisodes } =
+  const { updateEpisode, updatePageNumberEpisodes, t } =
     useContext(GalleryContext);
 
   let episode2 = [
@@ -21,7 +21,7 @@ export const Season2 = () => {
   ];
 
   return (
-    <Accordion title="Season 2">
+    <Accordion title={`${t('season')} 2`}>
       {episode2.map((option, index) => (
         <FilterOptionBTN
           index={`${index}${option}`}

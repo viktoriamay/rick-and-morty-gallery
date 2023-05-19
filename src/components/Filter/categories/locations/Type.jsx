@@ -8,13 +8,13 @@ export const Type = () => {
 
   const {
     updateType,
-    updatePageNumberLocations
+    updatePageNumberLocations, t
   } = useContext(GalleryContext);
   
   let type = ["Planet", "Cluster", "Space station", "Microverse", "TV", "Resort", "Fantasy town", "Dream", "Dimension", "Menagerie", "Game", "Custom", "Daycare", "Spa", "Spacecraft", "Box", "Base", "Convention", "Death Star", "Arcade", "Non-Diegetic Alternative Reality", "Unknown"];
   return (
     <>
-       <Accordion title="Тип">
+       <Accordion title={t('type')}>
         {type.map((option, index) => (
           <FilterOptionBTN
             index={index}

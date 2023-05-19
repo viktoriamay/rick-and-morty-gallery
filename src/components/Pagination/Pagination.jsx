@@ -5,7 +5,19 @@ import { GalleryContext } from "../../utils/context/GalleryContext";
 import { useLocation } from "react-router-dom";
 
 export const Pagination = () => {
-  const {theme} = useContext(GalleryContext)
+
+  const {
+    infoCharacters,characters,episodes, locations,
+    pageNumberEpisodes,
+    infoEpisodes,
+    pageNumberCharacters,
+    pageNumberLocations,
+    updatePageNumberLocations,
+    updatePageNumberCharacters,
+    updatePageNumberEpisodes,
+    infoLocations, theme, t
+  } = useContext(GalleryContext);
+
   const location = useLocation();
   const pageChange = (data) => {
     if (location.pathname === "/explore/characters") {
@@ -62,17 +74,7 @@ export const Pagination = () => {
     }
   };
 
-  const {
-    infoCharacters,characters,episodes, locations,
-    pageNumberEpisodes,
-    infoEpisodes,
-    pageNumberCharacters,
-    pageNumberLocations,
-    updatePageNumberLocations,
-    updatePageNumberCharacters,
-    updatePageNumberEpisodes,
-    infoLocations,
-  } = useContext(GalleryContext);
+  
   // const [width, setWidth] = useState(window.innerWidth);
   // const updateDimensions = () => {
   //   setWidth(window.innerWidth);
@@ -91,8 +93,8 @@ export const Pagination = () => {
       {paginationCountCards(location.pathname) && (
         <ReactPaginate
           className="pagination"
-          nextLabel="Следующая"
-          previousLabel="Предыдущая"
+          nextLabel={t('next')}
+          previousLabel={t('prev')}
           previousClassName={`pagination__nav_button pagination__color_button ${theme}`}
           nextClassName={`pagination__nav_button pagination__color_button ${theme}`}
           activeClassName="active"

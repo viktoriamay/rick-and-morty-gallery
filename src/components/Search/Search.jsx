@@ -14,7 +14,7 @@ export const Search = () => {
     setSearchQueryEpisodes,
     searchQueryCharacters,
     searchQueryLocations,
-    searchQueryEpisodes,
+    searchQueryEpisodes, t
   } = useContext(GalleryContext);
 
   const searchRequest = (e) => e.preventDefault();
@@ -64,7 +64,7 @@ export const Search = () => {
         <input
           className="search__input"
           type="text"
-          placeholder="Поиск"
+          placeholder={t('search')}
           value={valueInput(location.pathname)}
           onChange={(e) => {
             searchQuery(location.pathname, e);

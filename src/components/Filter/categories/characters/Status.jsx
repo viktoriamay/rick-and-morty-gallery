@@ -7,7 +7,7 @@ import { GalleryContext } from "../../../../utils/context/GalleryContext";
 export const Status = () => {
 
   const {
-    updateStatus,updatePageNumberCharacters
+    updateStatus,updatePageNumberCharacters,t
   } = useContext(GalleryContext);
 
   const [selectedValue, setSelectedValue] = useState(null);
@@ -22,10 +22,7 @@ export const Status = () => {
 
   let status = ["Alive", "Dead", "Unknown"];
   return (
-    <>
-      <Accordion title="Статус">
-      {/* <button onClick={handleClear}>Сбросить</button> */}
-    
+      <Accordion title={t('status')}>
         {status.map((option, index) => (
           <FilterOptionBTN
             key={`status-${index}`}
@@ -46,6 +43,5 @@ export const Status = () => {
           />
         ))}
       </Accordion>
-    </>
   );
 };

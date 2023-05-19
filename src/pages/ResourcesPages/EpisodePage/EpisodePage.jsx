@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RickMortyApi from "../../../utils/api/rickMortyApi";
 import { CharacterCard } from "../../../components/Cards/CharacterCard";
 import "../ResourcePage.scss";
 import { BackButton } from "../../../components/BackButton/BackButton";
+import { GalleryContext } from "../../../utils/context/GalleryContext";
 
 export const EpisodePage = () => {
+  const {t} = useContext(GalleryContext)
   const [episodePageInfo, setEpisodePageInfo] = useState({});
 
   let [characters, setCharacters] = useState([]);
@@ -39,28 +41,28 @@ export const EpisodePage = () => {
       <div className="container">
       <BackButton />
         <p className="resource_page__title">
-          Episode #{episodePageInfo?.id} — Characters Info
+          {t('episode')} #{episodePageInfo?.id} — {t('charactersInfo')}
         </p>
         <div className="resource_page__cards_container">
           <div className="resource_page__info_wrapper resource_page__info_wrapper_about">
             <div className="resource_page__info_item">
-              <span className="resource_page__parameter">Name</span>
+              <span className="resource_page__parameter">{t('title')}</span>
               <p className="resource_page__name">{episodePageInfo?.name}</p>
             </div>
             <div className="resource_page__info_item">
-              <span className="resource_page__parameter">Air Date</span>
+              <span className="resource_page__parameter">{t('airDate')}</span>
               <p className="resource_page__info">{episodePageInfo?.air_date}</p>
             </div>
             <div className="resource_page__info_item">
-              <span className="resource_page__parameter">Episode</span>
+              <span className="resource_page__parameter">{t('episode')}</span>
               <p className="resource_page__info">{episodePageInfo?.episode}</p>
             </div>
             <div className="resource_page__info_item">
-              <span className="resource_page__parameter">Created at</span>
+              <span className="resource_page__parameter">{t('createdAt')}</span>
               <p className="resource_page__info">{episodePageInfo?.created}</p>
             </div>
             <div className="resource_page__info_item">
-              <span className="resource_page__parameter">Characters</span>
+              <span className="resource_page__parameter">{t('characters')}</span>
               <p className="resource_page__info">
                 {episodePageInfo?.characters?.length}
               </p>

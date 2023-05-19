@@ -147,7 +147,7 @@ export const StatisticsPage = () => {
     infoEpisodes,
     updateType,
     type,
-    locations, theme
+    locations, theme, t
   } = useContext(GalleryContext);
 
   const [planet, setPlanet] = useState(0);
@@ -206,9 +206,9 @@ const [alive, setAlive] = useState(0);
   };
 
   const tabs = [
-    { label: "Статистика участия персонажей в эпизодах", content: <CharactersEpisodesChart /> },
-    { label: "Количество локаций по некоторым типам", content: <LocationsTypeChart planet={planet} spaceStation={spaceStation} microverse={microverse} dimension={dimension} dream={dream} /> },
-    { label: "Tab 3", content: <CharactersStatusChart alive={alive} dead={dead} unknown={unknown} /> },
+    { label: t('episodesWithCharacters'), content: <CharactersEpisodesChart /> },
+    { label: t('locationsByType'), content: <LocationsTypeChart planet={planet} spaceStation={spaceStation} microverse={microverse} dimension={dimension} dream={dream} /> },
+    { label: t('charactersStatus'), content: <CharactersStatusChart alive={alive} dead={dead} unknown={unknown} /> },
   ];
 
   return (

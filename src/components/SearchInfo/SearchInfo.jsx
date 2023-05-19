@@ -17,7 +17,7 @@ export const SearchInfo = () => {
     infoLocations,
     infoEpisodes,
     episodes,
-    locations,
+    locations, t
   } = useContext(GalleryContext);
 
   const location = useLocation();
@@ -29,12 +29,12 @@ export const SearchInfo = () => {
           (searchQueryCharacters || status || gender || species) &&
           characters?.length !== 0 && (
             <div className="search_info">
-              По запросу{" "}
+              {t('forRequest')}{" "}
               <span className="search_info__request">
                 {" "}
                 {searchQueryCharacters}
               </span>{" "}
-              найдено персонажей:{" "}
+              {t('charactersFound')}:{" "}
               <span className="search_info__request">
                 {infoCharacters?.count}
               </span>
@@ -47,12 +47,12 @@ export const SearchInfo = () => {
           (searchQueryLocations || type) &&
           locations?.length !== 0 && (
             <div className="search_info">
-              По запросу{" "}
+              {t('forRequest')}
               <span className="search_info__request">
                 {" "}
                 {searchQueryLocations}
               </span>{" "}
-              найдено локаций:{" "}
+              {t('locationsFound')}:{" "}
               <span className="search_info__request">
                 {infoLocations?.count}
               </span>
@@ -65,12 +65,12 @@ export const SearchInfo = () => {
           searchQueryEpisodes &&
           episodes?.length !== 0 && (
             <div className="search_info">
-              По запросу{" "}
+              {t('forRequest')}
               <span className="search_info__request">
                 {" "}
                 {searchQueryEpisodes}
               </span>{" "}
-              найдено эпизодов:{" "}
+              {t('episodesFound')}:{" "}
               <span className="search_info__request">
                 {infoEpisodes?.count}
               </span>
@@ -89,12 +89,12 @@ export const SearchInfo = () => {
         return (
           characters?.length === 0 && (
             <div className="search_info">
-              По запросу{" "}
+              {t('forRequest')}
               <span className="search_info__request">
                 {" "}
                 {searchQueryCharacters}
               </span>{" "}
-              персонажей не найдено
+              {t('charactersNotFound')}
             </div>
           )
         );
@@ -103,12 +103,12 @@ export const SearchInfo = () => {
         return (
           locations?.length === 0 && (
             <div className="search_info">
-              По запросу{" "}
+              {t('forRequest')}
               <span className="search_info__request">
                 {" "}
                 {searchQueryLocations}
               </span>{" "}
-              локаций не найдено
+              {t('locationsNotFound')}
             </div>
           )
         );
@@ -117,12 +117,12 @@ export const SearchInfo = () => {
         return (
           episodes?.length === 0 && (
             <div className="search_info">
-              По запросу{" "}
+              {t('forRequest')}{" "}
               <span className="search_info__request">
                 {" "}
                 {searchQueryEpisodes}
               </span>{" "}
-              эпизодов не найдено
+              {t('episodesNotFound')}
             </div>
           )
         );

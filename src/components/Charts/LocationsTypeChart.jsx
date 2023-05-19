@@ -64,7 +64,7 @@ export const LocationsTypeChart = ({planet, spaceStation,microverse,dimension,dr
       },
       series: [
         {
-          name: "Количество локаций",
+          name: "",
           type: "pie",
           radius: ["40%", "70%"],
           avoidLabelOverlap: false,
