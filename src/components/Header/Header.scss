@@ -1,5 +1,4 @@
-@import '../../assets/SCSS/variables.scss';
-
+@import "../../assets/SCSS/variables.scss";
 
 .header {
   &__content {
@@ -8,11 +7,10 @@
     align-items: center;
     padding: 25px 0;
   }
-  
+
   &__links {
     display: flex;
     gap: 40px;
-    
   }
 
   &__link {
@@ -21,9 +19,8 @@
     position: relative;
 
     &::after {
-        
       transition: all 0.3s ease;
-      content: '';
+      content: "";
       position: absolute;
       bottom: -0.5rem;
       left: 0;
@@ -36,8 +33,7 @@
       color: $buttons-color-green;
 
       &::after {
-        
-        content: '';
+        content: "";
         position: absolute;
         bottom: -0.5rem;
         left: 0;
@@ -49,12 +45,28 @@
 
     &:hover {
       color: $buttons-color-green;
+    }
+  }
 
-      
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__lang {
+    @include jura-font(18px, 700, 0em);
+    cursor: pointer;
+  }
+
+  &__theme {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+
+    svg {
+      width: 100%;
+      height: 100%;
     }
   }
 }
-      .header__exp {
-        background-color: $dark-color;
-      
-      }

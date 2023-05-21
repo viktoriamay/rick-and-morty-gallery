@@ -1,12 +1,14 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { MainLogo } from "../MainLogo/MainLogo";
 import "./Header.scss";
-import { CgArrowsExchangeAltV } from "react-icons/cg";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { GalleryContext } from "../../utils/context/GalleryContext";
+import { ReactComponent as Sun } from "./img/sun.svg";
+import { ReactComponent as Moon } from "./img/moon.svg";
 
 export const Header = () => {
-  const { theme, handleThemeChange, t, lang,changeLanguage } = useContext(GalleryContext);
+  const { theme, handleThemeChange, t, lang, changeLanguage } =
+    useContext(GalleryContext);
   const location = useLocation();
 
   return (
@@ -21,17 +23,16 @@ export const Header = () => {
               {t("explore")}
             </NavLink>
             <NavLink to={"/statistics"} className="header__link">
-            {t("statistics")}
+              {t("statistics")}
             </NavLink>
             <NavLink to={"/news"} className="header__link">
-            {t("news")}
+              {t("news")}
             </NavLink>
           </nav>
-          <div className="header__theme">
-      <div onClick={() => changeLanguage()}>{lang}</div>
-            <div onClick={handleThemeChange}>
-              <CgArrowsExchangeAltV />
-
+          <div className="header__controls">
+            <div onClick={() => changeLanguage()} className="header__lang">{lang === 'ru' ? 'Ru' : 'En'}</div>
+            <div onClick={handleThemeChange} className="header__theme">
+              {theme === "light" ? <Sun /> : <Moon />}
             </div>
           </div>
         </div>
