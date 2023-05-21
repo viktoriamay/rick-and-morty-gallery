@@ -20,7 +20,6 @@ import { ArticlePage } from "../../pages/ArticlePage/ArticlePage";
 import { useTranslation } from "react-i18next";
 import { AboutProject } from "../../pages/AboutProject/AboutProject";
 
-
 function App() {
   const [characters, setCharacters] = useState([]);
   const [infoCharacters, setInfoCharacters] = useState({});
@@ -107,23 +106,28 @@ function App() {
       });
   }, [debounceSearchQueryEpisodes, episode, pageNumberEpisodes]);
 
-  const [theme, setTheme] = useState("dark");
-
+  const [theme, setTheme] = useState(localStorage.getItem("theme"));
+  
   const handleThemeChange = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  const {t, i18n} = useTranslation()
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
-  const [lang, setLang] = useState('ru')
+
+  const { t, i18n } = useTranslation();
+
+  const [lang, setLang] = useState("ru");
 
   const changeLanguage = () => {
-    const lang = localStorage.getItem('lang') ?? 'ru'
-    const newLang = lang === 'ru' ? 'en' : 'ru'
-    i18n.changeLanguage(newLang)
-    setLang(newLang)
-    localStorage.setItem('lang', newLang)
-  }
+    const lang = localStorage.getItem("lang") ?? "ru";
+    const newLang = lang === "ru" ? "en" : "ru";
+    i18n.changeLanguage(newLang);
+    setLang(newLang);
+    localStorage.setItem("lang", newLang);
+  };
 
   const valueContextProvider = {
     episode,
@@ -160,7 +164,11 @@ function App() {
     updatePageNumberLocations,
     updateType,
     theme,
-    handleThemeChange, t, lang, setLang,changeLanguage
+    handleThemeChange,
+    t,
+    lang,
+    setLang,
+    changeLanguage,
   };
 
   return (
@@ -176,44 +184,21 @@ function App() {
           <Routes>
             <Route
               path="/explore"
-              element={
-                <Navigate to="/explore/characters" />
-              }
+              element={<Navigate to="/explore/characters" />}
             />
-            <Route
-              path="/explore/*"
-              element={<ExplorePage />}
-            >
+            <Route path="/explore/*" element={<ExplorePage />}>
               <Route path="characters" element={<SearchCharactersPage />} />
               <Route path="locations" element={<SearchLocationsPage />} />
               <Route path="episodes" element={<SearchEpisodesPage />} />
             </Route>
-            <Route
-              path="/character/:characterID"
-              element={<CharacterPage />}
-            />
-            <Route
-              path="/location/:locationID"
-              element={<LocationPage />}
-            />
-            <Route
-              path="/episode/:episodeID"
-              element={<EpisodePage />}
-            />
+            <Route path="/character/:characterID" element={<CharacterPage />} />
+            <Route path="/location/:locationID" element={<LocationPage />} />
+            <Route path="/episode/:episodeID" element={<EpisodePage />} />
 
-            <Route
-              path="/statistics"
-              element={<StatisticsPage />}
-            />
+            <Route path="/statistics" element={<StatisticsPage />} />
             <Route path="/news" element={<NewsPage />} />
-            <Route
-              path="/news/:articleID"
-              element={<ArticlePage />}
-            />
-            <Route
-              path="/about-project"
-              element={<AboutProject />}
-            />
+            <Route path="/news/:articleID" element={<ArticlePage />} />
+            <Route path="/about-project" element={<AboutProject />} />
           </Routes>
         </main>
         <Footer />
