@@ -21,6 +21,7 @@
   "season": "Сезон",
   "search": "Поиск",
   "prev": "Предыдущая",
+  "next": "Следующая",
   "characterProfile": "Профиль персонажа",
   "name": "Имя",
   "createdAt": "Создано",
@@ -29,6 +30,7 @@
   "episodesWithCharacter": "Эпизоды с участием персонажа",
   "episode": "Эпизод",
   "showAll": "Показать все",
+  "hideAll": "Скрыть",
   "residentsInfo": "Информация о жителях",
   "dimension": "Измерение",
   "residents": "Жители",
@@ -48,6 +50,4 @@
   "locationsNotFound": "локаций не найдено" ,
   "episodesFound": "найдено эпизодов",
   "episodesNotFound": "эпизодов не найдено" 
-
-
 }
