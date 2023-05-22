@@ -11,6 +11,8 @@ export const Header = () => {
     useContext(GalleryContext);
   const location = useLocation();
 
+  const langLS = localStorage.getItem('lang')
+
   return (
     <header
       className={location.pathname === "/" ? `header` : `header__exp ${theme}`}
@@ -30,7 +32,7 @@ export const Header = () => {
             </NavLink>
           </nav>
           <div className="header__controls">
-            <div onClick={() => changeLanguage()} className="header__lang">{lang === 'ru' ? 'Ru' : 'En'}</div>
+            <div onClick={() => changeLanguage()} className="header__lang">{langLS === 'ru' ? 'Ru' : 'En'}</div>
             <div onClick={handleThemeChange} className="header__theme">
               {theme === "light" ? <Sun /> : <Moon />}
             </div>
