@@ -18,8 +18,8 @@ import { LocationPage } from '../../pages/ResourcesPages/LocationPage/LocationPa
 import { EpisodePage } from '../../pages/ResourcesPages/EpisodePage/EpisodePage';
 import { ArticlePage } from '../../pages/ArticlePage/ArticlePage';
 import { useTranslation } from 'react-i18next';
-import { AboutProject } from '../../pages/AboutProject/AboutProject';
-import { AboutRM } from '../../pages/AboutRM/AboutRM';
+import { AboutProject } from '../../pages/AboutPages/AboutProject';
+import { AboutRM } from '../../pages/AboutPages/AboutRM';
 
 function App() {
   const [characters, setCharacters] = useState([]);

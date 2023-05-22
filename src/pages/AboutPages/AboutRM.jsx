@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import './AboutRM.scss';
+import './AboutPages.scss';
 import { GalleryContext } from '../../utils/context/GalleryContext';
 import { BackButton } from '../../components/BackButton/BackButton';
 

@@ -6,22 +6,42 @@
     grid-template-columns: 1.8fr 1.2fr;
     gap: 1rem;
 align-items: center;
-margin-top: 1rem;
   }
   &__info_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+margin-top: 1rem;
+
   }
   &__title {
     @include montserrat-font(32px, 500, 0);
     margin-bottom: 1rem;
+    color: $buttons-color-green;
+  }
+
+  &__subtitle {
+    @include montserrat-font(26px, 500, 0);
+    color: $buttons-color-blue;
+
+
   }
 
   &__info {
     @include montserrat-font(22px, 300, 0);
     
-    &:nth-child(2) {
-margin-bottom: 1rem;
-    }
     
+    
+  }
+
+  &__list {
+    margin: 0;
+    list-style-type: square;
+  }
+  &__list_item {
+    @include montserrat-font(20px, 300, 0);
+    margin: 0.2rem 0;
+
   }
 
   &__img_wrapper {

@@ -45,12 +45,40 @@
   "oldest": "Oldest",
   "forRequest": "For the query",
   "charactersFound": "found characters",
-  "charactersNotFound": "characters not found", 
+  "charactersNotFound": "characters not found",
   "locationsFound": "found locations",
-  "locationsNotFound": "locations not found" ,
+  "locationsNotFound": "locations not found",
   "episodesFound": "found episodes",
   "episodesNotFound": "episodes not found",
-  "rickMortyTitle": "Rick and Morty" ,
+  "rickMortyTitle": "Rick and Morty",
+  "rickMortyLink": "About Rick and Morty",
   "rickMortyDescription1": "Rick and Morty is an American adult animated science-fiction sitcom created by Justin Roiland and Dan Harmon for Cartoon Network's nighttime programming block Adult Swim.",
-  "rickMortyDescription2": "The series follows the misadventures of Rick Sanchez, a cynical mad scientist, and his good-hearted but fretful grandson Morty Smith, who split their time between domestic life and interdimensional adventures that take place across an infinite number of realities, often traveling to other planets and dimensions through portals and on Rick's flying saucer. " 
+  "rickMortyDescription2": "The series follows the misadventures of Rick Sanchez, a cynical mad scientist, and his good-hearted but fretful grandson Morty Smith, who split their time between domestic life and interdimensional adventures that take place across an infinite number of realities, often traveling to other planets and dimensions through portals and on Rick's flying saucer.",
+  "rmProject": "Rick and Morty Gallery Project",
+  "rmProjectLink": "About project",
+  "rmProjectInfo": {
+    "info1": "Rick and Morty Gallery is a gallery website dedicated to the popular animated series Rick and Morty. On the website you can view information about the characters, episodes and locations of the series.",
+    "info2": "The project was created using the REST API technology.",
+    "info3": "To get data about the characters, episodes and locations of the series, an open API provided by the site was used https://rickandmortyapi.com /. The site API provides the ability to obtain data about characters, episodes and locations, as well as filtering and sorting data by various parameters.",
+    "info4": "To get news data, an open API provided by the site was used https://api.spaceflightnewsapi.net/v4/.",
+    "info5": "The use of REST API technology in the project made it possible to create a dynamic interface that receives data from the server in real time, which makes the application faster and more user-friendly.",
+    "technologies" : {
+      "techTitle": "Technologies used",
+      "tech1": "React Library",
+      "tech2": "Hosting VercelApp"
+    },
+    "functions": {
+      "funcTitle": "Implemented functions",
+      "func1": "Displaying a list of characters, episodes, and locations",
+      "func2": "Search through the list (by character name, episode name, or location)",
+      "func3": "Displays detailed information about a character, episode, or location, including a picture, title, description, and a list of related objects (for example, characters in an episode)",
+      "func4": "Pagination for a list of characters, episodes, locations and news",
+      "func5": "Routing and the ability to follow links to the pages of characters, episodes and locations",
+      "func6": "Changing the language",
+      "func7": "Changing the app's color theme",
+      "func8": "Character data statistics using the ECharts library"
+
+    }
+
+  }
 }
