@@ -49,5 +49,8 @@
   "locationsFound": "found locations",
   "locationsNotFound": "locations not found" ,
   "episodesFound": "found episodes",
-  "episodesNotFound": "episodes not found" 
+  "episodesNotFound": "episodes not found",
+  "rickMortyTitle": "Rick and Morty" ,
+  "rickMortyDescription1": "Rick and Morty is an American adult animated science-fiction sitcom created by Justin Roiland and Dan Harmon for Cartoon Network's nighttime programming block Adult Swim.",
+  "rickMortyDescription2": "The series follows the misadventures of Rick Sanchez, a cynical mad scientist, and his good-hearted but fretful grandson Morty Smith, who split their time between domestic life and interdimensional adventures that take place across an infinite number of realities, often traveling to other planets and dimensions through portals and on Rick's flying saucer. " 
 }

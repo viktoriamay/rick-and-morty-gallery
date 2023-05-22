@@ -1,0 +1,33 @@
+@import '../../assets/SCSS/variables.scss';
+
+.about_page {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1.8fr 1.2fr;
+    gap: 1rem;
+align-items: center;
+margin-top: 1rem;
+  }
+  &__info_wrapper {
+  }
+  &__title {
+    @include montserrat-font(32px, 500, 0);
+    margin-bottom: 1rem;
+  }
+
+  &__info {
+    @include montserrat-font(22px, 300, 0);
+    
+    &:nth-child(2) {
+margin-bottom: 1rem;
+    }
+    
+  }
+
+  &__img_wrapper {
+    // max-width: 30rem;
+    img {
+      width: 100%;
+    }
+  }
+}
