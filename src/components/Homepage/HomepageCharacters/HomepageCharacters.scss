@@ -1,5 +1,13 @@
-@import "../../../assets/SCSS/variables.scss";
+@import '../../../assets/SCSS/variables.scss';
 
+.swiper,
+.swiper-container {
+  max-width: 1280px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px !important;
+}
 
 .homepage_characters {
 
