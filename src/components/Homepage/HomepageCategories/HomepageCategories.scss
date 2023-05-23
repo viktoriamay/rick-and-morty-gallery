@@ -1,4 +1,4 @@
-@import "../../../assets/SCSS/variables.scss";
+@import '../../../assets/SCSS/variables.scss';
 
 .homepage_categories {
   background: rgba(255, 255, 255, 0.04);
@@ -6,18 +6,35 @@
 
   &__title {
     text-align: center;
+    grid-area: title;
   }
 
   &__cards {
     display: grid;
-    grid-template-columns: repeat(3, 21%);
+    grid-template-columns: repeat(3, 260px);
+    grid-template-areas:
+      'title title title'
+      'card_1 card_2 card_3';
     justify-content: center;
-    gap: 50px;
+    column-gap: 3rem;
+    box-sizing: border-box;
+  }
+
+  &__card.card_1 {
+    grid-area: card_1;
+  }
+
+  &__card.card_2 {
+    grid-area: card_2;
+  }
+
+  &__card.card_3 {
+    grid-area: card_3;
   }
 
   &__card {
-    padding: 8px 8px 30px;
     background: rgba(255, 255, 255, 0.082);
+    padding: 8px 8px 30px;
     backdrop-filter: blur(20px);
     border-radius: 0.5rem;
     border: 2px solid #62626213;
@@ -54,5 +71,36 @@
     border-radius: 0 10px 0 10px;
     background-color: $buttons-color-green;
     color: $background-color;
+  }
+}
+
+@media (max-width: 992px) {
+  .homepage_categories {
+    &__cards {
+      grid-template-columns: repeat(2, 260px);
+      grid-template-areas:
+        'title card_1'
+        'card_2 card_3';
+      gap: 2rem;
+    }
+
+    &__title {
+      align-self: center;
+    }
+  }
+}
+
+@media (max-width: 630px) {
+  .homepage_categories__cards {
+    grid-template-columns: 260px;
+    grid-template-areas:
+      'title'
+      'card_1'
+      'card_2'
+      'card_3';
+  }
+
+  .homepage__title.homepage_categories__title {
+    margin: 0;
   }
 }
