@@ -1,21 +1,19 @@
-@import "../../../assets/SCSS/variables.scss";
+@import '../../../assets/SCSS/variables.scss';
 
 .homepage_info {
-
   &__preview {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
     gap: 2rem;
     align-items: center;
   }
+
   &__info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
   }
-
-
 
   &__subtitle {
     @include jura-font(30px, 700, -0.03em);
@@ -27,69 +25,70 @@
 
   &__button {
     position: relative;
-  z-index: 2;
-  display: inline-block;
-  padding: 12px 23px;
-  @include montserrat-font(20px, 800, -0.01em);
-  color: $buttons-color-blue;
-  transition: all 0.2s ease;
-  cursor: pointer;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0px;
-    transform: translateY(-50%);
-    width: 15%;
-    height: 100%;
-    border: 3px solid $buttons-color-green;
-    border-right: none;
-    border-radius: 0.3rem;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    transition: all 0.3s ease;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 0px;
-    transform: translateY(-50%);
-    width: 15%;
-    height: 100%;
-    border: 3px solid $buttons-color-green;
-    border-left: none;
-    border-radius: 0.3rem;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    transition: all 0.3s ease;
-  }
-
-  &:hover {
-    box-shadow: 0 0 20px 5px $cards-color;
+    z-index: 2;
+    display: inline-block;
+    padding: 12px 23px;
+    @include montserrat-font(20px, 800, -0.01em);
+    color: $buttons-color-blue;
+    transition: all 0.2s ease;
+    cursor: pointer;
 
     &::before {
-      width: 98.7%;
-      border-top: 3px solid $buttons-color-green;
-      border-bottom: 3px solid transparent;
-      border-top-right-radius: 0.3rem;
-      border-bottom-right-radius: 0.3rem;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0px;
+      transform: translateY(-50%);
+      width: 15%;
+      height: 100%;
+      border: 3px solid $buttons-color-green;
+      border-right: none;
+      border-radius: 0.3rem;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      transition: all 0.3s ease;
     }
 
     &::after {
-      width: 98.7%;
-      border-bottom: 3px solid $buttons-color-green;
-      border-top: 3px solid transparent;
-      border-top-left-radius: 0.3rem;
-      border-bottom-left-radius: 0.3rem;
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0px;
+      transform: translateY(-50%);
+      width: 15%;
+      height: 100%;
+      border: 3px solid $buttons-color-green;
+      border-left: none;
+      border-radius: 0.3rem;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      transition: all 0.3s ease;
     }
-  }
+
+    &:hover {
+      box-shadow: 0 0 20px 5px $cards-color;
+
+      &::before {
+        width: 98.7%;
+        border-top: 3px solid $buttons-color-green;
+        border-bottom: 3px solid transparent;
+        border-top-right-radius: 0.3rem;
+        border-bottom-right-radius: 0.3rem;
+      }
+
+      &::after {
+        width: 98.7%;
+        border-bottom: 3px solid $buttons-color-green;
+        border-top: 3px solid transparent;
+        border-top-left-radius: 0.3rem;
+        border-bottom-left-radius: 0.3rem;
+      }
+    }
   }
 
   &__image {
-
     animation: img infinite 2s alternate-reverse;
+
     /* position: relative;
     &::before {
       content: "";
@@ -127,7 +126,7 @@
 
   &__statistics {
     display: flex;
-    gap: 70px;
+    gap: 5rem;
   }
 
   &__statistics_count {
@@ -156,5 +155,50 @@
   to {
     transform: scale(105%) rotate(3deg);
   }
-  
+}
+
+.homepage_info__image.mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .homepage_info {
+    &__preview {
+      grid-template-columns: 1fr;
+    }
+
+    &__title {
+      text-align: center;
+    }
+
+    &__button {
+      margin-bottom: 1rem;
+    }
+
+    &__image.mobile {
+      display: block;
+    }
+
+    &__image.desktop {
+      display: none;
+    }
+
+    &__info {
+      margin-top: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 412px) {
+  .homepage_info {
+    &__title {
+      font-size: 36px;
+    }
+
+    &__statistics {
+      gap: 2rem;
+    }
+  }
 }

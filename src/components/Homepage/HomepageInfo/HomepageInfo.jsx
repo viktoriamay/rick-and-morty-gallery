@@ -1,45 +1,47 @@
-import RickMortyMainPage from "./img/rick-and-morty-portal.png";
-import "./HomepageInfo.scss";
-import { useContext } from "react";
-import { GalleryContext } from "../../../utils/context/GalleryContext";
-import { Link } from "react-router-dom";
+import RickMortyMainPage from './img/rick-and-morty-portal.png';
+import './HomepageInfo.scss';
+import { useContext } from 'react';
+import { GalleryContext } from '../../../utils/context/GalleryContext';
+import { Link } from 'react-router-dom';
 
 export const HomepageInfo = () => {
-
-  const {t} = useContext(GalleryContext);
+  const { t } = useContext(GalleryContext);
   return (
     <div className="container">
-      <div className="homepage_info__preview">
+      <section className="homepage_info__preview">
         <div className="homepage_info__info">
-          <h1 className="homepage_info__title">
-            {t('galleryTitle')}
-          </h1>
-          <Link className="homepage_info__button" to='/explore'>{t('explore')}</Link>
+          <h1 className="homepage_info__title">{t('galleryTitle')}</h1>
+          <div className="homepage_info__image mobile">
+            <img src={RickMortyMainPage} alt="RickMortyMainPage" />
+          </div>
+          <Link className="homepage_info__button" to="/explore">
+            {t('explore')}
+          </Link>
           <div className="homepage_info__statistics">
             <span className="homepage_info__statistics_count">
               826
               <span className="homepage_info__statistics_description">
-              {t('charactersGalleryTitle')}
+                {t('charactersGalleryTitle')}
               </span>
             </span>
             <span className="homepage_info__statistics_count">
               51
               <span className="homepage_info__statistics_description">
-              {t('episodesGalleryTitle')}
+                {t('episodesGalleryTitle')}
               </span>
             </span>
             <span className="homepage_info__statistics_count">
               126
               <span className="homepage_info__statistics_description">
-              {t('locationsGalleryTitle')}
+                {t('locationsGalleryTitle')}
               </span>
             </span>
           </div>
         </div>
-        <div className="homepage_info__image">
+        <div className="homepage_info__image desktop">
           <img src={RickMortyMainPage} alt="RickMortyMainPage" />
         </div>
-      </div>
+      </section>
     </div>
   );
 };
