@@ -1,5 +1,4 @@
-@import "../../assets/SCSS/variables.scss";
-
+@import '../../assets/SCSS/variables.scss';
 
 .footer {
   background-color: $cards-color;
@@ -51,7 +50,13 @@
   }
 }
 
-  .footer__main {
-  
-    background-color: $dark-color;
+.footer__main {
+  background-color: $dark-color;
+}
+
+@media (max-width: 768px) {
+  .footer__wrapper {
+    flex-direction: column;
+    gap: 2rem;
   }
+}
