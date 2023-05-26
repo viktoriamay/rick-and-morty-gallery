@@ -1,12 +1,12 @@
-import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import RickMortyApi from "../../utils/api/rickMortyApi";
-import "./ArticlePage.scss";
-import { BackButton } from "../../components/BackButton/BackButton";
-import { GalleryContext } from "../../utils/context/GalleryContext";
+import { useContext, useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import RickMortyApi from '../../utils/api/rickMortyApi';
+import './ArticlePage.scss';
+import { BackButton } from '../../components/BackButton/BackButton';
+import { GalleryContext } from '../../utils/context/GalleryContext';
 
 export const ArticlePage = () => {
-  const {t} = useContext(GalleryContext)
+  const { t } = useContext(GalleryContext);
   const [articlePageInfo, setArticlePageInfo] = useState({});
   const params = useParams();
 
@@ -17,12 +17,14 @@ export const ArticlePage = () => {
   }, [params.articleID]);
   return (
     <div className="container">
-      <div className="article">
-      <BackButton />
-        <span className="article__id">{t('article')} #{articlePageInfo?.id}</span>
+      <article className="article">
+        <BackButton />
+        <span className="article__id">
+          {t('article')} #{articlePageInfo?.id}
+        </span>
         <h1 className="article__title">{articlePageInfo?.title}</h1>
         <p className="article__created">
-          {new Date(articlePageInfo?.published_at).toLocaleString("ru-ru")}
+          {new Date(articlePageInfo?.published_at).toLocaleString('ru-ru')}
         </p>
         <div className="article__image_container">
           <img
@@ -41,7 +43,7 @@ export const ArticlePage = () => {
         >
           {articlePageInfo?.news_site}
         </Link>
-      </div>
+      </article>
     </div>
   );
 };
