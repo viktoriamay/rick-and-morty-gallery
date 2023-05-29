@@ -98,3 +98,24 @@ input {
 .main {
   flex: 1;
 }
+
+
+.cardn {
+display: flex;
+flex-direction: column;
+border: 2px solid gold;
+min-height: 100%;
+}
+
+.imc {
+// max-width: 20vw; 
+img {
+  width: 100%;
+  object-fit: cover;
+}
+}
+
+.txt {
+
+  flex: 1;
+}

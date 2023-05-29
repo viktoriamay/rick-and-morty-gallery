@@ -5,17 +5,118 @@ import episodes from './img/episodes.png';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { GalleryContext } from '../../../utils/context/GalleryContext';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const HomepageCategories = () => {
-  const { theme, t } = useContext(GalleryContext);
+  const { theme, t } = useContext(GalleryContext); 
 
   return (
     <section className="homepage_categories">
       <div className="container">
-        <div className="homepage_categories__cards">
           <h2 className="homepage__title homepage_categories__title">
             {t('categories')}
           </h2>
+
+          <Swiper
+        slidesPerView={3}
+        spaceBetween={20}
+        className="myswap"
+        breakpoints={{
+          310: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          500: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          // 1024: {
+          //   slidesPerView: 4,
+          //   spaceBetween: 30,
+          // },
+        }}
+      > 
+      {/* { */}
+        {/* data.map((data) => <Link to={`/news`} > */}
+
+         <SwiperSlide 
+         className={`swiper-slide homepage_categories__card card_1 ${theme}`}
+         >
+         <Link
+            to="/explore/characters"
+            // className={`homepage_categories__card card_1 ${theme}`}
+          >
+            <div className="homepage_categories__card_img__container">
+              <img
+                src={characters}
+                alt="Categories: characters"
+                className="homepage_categories__card_img"
+              />
+            </div>
+            <div className="homepage_categories__card_title__wrapper">
+              <span className="homepage_categories__card_title">
+                {t('characters')}
+              </span>
+            </div>
+          </Link>
+        </SwiperSlide> 
+         <SwiperSlide 
+         className={`swiper-slide homepage_categories__card card_2 ${theme}`}
+         >
+         <Link
+            to="/explore/locations"
+            // className={`homepage_categories__card card_2 ${theme}`}
+          >
+            <div className="homepage_categories__card_img__container">
+              <img
+                src={locations}
+                alt="Categories: locations"
+                className="homepage_categories__card_img"
+              />
+            </div>
+            <div className="homepage_categories__card_title__wrapper">
+              <span className="homepage_categories__card_title">
+                {t('locations')}
+              </span>
+            </div>
+          </Link>
+        </SwiperSlide> 
+         <SwiperSlide 
+         className={`swiper-slide homepage_categories__card card_3 ${theme}`}
+        >
+         <Link
+            to="/explore/episodes"
+            // className={`homepage_categories__card card_3 ${theme}`}
+          >
+            <div className="homepage_categories__card_img__container">
+              <img
+                src={episodes}
+                alt="Categories: episodes"
+                className="homepage_categories__card_img"
+              />
+            </div>
+            <div className="homepage_categories__card_title__wrapper">
+              <span className="homepage_categories__card_title">
+                {t('episodes')}
+              </span>
+            </div>
+          </Link>
+        </SwiperSlide> 
+        {/* </Link>) */}
+      {/* } */}
+       
+        {/* <SwiperSlide className="swiper-slide">
+          <NewsCardHomePage data={data} />
+        </SwiperSlide>
+        <SwiperSlide className="swiper-slide">
+          <NewsCardHomePage data={data} />
+        </SwiperSlide> */}
+      </Swiper>
+        {/* <div className="homepage_categories__cards">
           <Link
             to="/explore/characters"
             className={`homepage_categories__card card_1 ${theme}`}
@@ -67,7 +168,7 @@ export const HomepageCategories = () => {
               </span>
             </div>
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

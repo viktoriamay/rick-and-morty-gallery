@@ -64,6 +64,7 @@ export const NewsPage = () => {
         </div>
       </div>
       <div className="news__cards">
+      
         {paginated.map((data) => {
           return <NewsCard data={data} key={`news-${data.id}`} />;
         })}

@@ -100,7 +100,15 @@
       'card_3';
   }
 
-  .homepage__title.homepage_categories__title {
-    margin: 0;
-  }
+}
+
+
+.myswap {
+  max-width: 800px !important;
+  width: 100%;
+}
+
+.swiper-wrapper {
+  box-sizing: border-box !important;
+
 }
