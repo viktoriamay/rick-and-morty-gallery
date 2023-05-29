@@ -80,5 +80,20 @@
 
     }
 
-  }
+  },
+  "homepageNews": {
+    "newsCard1": {
+      "title": "Rick and Morty explore the mysteries of a mystical planet",
+      "summary": "Rick and Morty go on a scientific expedition to one of the most mysterious planets in the universe. What will they find there?"
+    },
+    "newsCard2": {
+      "title": "Cosmic Encounter with Personality: Encounter with your own copies in a new galaxy!",
+      "summary": "Rick and Morty discovered a new galaxy, where they met with their copies from a parallel universe. But which one is the real one?"
+    },
+    "newsCard3": {
+      "title": "Rick and Morty go on a space trip in the new season",
+      "summary": "Rick and Morty open a portal to another galaxy and accidentally bring an alien bacterium to Earth, causing an epidemic among people. Now they are forced to go in search of a cure on a dangerous space journey."
+    }
+  },
+  "newsCardButton": "Read more"
 }
