@@ -64,12 +64,17 @@ html {
 
 body {
   background-color: $background-color;
+  overflow-x: hidden;
   color: $text-color;
   background: linear-gradient(108.13deg, #2f1514 1%, #021b1f 37.66%, #1a240f 72.27%, #000230 98.74%);
 }
 
 p, h1, h2, h3, h4 {
   margin: 0;
+}
+
+ul, li {
+  padding: 0;
 }
 
 a {

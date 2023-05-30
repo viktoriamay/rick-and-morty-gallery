@@ -75,14 +75,14 @@ export const Pagination = () => {
   };
 
   
-  // const [width, setWidth] = useState(window.innerWidth);
-  // const updateDimensions = () => {
-  //   setWidth(window.innerWidth);
-  // };
-  // useEffect(() => {
-  //   window.addEventListener("resize", updateDimensions);
-  //   return () => window.removeEventListener("resize", updateDimensions);
-  // }, []);
+  const [width, setWidth] = useState(window.innerWidth);
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
 
   // const pageCount = Math.ceil(info?.count / 20);
 
@@ -100,8 +100,8 @@ export const Pagination = () => {
           activeClassName="active"
           pageClassName={`pagination__page_button pagination__color_button ${theme}`}
           pageLinkClassName="pagination__page_link_button"
-          // marginPagesDisplayed={width < 576 ? 1 : 2}
-          // pageRangeDisplayed={width < 576 ? 1 : 2}
+          marginPagesDisplayed={width < 750 ? 1 : 2}
+          pageRangeDisplayed={width < 750 ? 1 : 2}
           forcePage={paginationCurrentPage(location.pathname)}
           pageCount={paginationCount(location.pathname)}
           onPageChange={pageChange}

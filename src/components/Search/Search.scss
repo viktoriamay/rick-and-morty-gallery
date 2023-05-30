@@ -83,3 +83,21 @@ border: none;
  }
  }
 }
+
+
+@media screen and (max-width: 500px) {
+  
+
+ 
+
+  .search__form {
+    width: 100%;
+  }
+.search__form_container {
+  width: 100%;
+}
+
+.search__input {
+  width: 100%;
+}
+}

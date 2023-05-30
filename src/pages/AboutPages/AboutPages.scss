@@ -51,3 +51,12 @@ margin-top: 1rem;
     }
   }
 }
+
+
+@media screen and (max-width: 860px) {
+  
+
+  .about_page__wrapper {
+    grid-template-columns: 1fr;
+  }
+}

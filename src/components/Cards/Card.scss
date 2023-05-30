@@ -274,3 +274,31 @@
 
   }
 }
+
+
+@media screen and (max-width: 912px) {
+  .news {
+  
+    &__cards {
+      // display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      // gap: 2rem;
+    } }
+
+    .empty {
+      display: none;
+    }
+
+    .sort {
+      grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 550px) {
+  .news {
+  
+    &__cards {
+      // display: grid;
+      grid-template-columns: 1fr;
+      // gap: 2rem;
+    } }
+}

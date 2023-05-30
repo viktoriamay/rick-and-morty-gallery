@@ -52,8 +52,8 @@
 }
 
 
-@media (max-width: 500px) {
-  .pagination__nav_button::after {
-
+@media (max-width: 550px) {
+  .pagination__nav_button {
+display: none;
   }
 }

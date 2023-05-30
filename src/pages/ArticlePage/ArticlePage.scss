@@ -59,3 +59,17 @@ line-height: 1.8rem;
   color: $buttons-color-green;
   // margin-bottom: 2rem;
 }
+
+
+@media screen and (max-width: 912px) {
+  
+    .sort {
+      grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 550px) {
+  
+    .sort {
+      grid-template-columns: 1fr;
+    }
+}
