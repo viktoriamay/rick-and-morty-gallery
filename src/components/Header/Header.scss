@@ -11,22 +11,23 @@
   &__links {
     display: flex;
     gap: 40px;
+    list-style-type: none;
   }
 
   &__link {
+    position: relative;
     @include jura-font(18px, 700, 0em);
     text-decoration: none;
-    position: relative;
 
     &::after {
-      transition: all 0.3s ease;
       content: '';
       position: absolute;
-      bottom: -0.5rem;
       left: 0;
+      bottom: -0.5rem;
       width: 0%;
       height: 3px;
       background-color: $buttons-color-blue;
+      transition: all 0.3s ease;
     }
 
     &.active {
@@ -35,8 +36,8 @@
       &::after {
         content: '';
         position: absolute;
-        bottom: -0.5rem;
         left: 0;
+        bottom: -0.5rem;
         width: 100%;
         height: 3px;
         background-color: $buttons-color-blue;
@@ -69,27 +70,28 @@
       height: 100%;
     }
   }
+
+  &__sun {
+    fill: $background-color;
+  }
 }
 
 @media screen and (max-width: 850px) {
   .header__links {
-    backdrop-filter: blur(10px);
-    
     position: fixed;
-    right: 0;
     top: 0;
     bottom: 0;
     left: 0;
-    flex-direction: column;
-    gap: 0.5rem;
+    right: 0;
+    z-index: 100;
     width: 100vw;
     height: 100vh;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
     background-color: rgba(0, 0, 0, 0.647);
-    z-index: 100;
-    // opacity: 0;
-    // visibility: hidden;
+    backdrop-filter: blur(10px);
     transition: transform 0.4s ease;
     transform: translateX(-100%);
   }
@@ -99,40 +101,43 @@
   }
 
   .header__links.active {
-    
-    // right: 0;
-    // opacity: 1;
-    // visibility: visible;
     transform: translateX(0);
   }
 
   .header__controls {
-    right: 0;
-
-    // opacity: 0;
-    // visibility: hidden;
-    display: flex;
     position: absolute;
     top: 62vh;
     bottom: 0;
     left: 0;
-    gap: 0.5rem;
+    right: 0;
+    z-index: 100;
     width: 100%;
-    height: 100%;
+    height: fit-content;
+    display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
-    height: fit-content;
-    
+    gap: 0.5rem;
     transition: transform 0.5s ease;
     transform: translateX(-100%);
   }
 
   .header__controls.active {
-    // right: 0;
-    // opacity: 1;
-// visibility: visible;
     transform: translateX(0);
+  }
+}
 
+@media screen and (max-width: 850px) {
+  .header {
+    &__link {
+      color: $text-color;
+    }
+
+    &__lang {
+      color: $text-color;
+    }
+
+    &__sun {
+      fill: $text-color;
+    }
   }
 }

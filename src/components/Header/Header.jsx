@@ -1,24 +1,24 @@
-import { NavLink, useLocation } from 'react-router-dom';
-import { MainLogo } from '../MainLogo/MainLogo';
 import './Header.scss';
 import { useContext, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { GalleryContext } from '../../utils/context/GalleryContext';
+import { MainLogo } from '../MainLogo/MainLogo';
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { ReactComponent as Sun } from './img/sun.svg';
 import { ReactComponent as Moon } from './img/moon.svg';
-import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
 export const Header = () => {
   const { theme, handleThemeChange, t, lang, changeLanguage } =
     useContext(GalleryContext);
+
   const location = useLocation();
 
-  const [activeBurger, setActiveBurger] = useState(false)
+  const [activeBurger, setActiveBurger] = useState(false);
 
   const toggleBurger = () => {
-    setActiveBurger(activeBurger => !activeBurger)
-  }
+    setActiveBurger((activeBurger) => !activeBurger);
+  };
 
-  console.log({activeBurger});
   return (
     <header
       className={location.pathname === '/' ? `header` : `header__exp ${theme}`}
@@ -26,29 +26,68 @@ export const Header = () => {
       <div className="container">
         <div className="header__content">
           <MainLogo />
-          <nav className={activeBurger ? "header__links active" : 'header__links'}>
-            <NavLink to={'/explore'} className="header__link">
-              {t('explore')}
-            </NavLink>
-            <NavLink to={'/statistics'} className="header__link">
-              {t('statistics')}
-            </NavLink>
-            <NavLink to={'/news'} className="header__link">
-              {t('news')}
-            </NavLink>
+          <nav>
+            <ul
+              className={
+                activeBurger ? 'header__links active' : 'header__links'
+              }
+            >
+              <li>
+                <NavLink
+                  onClick={() => setActiveBurger(false)}
+                  to={'/explore'}
+                  className={
+                    theme === 'light' ? 'header__link light' : 'header__link'
+                  }
+                >
+                  {t('explore')}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  onClick={() => setActiveBurger(false)}
+                  to={'/statistics'}
+                  className={
+                    theme === 'light' ? 'header__link light' : 'header__link'
+                  }
+                >
+                  {t('statistics')}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  onClick={() => setActiveBurger(false)}
+                  to={'/news'}
+                  className={
+                    theme === 'light' ? 'header__link light' : 'header__link'
+                  }
+                >
+                  {t('news')}
+                </NavLink>
+              </li>
+            </ul>
           </nav>
-          <div className={activeBurger ? "header__controls active" : 'header__controls'}>
-            <div onClick={() => changeLanguage()} className="header__lang">
+          <div
+            className={
+              activeBurger ? 'header__controls active' : 'header__controls'
+            }
+          >
+            <div
+              onClick={() => changeLanguage()}
+              className={
+                theme === 'light' ? 'header__lang light' : 'header__lang'
+              }
+            >
               {lang === 'ru' ? 'Ru' : 'En'}
             </div>
             <div onClick={handleThemeChange} className="header__theme">
-              {theme === 'light' ? <Sun /> : <Moon />}
+              {theme === 'light' ? <Sun className="header__sun" /> : <Moon />}
             </div>
           </div>
-          {/* <div style={{position: 'absolute',
-  right: '5vw',
-  zIndex: 110}} onClick={() => toggleBurger()}>Burger</div> */}
-          <BurgerMenu onClick={() => toggleBurger()} activeBurger={activeBurger}></BurgerMenu> 
+          <BurgerMenu
+            onClick={() => toggleBurger()}
+            activeBurger={activeBurger}
+          />
         </div>
       </div>
     </header>
