@@ -95,5 +95,7 @@
       "summary": "Rick and Morty open a portal to another galaxy and accidentally bring an alien bacterium to Earth, causing an epidemic among people. Now they are forced to go in search of a cure on a dangerous space journey."
     }
   },
-  "newsCardButton": "Read more"
+  "newsCardButton": "Read more",
+  "notFound": "Not Found",
+  "toMainPageButton": "To the Main Page"
 }

@@ -1,0 +1,20 @@
+@import '../../assets/SCSS/variables.scss';
+
+.not_found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &__error {
+    @include jura-font(10rem, 700, -0.02em);
+    padding: 0;
+    line-height: 11rem;
+  }
+
+  &__text {
+    @include montserrat-font(2rem, 500, -0.02em);
+    margin-bottom: 10vh;
+  }
+}

@@ -20,6 +20,7 @@ import { ArticlePage } from '../../pages/ArticlePage/ArticlePage';
 import { useTranslation } from 'react-i18next';
 import { AboutProject } from '../../pages/AboutPages/AboutProject';
 import { AboutRM } from '../../pages/AboutPages/AboutRM';
+import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -124,11 +125,11 @@ function App() {
 
   const changeLanguage = () => {
     // const lang = localStorage.getItem('lang') ?? 'ru';
-    const newLang = lang === 'ru' ? 'en' : 'ru'
+    const newLang = lang === 'ru' ? 'en' : 'ru';
     i18n.changeLanguage(newLang);
-    setLang(newLang)
+    setLang(newLang);
     // localStorage.setItem('lang', newLang);
-  }
+  };
   // const changeLanguage = () => {
   //   // const lang = localStorage.getItem('lang') ?? 'ru';
   //   const newLang = lang === 'ru' ? 'en' : 'ru'
@@ -187,13 +188,13 @@ function App() {
     <GalleryContext.Provider value={valueContextProvider}>
       <div className={`App ${theme}`}>
         <Header />
-
+        {/* 
         <Routes>
-          <Route path="/" element={<MainPage />} />
-        </Routes>
+        </Routes> */}
 
         <main className="main">
           <Routes>
+            <Route path="/" element={<MainPage />} />
             <Route
               path="/explore"
               element={<Navigate to="/explore/characters" />}
@@ -212,6 +213,7 @@ function App() {
             <Route path="/news/:articleID" element={<ArticlePage />} />
             <Route path="/about-project" element={<AboutProject />} />
             <Route path="/about-rick-and-morty" element={<AboutRM />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />
