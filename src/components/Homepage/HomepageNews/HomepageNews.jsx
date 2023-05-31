@@ -1,34 +1,36 @@
-import { useContext } from 'react';
 import './HomepageNews.scss';
+import '../HomepageCharacters/HomepageCharacters.scss';
+import { useContext } from 'react';
 import { GalleryContext } from '../../../utils/context/GalleryContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import '../HomepageCharacters/HomepageCharacters.scss';
-import { CharacterCard } from '../../Cards/CharacterCard';
-import { NewsCardHomePage } from '../../Cards/NewsCardHomePage';
-import { Link } from 'react-router-dom';
 import 'swiper/scss';
-
+import { Navigation } from 'swiper';
+import 'swiper/css/navigation';
+import { NewsCardHomePage } from '../../Cards/NewsCardHomePage';
 
 export const HomepageNews = () => {
-  const { t, theme } = useContext(GalleryContext);
-  const data = [
+  const { t } = useContext(GalleryContext);
+  const customNewsData = [
     {
       image:
         'https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/08/Rick--Morty-Season-6EWKSF-feature.jpg',
       title: t('homepageNews.newsCard1.title'),
       summary: t('homepageNews.newsCard1.summary'),
+      id: 'news1',
     },
     {
       image:
         'https://www.thepinknews.com/wp-content/uploads/2021/06/Rick-and-Morty.jpg',
       title: t('homepageNews.newsCard2.title'),
       summary: t('homepageNews.newsCard2.summary'),
+      id: 'news2',
     },
     {
       image:
         'https://media.cdn.adultswim.com/uploads/20200313/thumbnails/2_203131431165-rickandmorty_001_dup-20140314.jpg',
       title: t('homepageNews.newsCard3.title'),
       summary: t('homepageNews.newsCard3.summary'),
+      id: 'news3',
     },
   ];
 
@@ -38,7 +40,9 @@ export const HomepageNews = () => {
       <Swiper
         slidesPerView={3}
         spaceBetween={20}
-        className="mysw"
+        className="homepage_news__swiper"
+        navigation={true}
+        modules={[Navigation]}
         breakpoints={{
           310: {
             slidesPerView: 1,
@@ -52,31 +56,13 @@ export const HomepageNews = () => {
             slidesPerView: 3,
             spaceBetween: 20,
           },
-          // 1024: {
-          //   slidesPerView: 4,
-          //   spaceBetween: 30,
-          // },
         }}
       >
-        {data.map((data) => (
-          <SwiperSlide 
-          // className={`swiper-slide`}
-          >
-            
-              <NewsCardHomePage data={data} />{' '}
+        {customNewsData.map((customNews) => (
+          <SwiperSlide key={customNews.id}>
+            <NewsCardHomePage customNews={customNews} />
           </SwiperSlide>
         ))}
-        
-        
-        
-       
-
-        {/* <SwiperSlide className="swiper-slide">
-          <NewsCardHomePage data={data} />
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <NewsCardHomePage data={data} />
-        </SwiperSlide> */}
       </Swiper>
     </section>
   );

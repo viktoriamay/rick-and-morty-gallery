@@ -1,60 +1,5 @@
-@import "../../../assets/SCSS/variables.scss";
+@import '../../../assets/SCSS/variables.scss';
 
-.swiper-slide {
-  height: unset !important;
-}
-.news__cardd {
-  display: flex;
-    flex-direction: column;
-    gap: 18px;
-    position: relative;
-    cursor: pointer;
-  // min-width: 100%;
-  background-color: $dark-color;
-  text-decoration: none;
-  height: 100% !important;
-  min-height: 100% !important;
-
-  &::after {
-    content: '';
-    width: 10%;
-    height: 10%;
-    border: 3px solid $buttons-color-green;
-    border-top: none;
-    border-left: none;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    transition: all 0.4s ease;
-  }
-
-  &::before {
-    content: '';
-    width: 0%;
-    height: 0%;
-    border: 3px solid $buttons-color-blue;
-    border-right: none;
-    border-bottom: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: width 0.4s, height 0.4s ease;
-    opacity: 0;
-  }
-
-  &:hover::after, &:hover::before {
-    width: 99.2%;
-    height: 99.2%;
-    opacity: 0.7;
-
-  }
-}
-
-.swiper-slide {
-  // height: auto !important;
-  // height: none !important;
-  // height: min-content !important;
-}
 .homepage_news {
   &__title {
     text-align: left;
@@ -67,56 +12,54 @@
   }
 
   &__card {
-
     height: 100% !important;
-  min-height: 100% !important;
+    min-height: 100% !important;
     display: flex;
     flex-direction: column;
     gap: 18px;
     position: relative;
     cursor: pointer;
-  // min-width: 100%;
-  background-color: $dark-color;
-  text-decoration: none;
+    background-color: $dark-color;
+    text-decoration: none;
 
     &::after {
       content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
       width: 10%;
       height: 10%;
       border: 3px solid $buttons-color-green;
       border-top: none;
       border-left: none;
-      position: absolute;
-      bottom: 0;
-      right: 0;
       transition: all 0.4s ease;
     }
 
     &::before {
       content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 0%;
       height: 0%;
       border: 3px solid $buttons-color-blue;
       border-right: none;
       border-bottom: none;
-      position: absolute;
-      top: 0;
-      left: 0;
       transition: width 0.4s, height 0.4s ease;
       opacity: 0;
     }
 
-    &:hover::after, &:hover::before {
+    &:hover::after,
+    &:hover::before {
       width: 99.2%;
       height: 99.2%;
       opacity: 0.7;
-
     }
   }
 
   &__card_img_wrapper {
-    height: 15rem;
     z-index: 10;
+    height: 15rem;
   }
 
   &__card_img {
@@ -145,12 +88,14 @@
     @include montserrat-font(15px, 300, 0em);
     padding: 8px;
     border: 1px solid $cards-color;
-
     cursor: pointer;
+  }
+
+  &__swiper {
+    width: 100%;
   }
 }
 
-.mysw {
-  // max-width: 1000px;
-  width: 100%;
+.swiper-slide {
+  height: unset !important;
 }
