@@ -18,6 +18,7 @@
     position: relative;
     @include jura-font(18px, 700, 0em);
     text-decoration: none;
+    transition: all 0.1s ease;
 
     &::after {
       content: '';
@@ -58,6 +59,11 @@
   &__lang {
     @include jura-font(18px, 700, 0em);
     cursor: pointer;
+    transition: all 0.1s ease;
+
+    &:hover {
+      color: $buttons-color-green;
+    }
   }
 
   &__theme {
@@ -73,63 +79,72 @@
 
   &__sun {
     fill: $background-color;
-  }
-}
+    transition: all 0.1s ease;
 
-@media screen and (max-width: 850px) {
-  .header__links {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    width: 100vw;
-    height: 100vh;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.647);
-    backdrop-filter: blur(10px);
-    transition: transform 0.4s ease;
-    transform: translateX(-100%);
+    &:hover {
+      fill: $buttons-color-green;
+    }
   }
 
-  .header__link {
-    font-size: 24px;
-  }
+  &__moon {
+    transition: all 0.1s ease;
 
-  .header__links.active {
-    transform: translateX(0);
-  }
-
-  .header__controls {
-    position: absolute;
-    top: 62vh;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    transition: transform 0.5s ease;
-    transform: translateX(-100%);
-  }
-
-  .header__controls.active {
-    transform: translateX(0);
+    &:hover {
+      fill: $buttons-color-green;
+    }
   }
 }
 
 @media screen and (max-width: 850px) {
   .header {
+    &__links {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(0, 0, 0, 0.647);
+      backdrop-filter: blur(10px);
+      transition: transform 0.4s ease;
+      transform: translateX(-100%);
+    }
+
     &__link {
+      font-size: 24px;
       color: $text-color;
+    }
+
+    &__links.active {
+      transform: translateX(0);
+    }
+
+    &__controls {
+      position: absolute;
+      top: 62vh;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.5s ease;
+      transform: translateX(-100%);
+    }
+
+    &__controls.active {
+      transform: translateX(0);
     }
 
     &__lang {

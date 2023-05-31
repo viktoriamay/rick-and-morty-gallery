@@ -1,46 +1,50 @@
-@import "../../assets/SCSS/variables.scss";
+@import '../../assets/SCSS/variables.scss';
 
 .card {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 0.5rem;
-  background-color: $cards-color;
-  text-decoration: none;
   min-width: 100%;
   height: fit-content;
+  background-color: $cards-color;
+  border-radius: 0.5rem;
+  text-decoration: none;
   overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-0.3rem);
+  }
+
+  &:hover .card__name {
+    background-color: $buttons-color-blue;
+  }
 
   &__img_wrapper {
-    height: 17rem;
     position: relative;
     z-index: 10;
+    height: 17rem;
   }
 
   &__status {
     position: absolute;
-    bottom: 5px;
     right: 5px;
-    @include jura-font(16px, 700, -0.04em);
+    bottom: 5px;
     padding: 0.1rem 0.3rem;
-    
+    @include jura-font(16px, 700, -0.04em);
     color: $background-color;
-    // backdrop-filter: blur(10px);
 
-    
     &_alive {
       background-color: $buttons-color-green;
-      
     }
+
     &_dead {
       background-color: #a82525;
-
     }
+
     &_unknown {
       background-color: #9c9b9b;
-
     }
   }
 
@@ -57,21 +61,19 @@
   }
 
   &__cover_name_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.434);
-  position: absolute;
-  top: 0;
-  display: flex;
-  align-items: center;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
   }
 
   &__cover_name_wrapper_location {
     justify-content: center;
-  
-  
   }
 
   &__cover_name__episode {
@@ -80,65 +82,57 @@
   }
 
   &__cover_name__location {
+    padding: 2% 5%;
     @include jura-font(22px, 700, -0.04em);
-      // color: $text-color;
-      color: $buttons-color-green;
-  
-      backdrop-filter: blur(10px);
-      border-radius: 0.5rem;
-      border: 2px solid rgba(98, 98, 98, 0.0745098039);
-      // background-color: rgba(0, 0, 0, 0.437);
-      padding: 2% 5%;
+    color: $buttons-color-green;
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+    border: 2px solid rgba(98, 98, 98, 0.0745098039);
   }
 
   &__info_wrapper {
+    position: relative;
+    height: 100%;
     padding: 10px 20px 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    position: relative;
-    height: 100%;
-
   }
 
   &__info__news_wrapper {
     gap: 1.5rem;
   }
 
-
   &__name {
+    padding: 5px;
     background-color: $buttons-color-green;
     @include jura-font(20px, 700, -0.04em);
     color: $background-color;
-    padding: 5px;
-
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    transition: all 0.2s ease;
   }
 
   &__name_location {
     background-color: $buttons-color-blue;
   }
 
+  &:hover .card__name_location {
+    background-color: $buttons-color-green;
+  }
+
   &__info {
     @include montserrat-font(14px, 400, 0em);
     padding: 3px;
     color: $text-color;
-    // width: fit-content;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  
 }
 
-
 .news {
-  // &__title {
-  //   text-align: left;
-  // }
-
   &__cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -146,159 +140,107 @@
   }
 
   &__card {
+    position: relative;
+    min-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 18px;
-    position: relative;
+    background-color: $dark-color;
+    text-decoration: none;
     cursor: pointer;
-  min-width: 100%;
-  background-color: $dark-color;
-  text-decoration: none;
-
-
-  &:hover {
-    // background-color: transparent;
-  }
-
 
     &::after {
       content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
       width: 10%;
       height: 10%;
       border: 3px solid $buttons-color-green;
       border-top: none;
       border-left: none;
-      position: absolute;
-      bottom: 0;
-      right: 0;
       transition: all 0.4s ease;
     }
 
     &::before {
       content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 0%;
       height: 0%;
       border: 3px solid $buttons-color-blue;
       border-right: none;
       border-bottom: none;
-      position: absolute;
-      top: 0;
-      left: 0;
       transition: width 0.4s, height 0.4s ease;
       opacity: 0;
     }
 
-    &:hover::after, &:hover::before {
+    &:hover::after,
+    &:hover::before {
       width: 99.2%;
       height: 99.2%;
       opacity: 0.7;
-
     }
   }
-
-  // &__card_img_wrapper {
-  //   height: 15rem;
-  //   z-index: 10;
-  // }
-
-  // &__card_img {
-  //   width: 100%;
-  //   height: 100%;
-  //   object-fit: cover;
-  // }
-
-//   &__card_info__wrapper {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 20px;
-//     padding: 0 20px 20px;
-//     height: 100%;
-//   }
-
-//   &__card_title {
-//     @include jura-font(20px, 700, -0.04em);
-//     background-color: $buttons-color-green;
-// color: $background-color
-//   }
 
   &__card_text {
     @include montserrat-font(16px, 300, 0em);
     color: $text-color;
-
     flex: 1;
   }
 
   &__card_button {
-    width: fit-content;
-    @include montserrat-font(16px, 300, 0em);
-    // padding: 8px;
     position: relative;
+    width: fit-content;
     padding-right: 10px;
-    // color: rgba(161, 161, 161, 0.525);
+    @include montserrat-font(16px, 300, 0em);
     color: $grey-color;
-    // background-color: $cards-color;
-    // border: 1px solid $cards-color;
 
     &::after {
       content: '';
+      position: absolute;
+      top: 3px;
+      right: 0;
       width: 2px;
       height: 8px;
-      // background-color: rgba(161, 161, 161, 0.525);
       background-color: $grey-color;
-      top: 3px;
-      // top: calc(50% - 3px);
-
-      right: 0;
-      position: absolute;
       transform: rotate(-45deg);
-
-
-      
     }
 
     &::before {
       content: '';
+      position: absolute;
+      top: calc(50% - 1px);
+      right: 0;
       width: 2px;
       height: 8px;
-      // background-color: rgba(161, 161, 161, 0.525);
       background-color: $grey-color;
-
-      top: 0;
-      top: calc(50% - 1px);
-
-      right: 0;
-      position: absolute;
       transform: rotate(45deg);
-
     }
-
   }
 }
 
-
 @media screen and (max-width: 912px) {
   .news {
-  
     &__cards {
-      // display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      // gap: 2rem;
-    } }
-
-    .empty {
-      display: none;
-    }
-
-    .sort {
       grid-template-columns: repeat(2, 1fr);
     }
+  }
+
+  .empty {
+    display: none;
+  }
+
+  .sort {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
+
 @media screen and (max-width: 550px) {
   .news {
-  
     &__cards {
-      // display: grid;
       grid-template-columns: 1fr;
-      // gap: 2rem;
-    } }
+    }
+  }
 }

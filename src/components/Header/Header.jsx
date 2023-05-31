@@ -81,7 +81,7 @@ export const Header = () => {
               {lang === 'ru' ? 'Ru' : 'En'}
             </div>
             <div onClick={handleThemeChange} className="header__theme">
-              {theme === 'light' ? <Sun className="header__sun" /> : <Moon />}
+              {theme === 'light' ? <Sun className="header__sun" /> : <Moon className="header__moon" />}
             </div>
           </div>
           <BurgerMenu
