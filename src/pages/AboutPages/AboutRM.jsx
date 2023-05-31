@@ -1,14 +1,15 @@
-import { useContext } from 'react';
 import './AboutPages.scss';
+import { useContext } from 'react';
 import { GalleryContext } from '../../utils/context/GalleryContext';
 import { BackButton } from '../../components/BackButton/BackButton';
 
 export const AboutRM = () => {
   const { t } = useContext(GalleryContext);
+
   return (
     <div className="about_page">
       <div className="container">
-      <BackButton />
+        <BackButton />
         <div className="about_page__wrapper">
           <div className="about_page__info_wrapper">
             <h1 className="about_page__title">{t('rickMortyTitle')}</h1>
