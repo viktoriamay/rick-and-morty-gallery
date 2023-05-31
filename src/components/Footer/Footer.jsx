@@ -1,11 +1,11 @@
-import { MainLogo } from '../MainLogo/MainLogo';
 import './Footer.scss';
+import { useContext } from 'react';
+import { GalleryContext } from '../../utils/context/GalleryContext';
 import { Link, useLocation } from 'react-router-dom';
+import { MainLogo } from '../MainLogo/MainLogo';
 import { FiGithub } from 'react-icons/fi';
 import { TbBrandTelegram } from 'react-icons/tb';
 import { MdAlternateEmail } from 'react-icons/md';
-import { useContext } from 'react';
-import { GalleryContext } from '../../utils/context/GalleryContext';
 
 export const Footer = () => {
   const { theme, t } = useContext(GalleryContext);
@@ -24,7 +24,13 @@ export const Footer = () => {
         <div className="footer__wrapper">
           <div>
             <MainLogo />
-            <div className="footer__copyright">
+            <div
+              className={
+                theme === 'light'
+                  ? 'footer__copyright light'
+                  : 'footer__copyright'
+              }
+            >
               Made by{' '}
               <Link to="https://github.com/viktoriamay" target="_blank">
                 viktoriamay
