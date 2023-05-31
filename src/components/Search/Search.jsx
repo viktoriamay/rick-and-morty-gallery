@@ -1,8 +1,8 @@
-import { TfiSearch } from "react-icons/tfi";
-import "./Search.scss";
-import { useContext } from "react";
-import { GalleryContext } from "../../utils/context/GalleryContext";
-import { useLocation } from "react-router-dom";
+import './Search.scss';
+import { useContext } from 'react';
+import { GalleryContext } from '../../utils/context/GalleryContext';
+import { useLocation } from 'react-router-dom';
+import { TfiSearch } from 'react-icons/tfi';
 
 export const Search = () => {
   const {
@@ -14,7 +14,8 @@ export const Search = () => {
     setSearchQueryEpisodes,
     searchQueryCharacters,
     searchQueryLocations,
-    searchQueryEpisodes, t
+    searchQueryEpisodes,
+    t,
   } = useContext(GalleryContext);
 
   const searchRequest = (e) => e.preventDefault();
@@ -23,17 +24,17 @@ export const Search = () => {
 
   const searchQuery = (location, e) => {
     switch (location) {
-      case "/explore/characters":
+      case '/explore/characters':
         updatePageNumberCharacters(1);
         setSearchQueryCharacters(e.target.value);
         break;
 
-      case "/explore/locations":
+      case '/explore/locations':
         updatePageNumberLocations(1);
         setSearchQueryLocations(e.target.value);
         break;
 
-      case "/explore/episodes":
+      case '/explore/episodes':
         updatePageNumberEpisodes(1);
         setSearchQueryEpisodes(e.target.value);
         break;
@@ -42,15 +43,16 @@ export const Search = () => {
         return null;
     }
   };
+
   const valueInput = (location) => {
     switch (location) {
-      case "/explore/characters":
+      case '/explore/characters':
         return searchQueryCharacters;
 
-      case "/explore/locations":
+      case '/explore/locations':
         return searchQueryLocations;
 
-      case "/explore/episodes":
+      case '/explore/episodes':
         return searchQueryEpisodes;
 
       default:
@@ -60,20 +62,19 @@ export const Search = () => {
 
   return (
     <form className="search__form">
-      <div className="search__form_container">
-        <input
-          className="search__input"
-          type="text"
-          placeholder={t('search')}
-          value={valueInput(location.pathname)}
-          onChange={(e) => {
-            searchQuery(location.pathname, e);
-          }}
-        />
-        <button className="search__button" onClick={searchRequest}>
-          <TfiSearch />
-        </button>
-      </div>
+      <input
+        maxLength={40}
+        className="search__input"
+        type="text"
+        placeholder={t('search')}
+        value={valueInput(location.pathname)}
+        onChange={(e) => {
+          searchQuery(location.pathname, e);
+        }}
+      />
+      <button className="search__button" onClick={searchRequest}>
+        <TfiSearch />
+      </button>
     </form>
   );
 };
