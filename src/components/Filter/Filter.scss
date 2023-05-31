@@ -1,19 +1,18 @@
 @import '../../assets/SCSS/variables.scss';
 
 .filter_form {
-
   &__title {
-    text-align: center;
-    @include jura-font(24px, 700, 0em);
     margin-bottom: 1rem;
-
-  }
-  &__clear_btn {
+    @include jura-font(24px, 700, 0em);
     text-align: center;
+  }
+
+  &__clear_btn {
     margin-bottom: 1rem;
     @include montserrat-font(16px, 300, 0em);
-cursor: pointer;
-color: $grey-color;
+    color: $grey-color;
+    text-align: center;
+    cursor: pointer;
   }
 
   &__inputs {
@@ -23,36 +22,26 @@ color: $grey-color;
   }
 }
 
-
-
 .option_btn {
-  &__wrapper {
-    // background-color: rgb(20, 116, 201);
-  }
   &__radio {
     appearance: none;
-    // display: none;
-    // margin: 0;
 
     &:checked + .option_btn__label {
       background-color: $buttons-color-blue;
       color: $background-color;
       font-weight: 500;
-
-      
     }
-    // padding: 0;
   }
+
   &__label {
     @include montserrat-font(16px, 400, 0em);
-    padding: 5px;
     display: inline-block;
+    padding: 5px;
     width: 100%;
     cursor: pointer;
 
     &:hover {
       color: $buttons-color-blue;
-
-      }
+    }
   }
 }
