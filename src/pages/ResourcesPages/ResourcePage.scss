@@ -1,13 +1,13 @@
-@import "../../assets/SCSS/variables.scss";
+@import '../../assets/SCSS/variables.scss';
 
 .resource_page {
   @include montserrat-font(20px, 300, 0);
 
   &__title {
-    font-size: 30px;
-    color: $buttons-color-blue;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
+    font-size: 30px;
+    color: $buttons-color-blue;
   }
 
   &__cards_container {
@@ -27,9 +27,9 @@
   }
 
   &__parameter {
-    color: $grey-color;
     padding-bottom: 0.2rem;
     font-size: 16px;
+    color: $grey-color;
   }
 
   &__name {
@@ -38,12 +38,11 @@
   }
 
   &__info_link {
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.1s ease;
     display: block;
     width: fit-content;
-    // margin: 0 auto;
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.1s ease;
 
     &:hover {
       color: $buttons-color-blue;
@@ -51,33 +50,33 @@
   }
 }
 
-.character_page__wrapper {
-  // display: flex;
-  align-items: center;
-
-  display: grid;
+.character_page {
+  &__wrapper {
+    display: grid;
     grid-template-columns: 0.5fr 0.5fr;
-  gap: 5rem;
-}
-.character_page__img {
-  img {
-
-    width: 100%;
+    align-items: center;
+    gap: 5rem;
   }
-}
-.character_page__button {
-  border: none;
-  padding: 8px 36px;
-  margin-top: 1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: 1px solid $buttons-color-green;
-  background-color: $buttons-color-green;
 
-  &:hover {
-    background-color: transparent;
+  &__img {
+    img {
+      width: 100%;
+    }
+  }
+
+  &__button {
+    padding: 8px 36px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
     border: 1px solid $buttons-color-green;
-    color: $buttons-color-green;
+    background-color: $buttons-color-green;
+
+    &:hover {
+      background-color: transparent;
+      border: 1px solid $buttons-color-green;
+      color: $buttons-color-green;
+    }
   }
 }
 
@@ -88,97 +87,43 @@
   align-items: flex-start;
 }
 
-.accordion__character {
-  //   a {
-  //   @include montserrat-font(20px, 300, 0);
-  // text-decoration: none;
-  // color: $text-color;
-  //     display: block;
-  //   }
-}
-
 @media screen and (max-width: 920px) {
   .acc {
     grid-template-columns: 1fr;
     gap: 2rem;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
   }
-
-  // .character_page__wrapper {
-  //   justify-content: center;
-  // }
 
   .resource_page__cards_container {
     grid-template-columns: repeat(3, 1fr);
-
   }
-  .character_page__button {
-    // width: fit-content;
-  }
-
-  .resource_page__info_wrapper {
-    // justify-content: center;
-    // align-items: center;
-  }
-
-
-  .character_page__wrapper {
-    // align-items: center;
-    // justify-content: space-between;
-    // grid-template-columns: 1fr;
-      // gap: 1rem;
-  }
-
-  // .character_page__wrapper {
-  //   flex-direction: column;
-  //   align-items: flex-start;
-  //   }
 
   .character_page__button {
     width: fit-content;
   }
 }
+
 @media screen and (max-width: 650px) {
   .acc {
     grid-template-columns: 1fr;
-    // gap: 2rem;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
   }
-  // .character_page__wrapper {
-  // flex-direction: column;
-  // gap: 1rem;
-  // align-items: flex-start;
-  // }
 
   .resource_page__cards_container {
     grid-template-columns: repeat(2, 1fr);
-
   }
 
   .character_page__wrapper {
-    // align-items: center;
-    // justify-content: center;
     grid-template-columns: 1fr;
-      gap: 1rem;
+    gap: 1rem;
   }
 
   .character_page__button {
     width: fit-content;
   }
 }
-@media screen and (max-width: 465px) {
-  
 
+@media screen and (max-width: 465px) {
   .resource_page__cards_container {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-
   }
-
 }
