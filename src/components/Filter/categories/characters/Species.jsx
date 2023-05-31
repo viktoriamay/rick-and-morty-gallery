@@ -1,28 +1,28 @@
-import { useContext } from "react";
-
-import { Accordion } from "../../../Accordion/Accordion";
-import { FilterOptionBTN } from "../../FilterOptionBTN";
-import { GalleryContext } from "../../../../utils/context/GalleryContext";
+import { useContext } from 'react';
+import { GalleryContext } from '../../../../utils/context/GalleryContext';
+import { Accordion } from '../../../Accordion/Accordion';
+import { FilterOptionBTN } from '../../FilterOptionBTN';
 
 export const Species = () => {
   const { updateSpecies, updatePageNumberCharacters, t } =
     useContext(GalleryContext);
 
   let species = [
-    "Human",
-    "Alien",
-    "Humanoid",
-    "Poopybutthole",
-    "Mythological",
-    "Unknown",
-    "Animal",
-    "Disease",
-    "Robot",
-    "Cronenberg",
-    "Planet",
+    'Human',
+    'Alien',
+    'Humanoid',
+    'Poopybutthole',
+    'Mythological',
+    'Unknown',
+    'Animal',
+    'Disease',
+    'Robot',
+    'Cronenberg',
+    'Planet',
   ];
+
   return (
-    <Accordion title={t("species")}>
+    <Accordion title={t('species')}>
       {species.map((option, index) => (
         <FilterOptionBTN
           key={`species-${index}`}
