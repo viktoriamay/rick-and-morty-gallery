@@ -3,48 +3,42 @@
 .accordion {
   display: flex;
   flex-direction: column;
-  // width: 18vw;
 
   &__button {
-    // background-color: transparent;
-    background-color:  $cards-color; 
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 14px 80px 14px 20px;
+    position: relative;
     display: flex;
     align-items: center;
+    padding: 14px 80px 14px 20px;
+    background-color: $cards-color;
+    border-radius: 5px;
+    cursor: pointer;
     border: none;
     outline: none;
-    position: relative;
 
     &::before {
       content: '';
-      width: 10px;
-      height: 2px;
-      background: #333;
       position: absolute;
       top: calc(50% + 1.5px);
       right: 20px;
+      width: 10px;
+      height: 2px;
       display: block;
+      background-color: $buttons-color-blue;
       transition: all 0.2s;
       transform: rotate(45deg);
-    background-color: $buttons-color-blue;
-
     }
 
     &::after {
       content: '';
-      width: 2px;
-      height: 10px;
-      background: #333;
       position: absolute;
       top: calc(50% - 3px);
       right: 17px;
+      width: 2px;
+      height: 10px;
       display: block;
+      background-color: $buttons-color-blue;
       transition: all 0.2s;
       transform: rotate(45deg);
-    background-color: $buttons-color-blue;
-
     }
   }
 
@@ -58,17 +52,12 @@
 
   &__title {
     margin: 0;
-    // font-size: 16px;
-    // line-height: 20px;
     color: $buttons-color-green;
-
     @include montserrat-font(18px, 400, 0em);
-
     text-align: left;
   }
 
   &__content {
-    // padding-left: 40px;
     max-height: 0;
     background-color: $dark-color;
     overflow: hidden;
@@ -80,12 +69,7 @@
   }
 
   &__text {
-    // padding-bottom: 24px;
     padding: 20px;
-
-    // font-weight: 400;
-    // font-size: 16px;
-    // line-height: 20px;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
