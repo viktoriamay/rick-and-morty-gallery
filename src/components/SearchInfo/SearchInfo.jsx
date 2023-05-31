@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import "./SearchInfo.scss";
-import { GalleryContext } from "../../utils/context/GalleryContext";
-import { useLocation } from "react-router-dom";
+import './SearchInfo.scss';
+import { useContext } from 'react';
+import { GalleryContext } from '../../utils/context/GalleryContext';
+import { useLocation } from 'react-router-dom';
 
 export const SearchInfo = () => {
   const {
@@ -17,24 +17,25 @@ export const SearchInfo = () => {
     infoLocations,
     infoEpisodes,
     episodes,
-    locations, t
+    locations,
+    t,
   } = useContext(GalleryContext);
 
   const location = useLocation();
 
   const searchText = (location) => {
     switch (location) {
-      case "/explore/characters":
+      case '/explore/characters':
         return (
           (searchQueryCharacters || status || gender || species) &&
           characters?.length !== 0 && (
             <div className="search_info">
-              {t('forRequest')}{" "}
+              {t('forRequest')}{' '}
               <span className="search_info__request">
-                {" "}
+                {' '}
                 {searchQueryCharacters}
-              </span>{" "}
-              {t('charactersFound')}:{" "}
+              </span>{' '}
+              {t('charactersFound')}:{' '}
               <span className="search_info__request">
                 {infoCharacters?.count}
               </span>
@@ -42,17 +43,17 @@ export const SearchInfo = () => {
           )
         );
 
-      case "/explore/locations":
+      case '/explore/locations':
         return (
           (searchQueryLocations || type) &&
           locations?.length !== 0 && (
             <div className="search_info">
               {t('forRequest')}
               <span className="search_info__request">
-                {" "}
+                {' '}
                 {searchQueryLocations}
-              </span>{" "}
-              {t('locationsFound')}:{" "}
+              </span>{' '}
+              {t('locationsFound')}:{' '}
               <span className="search_info__request">
                 {infoLocations?.count}
               </span>
@@ -60,17 +61,17 @@ export const SearchInfo = () => {
           )
         );
 
-      case "/explore/episodes":
+      case '/explore/episodes':
         return (
           searchQueryEpisodes &&
           episodes?.length !== 0 && (
             <div className="search_info">
               {t('forRequest')}
               <span className="search_info__request">
-                {" "}
+                {' '}
                 {searchQueryEpisodes}
-              </span>{" "}
-              {t('episodesFound')}:{" "}
+              </span>{' '}
+              {t('episodesFound')}:{' '}
               <span className="search_info__request">
                 {infoEpisodes?.count}
               </span>
@@ -85,43 +86,43 @@ export const SearchInfo = () => {
 
   const searchCards = (location) => {
     switch (location) {
-      case "/explore/characters":
+      case '/explore/characters':
         return (
           characters?.length === 0 && (
             <div className="search_info">
               {t('forRequest')}
               <span className="search_info__request">
-                {" "}
+                {' '}
                 {searchQueryCharacters}
-              </span>{" "}
+              </span>{' '}
               {t('charactersNotFound')}
             </div>
           )
         );
 
-      case "/explore/locations":
+      case '/explore/locations':
         return (
           locations?.length === 0 && (
             <div className="search_info">
               {t('forRequest')}
               <span className="search_info__request">
-                {" "}
+                {' '}
                 {searchQueryLocations}
-              </span>{" "}
+              </span>{' '}
               {t('locationsNotFound')}
             </div>
           )
         );
 
-      case "/explore/episodes":
+      case '/explore/episodes':
         return (
           episodes?.length === 0 && (
             <div className="search_info">
-              {t('forRequest')}{" "}
+              {t('forRequest')}{' '}
               <span className="search_info__request">
-                {" "}
+                {' '}
                 {searchQueryEpisodes}
-              </span>{" "}
+              </span>{' '}
               {t('episodesNotFound')}
             </div>
           )

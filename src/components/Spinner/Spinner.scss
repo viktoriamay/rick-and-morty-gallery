@@ -1,0 +1,88 @@
+.spinner {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinny-thing {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, transparent 40%, #e5f);
+  animation: spinny 1.5s linear infinite;
+}
+
+.spinny-thing::before {
+  content: '';
+  position: absolute;
+  top: 0.333333333333333rem;
+  left: 0.333333333333333rem;
+  right: 0.333333333333333rem;
+  bottom: 0.333333333333333rem;
+  z-index: 100;
+  background: #1b1c21d5;
+  border-radius: 50%;
+}
+
+.spinny-thing.light::before {
+  background: #f1f4ffeb;
+}
+
+.spinny-thing::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: linear-gradient(45deg, transparent, transparent 40%, #e5f);
+  border-radius: 50%;
+  filter: blur(2rem);
+}
+
+@-moz-keyframes spinny {
+  0% {
+    transform: rotate(0);
+    filter: hue-rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spinny {
+  0% {
+    transform: rotate(0);
+    filter: hue-rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@-o-keyframes spinny {
+  0% {
+    transform: rotate(0);
+    filter: hue-rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes spinny {
+  0% {
+    transform: rotate(0);
+    filter: hue-rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
