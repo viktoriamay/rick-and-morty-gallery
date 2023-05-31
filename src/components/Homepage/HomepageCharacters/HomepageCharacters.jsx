@@ -1,13 +1,14 @@
+import './HomepageCharacters.scss';
 import { useContext } from 'react';
-import { CharacterCard } from '../../Cards/CharacterCard';
 import { GalleryContext } from '../../../utils/context/GalleryContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import './HomepageCharacters.scss';
 import 'swiper/scss';
+import { Navigation } from 'swiper';
+import 'swiper/css/navigation';
+import { CharacterCard } from '../../Cards/CharacterCard';
 
 export const HomepageCharacters = () => {
   const { characters, t } = useContext(GalleryContext);
-
   const firstFive = characters.slice(0, 5);
   const secondFive = characters.slice(0, 5);
   const firstTen = firstFive.concat(secondFive).slice(0, 10);
@@ -19,6 +20,8 @@ export const HomepageCharacters = () => {
         slidesPerView={4}
         spaceBetween={20}
         loop={true}
+        navigation={true}
+        modules={[Navigation]}
         breakpoints={{
           310: {
             slidesPerView: 1,
