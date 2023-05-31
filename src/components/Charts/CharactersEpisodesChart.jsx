@@ -29,6 +29,11 @@ export const CharactersEpisodesChart = () => {
         data: [...characters.map((c) => c?.name).slice(0, 5)],
         axisTick: { show: false },
         axisLine: { show: false },
+        axisLabel: {
+          color: '#7c7c7c',
+          fontFamily: 'Montserrat',
+          fontSize: 14,
+        },
       },
       yAxis: {
         splitLine: { show: false },
@@ -55,6 +60,7 @@ export const CharactersEpisodesChart = () => {
               return colors[params.dataIndex];
             },
           },
+
           emphasis: {
             itemStyle: {
               opacity: 1,
