@@ -1,45 +1,46 @@
-import React, { useState, useEffect, useContext } from "react";
-import ReactPaginate from "react-paginate";
-import "./Pagination.scss";
-import { GalleryContext } from "../../utils/context/GalleryContext";
-import { useLocation } from "react-router-dom";
+import './Pagination.scss';
+import React, { useState, useEffect, useContext } from 'react';
+import { GalleryContext } from '../../utils/context/GalleryContext';
+import { useLocation } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
 
 export const Pagination = () => {
-
   const {
-    infoCharacters,characters,episodes, locations,
-    pageNumberEpisodes,
+    infoCharacters,
+    characters,
+    episodes,
+    locations,
     infoEpisodes,
+    pageNumberEpisodes,
     pageNumberCharacters,
     pageNumberLocations,
     updatePageNumberLocations,
     updatePageNumberCharacters,
     updatePageNumberEpisodes,
-    infoLocations, theme, t
+    infoLocations,
+    theme,
+    t,
   } = useContext(GalleryContext);
 
   const location = useLocation();
+
   const pageChange = (data) => {
-    if (location.pathname === "/explore/characters") {
+    if (location.pathname === '/explore/characters') {
       updatePageNumberCharacters(data.selected + 1);
-    } else if (
-      location.pathname === "/explore/locations"
-    ) {
+    } else if (location.pathname === '/explore/locations') {
       updatePageNumberLocations(data.selected + 1);
-    } else if (
-      location.pathname === "/explore/episodes"
-    ) {
+    } else if (location.pathname === '/explore/episodes') {
       updatePageNumberEpisodes(data.selected + 1);
     }
   };
 
   const paginationCount = (location) => {
     switch (location) {
-      case "/explore/characters":
+      case '/explore/characters':
         return infoCharacters?.pages;
-      case "/explore/locations":
+      case '/explore/locations':
         return infoLocations?.pages;
-      case "/explore/episodes":
+      case '/explore/episodes':
         return infoEpisodes?.pages;
 
       default:
@@ -49,44 +50,39 @@ export const Pagination = () => {
 
   const paginationCurrentPage = (location) => {
     switch (location) {
-      case "/explore/characters":
+      case '/explore/characters':
         return pageNumberCharacters - 1;
-      case "/explore/locations":
+      case '/explore/locations':
         return pageNumberLocations - 1;
-      case "/explore/episodes":
+      case '/explore/episodes':
         return pageNumberEpisodes - 1;
 
       default:
         return null;
     }
   };
-  
+
   const paginationCountCards = (location) => {
     switch (location) {
-      case "/explore/characters":
+      case '/explore/characters':
         return characters.length !== 0 && infoCharacters.count > 20;
-      case "/explore/locations":
+      case '/explore/locations':
         return locations.length !== 0 && infoLocations.count > 20;
-      case "/explore/episodes":
+      case '/explore/episodes':
         return episodes.length !== 0 && infoEpisodes.count > 20;
       default:
         return null;
     }
   };
 
-  
   const [width, setWidth] = useState(window.innerWidth);
   const updateDimensions = () => {
     setWidth(window.innerWidth);
   };
   useEffect(() => {
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
   }, []);
-
-  // const pageCount = Math.ceil(info?.count / 20);
-
-  // console.log(typeof pageCount);
 
   return (
     <>

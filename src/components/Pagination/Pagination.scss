@@ -1,4 +1,4 @@
-@import "../../assets/SCSS/variables.scss";
+@import '../../assets/SCSS/variables.scss';
 
 .pagination {
   display: flex;
@@ -11,7 +11,6 @@
 
   &__color_button {
     background-color: $cards-color;
-
   }
 
   &__nav_button {
@@ -22,16 +21,13 @@
     &:hover {
       background-color: #2c2d31cc;
     }
-
-    
   }
 
   &__page_button {
-    cursor: pointer;
-
-    // background-color: $cards-color;
     border-radius: 5px;
     color: $buttons-color-green;
+    cursor: pointer;
+
     &:hover {
       background-color: #2c2d31cc;
     }
@@ -41,6 +37,7 @@
       color: $background-color;
     }
   }
+
   &__page_link_button {
     display: inline-block;
     padding: 0.5rem 0.8rem;
@@ -51,9 +48,8 @@
   cursor: pointer;
 }
 
-
 @media (max-width: 550px) {
   .pagination__nav_button {
-display: none;
+    display: none;
   }
 }
