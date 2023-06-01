@@ -20,6 +20,7 @@ export const Pagination = () => {
     infoLocations,
     theme,
     t,
+    width,
   } = useContext(GalleryContext);
 
   const location = useLocation();
@@ -74,15 +75,6 @@ export const Pagination = () => {
         return null;
     }
   };
-
-  const [width, setWidth] = useState(window.innerWidth);
-  const updateDimensions = () => {
-    setWidth(window.innerWidth);
-  };
-  useEffect(() => {
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
 
   return (
     <>
