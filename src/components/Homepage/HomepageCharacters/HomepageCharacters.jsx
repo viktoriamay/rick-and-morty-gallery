@@ -7,6 +7,8 @@ import { Navigation } from 'swiper';
 import 'swiper/css/navigation';
 import { CharacterCard } from '../../Cards/CharacterCard';
 
+// import 'swiper/swiper-bundle.css';
+
 export const HomepageCharacters = () => {
   const { characters, t } = useContext(GalleryContext);
   const firstFive = characters.slice(0, 5);
@@ -22,6 +24,15 @@ export const HomepageCharacters = () => {
         loop={true}
         navigation={true}
         modules={[Navigation]}
+        // className='msw'
+        // wrapperClass="my-swiper-wrapper"
+        wrapperEl="div"
+        wrapperProps={{
+        style: {
+          overflowY: 'visible',
+          overflowX: 'hidden',
+        },
+      }}
         breakpoints={{
           310: {
             slidesPerView: 1,
@@ -46,7 +57,7 @@ export const HomepageCharacters = () => {
             className="swiper-slide"
             key={`main-character-${character.id}-${i}`}
           >
-            <CharacterCard character={character} />
+            <CharacterCard className='swiper__card' character={character} />
           </SwiperSlide>
         ))}
       </Swiper>

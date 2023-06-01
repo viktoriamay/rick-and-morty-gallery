@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { GalleryContext } from '../../utils/context/GalleryContext';
 import { Link } from 'react-router-dom';
 
-export const CharacterCard = ({ character }) => {
+export const CharacterCard = ({ character, className }) => {
   const { theme } = useContext(GalleryContext);
 
   const characterStatus = (status) => {
@@ -29,7 +29,7 @@ export const CharacterCard = ({ character }) => {
   };
 
   return (
-    <Link to={`/character/${character?.id}`} className={`card ${theme}`}>
+    <Link to={`/character/${character?.id}`} className={`card ${theme} ${className}`}>
       <div className="card__img_wrapper">
         <img
           src={character?.image}
