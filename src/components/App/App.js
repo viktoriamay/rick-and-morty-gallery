@@ -1,28 +1,36 @@
+import './App.scss';
+import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import useDebounce from '../../hooks/useDebounce';
+import { useTranslation } from 'react-i18next';
+import { GalleryContext } from '../../utils/context/GalleryContext';
+import RickMortyApi from '../../utils/api/rickMortyApi';
+import { Header } from '../Header/Header';
 import { MainPage } from '../../pages/MainPage/MainPage';
 import { Footer } from '../Footer/Footer';
-import { Header } from '../Header/Header';
-import './App.scss';
 import { StatisticsPage } from '../../pages/StatisticsPage/StatisticsPage';
 import { ExplorePage } from './../../pages/ExplorePage/ExplorePage';
 import { NewsPage } from '../../pages/NewsPage/NewsPage';
 import { SearchCharactersPage } from '../../pages/ExplorePage/SearchCharactersPage/SearchCharactersPage';
 import { SearchLocationsPage } from '../../pages/ExplorePage/SearchLocationsPage/SearchLocationsPage';
 import { SearchEpisodesPage } from '../../pages/ExplorePage/SearchEpisodesPage/SearchEpisodesPage';
-import { useEffect, useState } from 'react';
-import RickMortyApi from '../../utils/api/rickMortyApi';
-import { GalleryContext } from '../../utils/context/GalleryContext';
-import useDebounce from '../../hooks/useDebounce';
 import { CharacterPage } from '../../pages/ResourcesPages/CharacterPage/CharacterPage';
 import { LocationPage } from '../../pages/ResourcesPages/LocationPage/LocationPage';
 import { EpisodePage } from '../../pages/ResourcesPages/EpisodePage/EpisodePage';
 import { ArticlePage } from '../../pages/ArticlePage/ArticlePage';
-import { useTranslation } from 'react-i18next';
 import { AboutProject } from '../../pages/AboutPages/AboutProject';
 import { AboutRM } from '../../pages/AboutPages/AboutRM';
 import { NotFoundPage } from '../../pages/NotFoundPage/NotFoundPage';
 
 function App() {
+  const { t, i18n } = useTranslation();
+
+  const [loading, setLoading] = useState(false);
+  const [notFound, setNotFound] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') ?? 'dark');
+  const [width, setWidth] = useState(window.innerWidth);
+  const [lang, setLang] = useState(localStorage.getItem('lang') ?? 'ru');
+
   const [characters, setCharacters] = useState([]);
   const [infoCharacters, setInfoCharacters] = useState({});
   const [pageNumberCharacters, updatePageNumberCharacters] = useState(1);
@@ -31,40 +39,29 @@ function App() {
   const [gender, updateGender] = useState('');
   const [species, updateSpecies] = useState('');
 
+  const [locations, setLocations] = useState([]);
+  const [infoLocations, setInfoLocations] = useState({});
+  const [pageNumberLocations, updatePageNumberLocations] = useState(1);
+  const [searchQueryLocations, setSearchQueryLocations] = useState('');
+  const [type, updateType] = useState('');
+  const [dimension, updateDimension] = useState('');
+
+  const [episodes, setEpisodes] = useState([]);
+  const [infoEpisodes, setInfoEpisodes] = useState({});
+  const [pageNumberEpisodes, updatePageNumberEpisodes] = useState(1);
+  const [searchQueryEpisodes, setSearchQueryEpisodes] = useState('');
+  const [episode, updateEpisode] = useState([]);
+
+  const [newsData, setNewsData] = useState([]);
+
   const debounceSearchQueryCharacters = useDebounce(
     searchQueryCharacters,
     1000
   );
-
-  //////// locations
-
-  const [locations, setLocations] = useState([]);
-  const [infoLocations, setInfoLocations] = useState({});
-  const [type, updateType] = useState('');
-  const [dimension, updateDimension] = useState('');
-  const [searchQueryLocations, setSearchQueryLocations] = useState('');
-
-  const [pageNumberLocations, updatePageNumberLocations] = useState(1);
-
   const debounceSearchQueryLocations = useDebounce(searchQueryLocations, 1000);
-
-  useEffect(() => {
-    const searchQuery = debounceSearchQueryLocations;
-
-    RickMortyApi.getLocations(pageNumberLocations, searchQuery, type, dimension)
-      .then((locations) => {
-        setLocations(locations.results);
-        setInfoLocations(locations.info);
-      })
-      .catch(() => {
-        setLocations([]);
-      });
-  }, [debounceSearchQueryLocations, dimension, pageNumberLocations, type]);
-  /////////
-  const [searchQueryEpisodes, setSearchQueryEpisodes] = useState('');
-
   const debounceSearchQueryEpisodes = useDebounce(searchQueryEpisodes, 1000);
 
+  // characters
   useEffect(() => {
     const searchQuery = debounceSearchQueryCharacters;
 
@@ -81,7 +78,8 @@ function App() {
       })
       .catch(() => {
         setCharacters([]);
-      });
+      })
+      .finally(() => setLoading(false));
   }, [
     debounceSearchQueryCharacters,
     gender,
@@ -90,11 +88,22 @@ function App() {
     status,
   ]);
 
-  const [episodes, setEpisodes] = useState([]);
-  const [infoEpisodes, setInfoEpisodes] = useState({});
-  const [episode, updateEpisode] = useState([]);
-  const [pageNumberEpisodes, updatePageNumberEpisodes] = useState(1);
+  // locations
+  useEffect(() => {
+    const searchQuery = debounceSearchQueryLocations;
 
+    RickMortyApi.getLocations(pageNumberLocations, searchQuery, type, dimension)
+      .then((locations) => {
+        setLocations(locations.results);
+        setInfoLocations(locations.info);
+      })
+      .catch(() => {
+        setLocations([]);
+      })
+      .finally(() => setLoading(false));
+  }, [debounceSearchQueryLocations, dimension, pageNumberLocations, type]);
+
+  // episodes
   useEffect(() => {
     const searchQuery = debounceSearchQueryEpisodes;
 
@@ -105,11 +114,11 @@ function App() {
       })
       .catch(() => {
         setEpisodes([]);
-      });
+      })
+      .finally(() => setLoading(false));
   }, [debounceSearchQueryEpisodes, episode, pageNumberEpisodes]);
 
-  const [theme, setTheme] = useState(localStorage.getItem('theme') ?? 'dark');
-
+  // theme
   const handleThemeChange = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
@@ -118,29 +127,36 @@ function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const { t, i18n } = useTranslation();
-
-  // const [lang, setLang] = useState('ru');
-  const [lang, setLang] = useState(localStorage.getItem('lang') ?? 'ru');
-
+  // language
   const changeLanguage = () => {
-    // const lang = localStorage.getItem('lang') ?? 'ru';
     const newLang = lang === 'ru' ? 'en' : 'ru';
     i18n.changeLanguage(newLang);
     setLang(newLang);
-    // localStorage.setItem('lang', newLang);
   };
-  // const changeLanguage = () => {
-  //   // const lang = localStorage.getItem('lang') ?? 'ru';
-  //   const newLang = lang === 'ru' ? 'en' : 'ru'
-  //   i18n.changeLanguage(newLang);
-  //   setLang(newLang)
-  //   localStorage.setItem('lang', newLang);
-  // }
 
   useEffect(() => {
     localStorage.setItem('lang', lang);
   }, [lang]);
+
+  // window size
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+  };
+  useEffect(() => {
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
+  // news
+  useEffect(() => {
+    setLoading(true);
+    RickMortyApi.getPosts()
+      .then((newsData) => {
+        setNewsData(newsData.results);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  }, []);
 
   const valueContextProvider = {
     episode,
@@ -182,16 +198,20 @@ function App() {
     lang,
     setLang,
     changeLanguage,
+    loading,
+    setLoading,
+    notFound,
+    setNotFound,
+    width,
+    setWidth,
+    newsData,
+    setNewsData,
   };
 
   return (
     <GalleryContext.Provider value={valueContextProvider}>
       <div className={`App ${theme}`}>
         <Header />
-        {/* 
-        <Routes>
-        </Routes> */}
-
         <main className="main">
           <Routes>
             <Route path="/" element={<MainPage />} />
