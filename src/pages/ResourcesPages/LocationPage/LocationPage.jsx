@@ -71,7 +71,9 @@ export const LocationPage = () => {
                   </span>
 
                   <p className="resource_page__info">
-                    {locationPageInfo?.created}
+                    {new Date(locationPageInfo?.created).toLocaleString(
+                      'ru-ru'
+                    )}
                   </p>
                 </div>
                 <div className="resource_page__info_item">

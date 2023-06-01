@@ -84,7 +84,7 @@ export const EpisodePage = () => {
                     {t('createdAt')}
                   </span>
                   <p className="resource_page__info">
-                    {episodePageInfo?.created}
+                    {new Date(episodePageInfo?.created).toLocaleString('ru-ru')}
                   </p>
                 </div>
                 <div className="resource_page__info_item">
