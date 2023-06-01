@@ -1,4 +1,5 @@
 import './App.scss';
+import '../../assets/SCSS/theme.scss';
 import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import useDebounce from '../../hooks/useDebounce';
